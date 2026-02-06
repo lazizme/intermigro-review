@@ -30,7 +30,7 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 z-50 flex w-full items-center justify-between px-5 py-4 transition-colors duration-300 md:px-8 md:py-8 ${
-          isScrolled ? "bg-white/60 backdrop-blur-sm lg:bg-white/60" : "bg-white lg:bg-transparent"
+          isScrolled ? "bg-white lg:bg-white/60" : "bg-white lg:bg-transparent"
         }`}
       >
         <Link href="/" className="flex items-center">

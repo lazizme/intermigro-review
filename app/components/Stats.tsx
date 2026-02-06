@@ -18,7 +18,7 @@ export default function Stats() {
           <div className="bg-brand mb-4 flex h-16 w-16 items-center justify-center rounded-full text-white md:absolute md:-top-4 md:-right-4 md:mb-0 md:h-auto md:w-auto md:p-3.5">
             <SmilingCircle className="h-8 w-8 md:h-6 md:w-6 lg:h-auto lg:w-auto" />
           </div>
-          <span className="text-gray-medium order-first mb-2 text-sm md:order-0 md:mt-2 md:mb-0 md:text-base">
+          <span className="text-gray-medium mb-2 text-sm md:order-0 md:mt-2 md:mb-0 md:text-base">
             средний процент одобрения посольством наших кейсов
           </span>
           <span className="text-3xl font-medium md:order-first md:text-5xl">90%</span>
@@ -29,7 +29,7 @@ export default function Stats() {
           <span className="text-gray-medium mt-2 text-sm md:text-base">
             экспертно оказываем услуги переезда
           </span>
-          <div className="absolute top-0 right-0 scale-75 md:scale-100">
+          <div className="absolute -top-2.5 -right-[19px] scale-75 md:top-0 md:right-0 md:scale-100">
             <svg
               width="152"
               height="85"

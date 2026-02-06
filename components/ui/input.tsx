@@ -56,7 +56,7 @@ function FloatingInput({ className, label, id, error, ...props }: FloatingInputP
         htmlFor={inputId}
         className={cn(
           "pointer-events-none absolute left-0 text-gray-500 transition-all duration-200 ease-out",
-          isFloating ? "top-0 text-sm text-gray-500" : "top-5 text-lg text-gray-400",
+          isFloating ? "top-0 text-sm text-gray-500" : "top-5 text-base text-gray-400 md:text-lg",
         )}
       >
         {label}

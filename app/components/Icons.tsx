@@ -154,3 +154,74 @@ export const ScalesIcon = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
+export const ResponsiveScalesIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="116"
+    height="134"
+    viewBox="0 0 116 134"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g clipPath="url(#clip0_103_1017)">
+      <ellipse
+        cx="66.0122"
+        cy="3.17235"
+        rx="2.59556"
+        ry="3.17235"
+        stroke="currentColor"
+        strokeWidth="3.02825"
+      />
+      <ellipse
+        cx="66.0122"
+        cy="11.2474"
+        rx="2.59556"
+        ry="3.17235"
+        stroke="currentColor"
+        strokeWidth="3.02825"
+      />
+      <ellipse
+        cx="66.0122"
+        cy="19.8993"
+        rx="2.59556"
+        ry="3.17235"
+        stroke="currentColor"
+        strokeWidth="3.02825"
+      />
+      <ellipse
+        cx="66.0122"
+        cy="28.5511"
+        rx="2.59556"
+        ry="3.17235"
+        stroke="currentColor"
+        strokeWidth="3.02825"
+      />
+      <path
+        d="M5.18774 94.6087L29.379 51.9113L52.4847 94.6087C52.4847 94.6087 46.1254 102.669 29.379 102.669C12.6326 102.669 5.18774 94.6087 5.18774 94.6087Z"
+        stroke="currentColor"
+        strokeWidth="3.02825"
+      />
+      <path
+        d="M79.0171 94.6087L103.208 51.9113L126.314 94.6087C126.314 94.6087 119.955 102.669 103.208 102.669C86.462 102.669 79.0171 94.6087 79.0171 94.6087Z"
+        stroke="currentColor"
+        strokeWidth="3.02825"
+      />
+      <path
+        d="M19.2498 44.1447C23.5271 49.2683 30.2692 51.0277 35.6875 48.4343L65.8523 33.9966"
+        stroke="currentColor"
+        strokeWidth="3.02825"
+      />
+      <path
+        d="M112.364 44.1447C108.087 49.2683 101.345 51.0277 95.9262 48.4343L65.7615 33.9966"
+        stroke="currentColor"
+        strokeWidth="3.02825"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_103_1017">
+        <rect width="116" height="134" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);

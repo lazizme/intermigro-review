@@ -26,6 +26,7 @@ export default function HeroForm() {
       <FloatingInput type="text" label="Ник в телеграме" />
 
       <SelectableButtonGroup
+        className="col-span-2 lg:col-span-1"
         label="Образование"
         options={[
           { value: "highschool", label: "Среднее" },
@@ -36,6 +37,7 @@ export default function HeroForm() {
 
       <RangeInput
         label="Доход"
+        className="col-span-2 lg:col-span-1"
         suffix="€"
         min={0}
         max={10000}
