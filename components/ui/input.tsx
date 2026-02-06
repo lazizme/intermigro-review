@@ -39,7 +39,7 @@ function FloatingInput({ className, label, id, error, ...props }: FloatingInputP
         data-slot="input"
         className={cn(
           "peer w-full border-0 border-b border-gray-300 bg-transparent pt-5 pb-2 text-lg transition-colors outline-none",
-          "focus:border-b-2 focus:border-gray-400",
+          "focus:border-b focus:border-gray-400",
           "placeholder:text-transparent",
           error && "border-red-500 focus:border-red-500",
         )}

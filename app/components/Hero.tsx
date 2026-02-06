@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { HeroArrowEnds, HeroArrowStarts } from "./Icons";
-import { Button } from "@/components/ui/button";
-import { FloatingInput } from "@/components/ui/input";
+import HeroForm from "./HeroForm";
 
 export default function Hero() {
   return (
@@ -37,42 +36,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <form className="grid grid-cols-2 gap-x-11 gap-y-7">
-            <FloatingInput type="text" label="Имя" />
-            <FloatingInput type="tel" label="Телефон" />
-            <FloatingInput type="text" label="Фамилия" />
-            <FloatingInput type="email" label="E-mail" />
-            <FloatingInput type="text" label="Страна" />
-            <FloatingInput type="text" label="Ник в телеграме" />
-
-            <div className="flex gap-2">
-              <Button
-                type="button"
-                variant="outline"
-                className="flex-1 rounded-xl border-gray-300 bg-white"
-              >
-                Telegram
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                className="flex-1 rounded-xl border-gray-300 bg-white"
-              >
-                WhatsApp
-              </Button>
-            </div>
-
-            <div className="text-gray-medium flex items-start gap-2 text-sm">
-              <input type="checkbox" id="privacy" className="mt-1" />
-              <label htmlFor="privacy">
-                Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных
-              </label>
-            </div>
-
-            <Button className="bg-brand hover:bg-brand/90 h-12 rounded-xl text-white">
-              Получить консультацию
-            </Button>
-          </form>
+          <HeroForm />
         </div>
       </div>
     </section>
