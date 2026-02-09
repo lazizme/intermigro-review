@@ -1,18 +1,18 @@
 import { BrainIcon, SofaIcon, StarsIcon } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import Image from "next/image";
-import { PaintIcon } from "./Icons";
+import { MastersCapIcon, PaintIcon } from "./Icons";
 
 export default function WhoCanApply() {
   return (
-    <section className="px-20 py-16">
-      <div className="grid grid-cols-12 gap-6">
-        <div className="col-span-12 grid grid-cols-7 gap-5 lg:col-span-7">
-          <SectionTitle className="col-span-5 mb-4">
+    <section className="px-5 py-10 md:px-20 md:py-16">
+      <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12">
+        <div className="flex flex-col gap-5 lg:col-span-7 lg:grid lg:grid-cols-7 lg:gap-5">
+          <SectionTitle className="col-span-12 mb-4 lg:col-span-5">
             Кто может претендовать на легальный статус в Германии?
           </SectionTitle>
-          <div className="col-span-12 grid grid-cols-7 items-center gap-5 lg:col-span-7">
-            <div className="bg-gray-light col-span-12 flex max-h-max flex-col gap-10 rounded-3xl px-6 py-10 lg:col-span-3">
+          <div className="flex flex-col gap-5 lg:col-span-7 lg:grid lg:grid-cols-7 lg:items-center">
+            <div className="bg-gray-light order-2 mt-10 flex max-h-max flex-col gap-10 rounded-3xl px-4 py-6 lg:order-0 lg:col-span-3 xl:mt-0 xl:px-6 xl:py-10">
               <div className="flex justify-between gap-3">
                 <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
                   <span className="inline bg-yellow-300 box-decoration-clone px-0.5">
@@ -29,7 +29,7 @@ export default function WhoCanApply() {
                 накопления, а ваш доход превышает 1500 евро в месяц.
               </p>
             </div>
-            <div className="col-span-4 grid grid-cols-4 gap-5">
+            <div className="relative order-1 col-span-4 flex flex-col gap-5 lg:order-0 lg:grid lg:grid-cols-4">
               <div className="bg-gray-light col-span-4 flex flex-col gap-10 rounded-3xl px-6 py-10">
                 <div className="flex justify-between gap-3">
                   <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
@@ -47,7 +47,7 @@ export default function WhoCanApply() {
                   более 1000 евро в месяц.
                 </p>
               </div>
-              <div className="relative col-span-2 max-h-[320px] overflow-hidden rounded-2xl">
+              <div className="absolute -bottom-10 col-span-2 max-h-[220px] max-w-1/3 min-w-[140px] overflow-hidden rounded-2xl lg:relative lg:bottom-0 lg:max-h-[320px] lg:max-w-full">
                 <Image
                   width={200}
                   height={320}
@@ -64,31 +64,36 @@ export default function WhoCanApply() {
                   </p>
                 </div>
               </div>
-              <div className="bg-brand col-span-2 flex flex-col gap-10 rounded-3xl px-3 pt-3.5 pb-6">
-                <div className="flex flex-col gap-3">
-                  <div className="ml-auto text-white">
+              <div className="bg-brand col-span-2 ml-10 rounded-3xl px-3 pt-3.5 pb-6 lg:ml-0">
+                <div className="ml-auto flex w-2/3 flex-col gap-4.5 lg:w-full xl:gap-10">
+                  <div className="flex flex-col gap-3">
+                    <div className="ml-auto hidden text-white lg:inline-block">
+                      <StarsIcon />
+                    </div>
+                    <h2 className="text-sm leading-snug font-extrabold text-white md:text-base xl:text-lg">
+                      <span className="inline bg-black box-decoration-clone px-0.5">
+                        Вы предприниматель
+                      </span>
+                    </h2>
+                  </div>
+                  <p className="text-xs font-medium text-white md:text-sm">
+                    У Вас есть высшее образование, опыт работы и предложение от работодателя в
+                    Германии или вы готовы к поиску заветного оффера. Ваш текущий доход составляет
+                    более 1000 евро в месяц.
+                  </p>
+                  <div className="ml-auto inline-block text-white lg:hidden">
                     <StarsIcon />
                   </div>
-                  <h2 className="text-sm leading-snug font-extrabold text-white md:text-base lg:text-lg">
-                    <span className="inline bg-black box-decoration-clone px-0.5">
-                      Вы предприниматель
-                    </span>
-                  </h2>
                 </div>
-                <p className="text-xs font-medium text-white md:text-sm">
-                  У Вас есть высшее образование, опыт работы и предложение от работодателя в
-                  Германии или вы готовы к поиску заветного оффера. Ваш текущий доход составляет
-                  более 1000 евро в месяц.
-                </p>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-span-5 flex flex-col gap-5">
-          <div className="grid max-h-max grid-cols-5 gap-5">
-            <div className="bg-gray-light col-span-3 flex flex-col justify-between gap-10 rounded-3xl px-6 py-10">
+        <div className="col-span-full flex flex-col gap-5 lg:col-span-5">
+          <div className="relative grid max-h-max grid-cols-5 gap-5">
+            <div className="bg-gray-light col-span-5 mr-10 flex flex-col justify-between gap-10 rounded-3xl px-3 py-5 sm:col-span-3 sm:mr-0 sm:px-6 sm:py-10">
               <div className="flex justify-between gap-3">
-                <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
+                <h2 className="w-2/3 text-sm leading-snug font-extrabold sm:w-full md:text-base lg:text-lg">
                   <span className="inline bg-yellow-300 box-decoration-clone px-0.5">
                     Вы человек искусства
                   </span>
@@ -97,13 +102,13 @@ export default function WhoCanApply() {
                   <PaintIcon />
                 </div>
               </div>
-              <p className="text-gray-dark text-xs font-medium md:text-sm">
+              <p className="text-gray-dark w-2/3 text-xs font-medium sm:w-full md:text-sm">
                 Вы заняты в творческой профессии: кино/видеомонтаж, фотография, блоггерство,
                 изобразительное, театральное искусство и т. д.) и имеете высшее образование. Ваш
                 доход от 1500 евро в месяц или накопления от 15 000 евро.
               </p>
             </div>
-            <div className="relative col-span-2 max-h-[320px] overflow-hidden rounded-2xl">
+            <div className="absolute right-0 -bottom-10 col-span-2 max-h-[220px] max-w-1/3 min-w-[140px] overflow-hidden rounded-2xl sm:relative sm:bottom-0 sm:max-h-[320px] sm:max-w-full">
               <Image
                 width={200}
                 height={320}
@@ -111,16 +116,18 @@ export default function WhoCanApply() {
                 src="/liza.png"
                 alt="Stanislav"
               />
-              <div className="absolute bottom-2 left-2 rounded-[2.5rem] bg-white px-4 py-1 shadow-[0_4px_3px_rgba(0,0,0,0.25)]">
-                <p className="text-xs leading-4 font-extrabold text-black md:text-sm">Лиза</p>
-                <p className="text-gray-dark text-xs leading-4 font-medium md:text-sm">
+              <div className="absolute bottom-2 left-2 rounded-[2.5rem] bg-white px-2 py-0.5 shadow-[0_4px_3px_rgba(0,0,0,0.25)] sm:px-4 sm:py-1">
+                <p className="text-[10px] leading-3 font-extrabold text-black sm:text-xs sm:leading-4 md:text-sm">
+                  Лиза
+                </p>
+                <p className="text-gray-dark text-[10px] leading-3 font-medium sm:text-xs sm:leading-4 md:text-sm">
                   Учится на юриста
                 </p>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-5 gap-5">
-            <div className="relative col-span-2 max-h-[320px] overflow-hidden rounded-3xl">
+          <div className="relative mt-14 grid grid-cols-5 gap-5 sm:mt-0">
+            <div className="absolute -top-1/6 col-span-2 max-h-[280px] max-w-1/2 min-w-[140px] overflow-hidden rounded-2xl sm:relative sm:top-0 sm:max-h-[320px] sm:max-w-full">
               <Image
                 width={200}
                 height={320}
@@ -128,28 +135,32 @@ export default function WhoCanApply() {
                 src="/katerina.png"
                 alt="Stanislav"
               />
-              <div className="absolute bottom-2 left-2 rounded-[2.5rem] bg-white px-4 py-1 shadow-[0_4px_3px_rgba(0,0,0,0.25)]">
-                <p className="text-xs leading-4 font-extrabold text-black md:text-sm">Катерина</p>
-                <p className="text-gray-dark text-xs leading-4 font-medium md:text-sm">
+              <div className="absolute bottom-2 left-2 rounded-[2.5rem] bg-white px-2 py-0.5 shadow-[0_4px_3px_rgba(0,0,0,0.25)] sm:px-4 sm:py-1">
+                <p className="text-[10px] leading-3 font-extrabold text-black sm:text-xs sm:leading-4 md:text-sm">
+                  Катерина
+                </p>
+                <p className="text-gray-dark text-[10px] leading-3 font-medium sm:text-xs sm:leading-4 md:text-sm">
                   Саунд-дизайнер
                 </p>
               </div>
             </div>
-            <div className="bg-gray-light col-span-3 flex flex-col justify-between gap-10 rounded-3xl px-6 py-10">
-              <div className="flex justify-between gap-3">
-                <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
-                  <span className="inline bg-yellow-300 box-decoration-clone px-0.5">
-                    Вы студент
-                  </span>
-                </h2>
-                <div className="text-black">
-                  <PaintIcon />
+            <div className="bg-gray-light col-span-5 rounded-3xl px-3 py-5 sm:col-span-3 sm:px-6 sm:py-10">
+              <div className="ml-auto flex w-1/2 flex-col items-end justify-between gap-10 sm:ml-0 sm:w-full sm:items-start">
+                <div className="flex w-full justify-between gap-3 pl-3 sm:pl-0">
+                  <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
+                    <span className="inline bg-yellow-300 box-decoration-clone px-0.5">
+                      Вы студент
+                    </span>
+                  </h2>
+                  <div className="text-black">
+                    <MastersCapIcon />
+                  </div>
                 </div>
+                <p className="text-gray-dark pl-3 text-xs font-medium sm:pl-0">
+                  Вы владеете хорошим уровнем немецкого или английского языка и можете обеспечить
+                  свое финансирование на год в сумме 12000 евро.
+                </p>
               </div>
-              <p className="text-gray-dark text-xs font-medium md:text-sm">
-                Вы владеете хорошим уровнем немецкого или английского языка и можете обеспечить свое
-                финансирование на год в сумме 12000 евро.
-              </p>
             </div>
           </div>
         </div>

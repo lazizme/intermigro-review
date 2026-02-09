@@ -13,31 +13,39 @@ export default function HeroForm() {
       <FloatingInput type="text" label="Имя" />
       <FloatingInput type="tel" label="Телефон" />
       <FloatingInput type="text" label="Фамилия" />
-      <FloatingInput type="email" label="E-mail" />
+      <FloatingInput type="email" label="E-mail" error="неверный email" />
       <FloatingSelect
         label="Карьера"
         options={[
-          { value: "germany", label: "Германия" },
-          { value: "austria", label: "Австрия" },
-          { value: "switzerland", label: "Швейцария" },
+          { value: "it", label: "IT" },
+          { value: "design", label: "Дизайн" },
+          { value: "marketing", label: "Маркетинг" },
+          { value: "engineering", label: "Инженерия" },
+          { value: "medicine", label: "Медицина" },
+          { value: "finance", label: "Финансы" },
+          { value: "analytics", label: "Аналитика" },
+          { value: "art", label: "Сфера искусства" },
+          { value: "jurisprudence", label: "Юриспруденция" },
+          { value: "entrepreneurship", label: "Предпринимательство" },
+          { value: "other", label: "Другое" },
         ]}
       />
 
       <FloatingInput type="text" label="Ник в телеграме" />
 
       <SelectableButtonGroup
-        className="col-span-2 lg:col-span-1"
+        className="col-span-2 sm:col-span-1"
         label="Образование"
         options={[
           { value: "highschool", label: "Среднее" },
-          { value: "specialist", label: "Специалист" },
+          { value: "specialist", label: "Спец." },
           { value: "higher", label: "Высшее" },
         ]}
       />
 
       <RangeInput
         label="Доход"
-        className="col-span-2 lg:col-span-1"
+        className="col-span-2 sm:col-span-1"
         suffix="€"
         min={0}
         max={10000}

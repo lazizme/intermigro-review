@@ -4,14 +4,12 @@ import HeroForm from "./HeroForm";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col lg:flex-row lg:gap-12">
-      {/* Left side - Title, Image, Description */}
-      <div className="flex w-full flex-col gap-4 px-5 pt-24 md:px-8 lg:w-1/2 lg:gap-6 lg:pt-32 lg:pr-0 lg:pl-20">
-        <h1 className="text-3xl font-bold md:text-4xl lg:text-[2.5rem]/10">
+    <section className="flex flex-col gap-6 lg:flex-row xl:gap-12">
+      <div className="flex w-full flex-col gap-4 px-5 pt-24 md:px-8 lg:w-5/12 lg:gap-6 lg:pt-32 lg:pr-0 2xl:w-1/2 2xl:pl-20">
+        <h1 className="text-xl font-bold md:text-2xl lg:text-3xl xl:text-[2.5rem]/10">
           Начните новую <br /> жизнь в Германии
         </h1>
 
-        {/* Description - shows on mobile before image */}
         <p className="text-gray-dark text-base lg:hidden">
           Помогаем в релокации и адаптации высококвалифицированным специалистам, фрилансерам и
           предпринимателям
@@ -37,13 +35,13 @@ export default function Hero() {
         </p>
       </div>
 
-      <div className="flex w-full flex-col gap-6 lg:w-1/2">
-        <div className="bg-gray-light mt-8 rounded-[2.5rem] px-5 pt-10 pb-10 md:px-8 lg:mt-0 lg:rounded-t-none lg:rounded-bl-4xl lg:px-12.5 lg:pt-44 lg:pb-15">
-          <div className="mb-8 flex flex-col gap-2 lg:mb-16 lg:grid lg:grid-cols-2 lg:items-center lg:gap-4">
-            <h2 className="text-2xl font-bold md:text-3xl lg:mb-2 lg:text-4xl">
+      <div className="flex w-full flex-col gap-6 lg:w-7/12 2xl:w-1/2">
+        <div className="bg-gray-light mt-8 rounded-[2.5rem] px-5 pt-10 pb-10 md:px-8 lg:mt-0 lg:rounded-t-none lg:rounded-bl-4xl lg:px-6 lg:pt-44 lg:pb-15 xl:px-10 2xl:px-12.5">
+          <div className="mb-8 flex flex-col gap-2 lg:mb-16 lg:grid lg:grid-cols-2 lg:gap-4 xl:items-center">
+            <h2 className="text-xl font-bold md:text-2xl lg:text-3xl xl:text-4xl">
               Проконсультируем бесплатно
             </h2>
-            <p className="text-gray-dark text-base font-medium lg:text-lg/6">
+            <p className="text-gray-dark text-xs font-medium md:text-sm lg:text-base xl:text-lg/6">
               Ответим на все ваши вопросы и подберем персональную стратегию переезда в Германию
             </p>
           </div>

@@ -61,7 +61,9 @@ function FloatingInput({ className, label, id, error, ...props }: FloatingInputP
       >
         {label}
       </label>
-      {error && <span className="absolute top-5 right-0 text-sm text-red-500">{error}</span>}
+      {error && (
+        <span className="absolute right-0 -bottom-5 text-xs text-red-500 lg:text-sm">{error}</span>
+      )}
     </div>
   );
 }

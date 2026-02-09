@@ -5,7 +5,7 @@ import { FacebookIcon, InstagramIcon, LinkedInIcon, TikTokIcon } from "./Icons";
 export default function Footer() {
   return (
     <footer>
-      <div className="bg-white px-5 py-10 md:px-20 md:py-16">
+      <div className="bg-white px-5 py-10 md:px-10 md:py-14 lg:px-10 lg:py-14 xl:px-16 xl:py-12 2xl:px-20 2xl:py-16">
         <div className="flex justify-between">
           <div className="flex w-full items-center justify-between gap-5 lg:w-auto lg:gap-22">
             <Image

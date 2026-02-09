@@ -40,7 +40,7 @@ function SelectableButtonGroup({
             type="button"
             onClick={() => handleSelect(option.value)}
             className={cn(
-              "rounded-2xl bg-white px-4 py-3 text-base transition-all",
+              "rounded-2xl bg-white px-4 py-3 text-xs transition-all md:text-sm xl:text-base",
               selected === option.value
                 ? "border-brand text-foreground border"
                 : "text-gray-medium border border-transparent",
