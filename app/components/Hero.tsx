@@ -38,7 +38,7 @@ export default function Hero() {
       </div>
 
       <div className="flex w-full flex-col gap-6 lg:w-1/2">
-        <div className="bg-gray-light mt-8 rounded-t-[2.5rem] px-5 pt-10 pb-10 md:px-8 lg:mt-0 lg:rounded-t-none lg:rounded-bl-4xl lg:px-12.5 lg:pt-44 lg:pb-15">
+        <div className="bg-gray-light mt-8 rounded-[2.5rem] px-5 pt-10 pb-10 md:px-8 lg:mt-0 lg:rounded-t-none lg:rounded-bl-4xl lg:px-12.5 lg:pt-44 lg:pb-15">
           <div className="mb-8 flex flex-col gap-2 lg:mb-16 lg:grid lg:grid-cols-2 lg:items-center lg:gap-4">
             <h2 className="text-2xl font-bold md:text-3xl lg:mb-2 lg:text-4xl">
               Проконсультируем бесплатно

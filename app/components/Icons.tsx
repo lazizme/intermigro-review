@@ -225,3 +225,230 @@ export const ResponsiveScalesIcon = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
+export const InstagramIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M15.9997 11.3703C16.1231 12.2025 15.981 13.0525 15.5935 13.7993C15.206 14.5461 14.5929 15.1517 13.8413 15.53C13.0898 15.9082 12.2382 16.0399 11.4075 15.9062C10.5768 15.7726 9.80947 15.3804 9.21455 14.7855C8.61962 14.1905 8.22744 13.4232 8.09377 12.5925C7.96011 11.7619 8.09177 10.9102 8.47003 10.1587C8.84829 9.40716 9.45389 8.79404 10.2007 8.40654C10.9475 8.01904 11.7975 7.87689 12.6297 8.0003C13.4786 8.12619 14.2646 8.52176 14.8714 9.12861C15.4782 9.73545 15.8738 10.5214 15.9997 11.3703Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M17.5 6.5H17.51"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const FacebookIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const TikTokIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M15.7532 2C15.8382 3.70594 16.4266 4.82713 17.2413 5.54089C18.0806 6.27617 19.3374 6.73246 21 6.73246V10.0825C19.0625 10.0825 17.2354 9.61625 15.7553 8.5807V16.0443H15.7541C15.7058 19.342 13.0936 22 9.87766 22C6.63152 22 4 19.2919 4 15.9513C4 12.5807 6.45485 9.61905 9.87766 9.61905V12.9691C8.25 12.9691 7.25532 14.3625 7.25532 15.9513C7.25532 17.4417 8.42938 18.6499 9.87766 18.6499C11.3259 18.6499 12.5 17.4417 12.5 15.9513V2.08579L15.7532 2Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const LinkedInIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M13.642 21.4819H9.87891V9.26402H13.4221V10C14.5873 9.26402 15.9897 8.87305 17.4051 8.87305C18.855 8.87305 19.9791 9.32104 20.7773 10.217C21.5918 11.0967 21.9991 12.3348 21.9991 13.9313V21.4819H18.236V14.8354C18.236 14.0697 18.0405 13.4588 17.6495 13.0027C17.2585 12.5303 16.7372 12.2941 16.0856 12.2941C15.3362 12.2941 14.7416 12.5221 14.3018 12.9783C13.8619 13.4181 13.642 14.0209 13.642 14.7865V21.4819Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M3.29325 21.4841V9.2662H7.05637V21.4841H3.29325ZM5.15035 6.43838C4.5476 6.43838 4.03445 6.23475 3.6109 5.82749C3.20363 5.40393 3 4.89078 3 4.28803C3 3.68528 3.20363 3.18027 3.6109 2.773C4.03445 2.36574 4.5476 2.16211 5.15035 2.16211C5.73681 2.16211 6.23368 2.36574 6.64094 2.773C7.0645 3.18027 7.27627 3.68528 7.27627 4.28803C7.27627 4.89078 7.0645 5.40393 6.64094 5.82749C6.23368 6.23475 5.73681 6.43838 5.15035 6.43838Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const ChevronLeftIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M15 18L9 12L15 6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const ChevronRightIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M9 18L15 12L9 6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+// Video Player Icons
+export const VideoPlayIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="12"
+    height="14"
+    viewBox="0 0 12 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M12 7L0 14V0L12 7Z" fill="var(--brand)" />
+  </svg>
+);
+
+export const VideoPlayIconSmall = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M12 7L2 13V1L12 7Z" fill="white" />
+  </svg>
+);
+
+export const VideoPauseIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <rect x="2" y="1" width="3.5" height="12" rx="1" fill="white" />
+    <rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="white" />
+  </svg>
+);
+
+export const VideoVolumeIcon = ({
+  muted,
+  ...props
+}: SVGProps<SVGSVGElement> & { muted: boolean }) => {
+  if (muted) {
+    return (
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 14 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+      >
+        <path
+          d="M7 2L4 5H2C1.44772 5 1 5.44772 1 6V8C1 8.55228 1.44772 9 2 9H4L7 12V2Z"
+          fill="white"
+        />
+        <path d="M10 5L13 8M13 5L10 8" stroke="white" strokeWidth="1.25" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M7 2L4 5H2C1.44772 5 1 5.44772 1 6V8C1 8.55228 1.44772 9 2 9H4L7 12V2Z"
+        fill="white"
+      />
+      <path
+        d="M9.5 4.5C10.2 5.2 10.75 6.25 10.75 7.25C10.75 8.25 10.2 9.3 9.5 10"
+        stroke="white"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+      />
+      <path
+        d="M11.5 3C12.75 4.25 13.5 5.5 13.5 7.25C13.5 9 12.75 10.25 11.5 11.5"
+        stroke="white"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+};

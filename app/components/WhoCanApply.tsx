@@ -1,3 +1,5 @@
+import SectionTitle from "./SectionTitle";
+
 export default function WhoCanApply() {
   const categories = [
     {
@@ -20,12 +22,12 @@ export default function WhoCanApply() {
 
   return (
     <section className="px-20 py-16">
-      <h2 className="mb-12 text-3xl font-bold">
+      <SectionTitle className="mb-12">
         Кто может претендовать
         <br />
         на легальный статус
         <br />в Германии?
-      </h2>
+      </SectionTitle>
 
       <div className="grid grid-cols-2 gap-6">
         {categories.map((category, index) => (

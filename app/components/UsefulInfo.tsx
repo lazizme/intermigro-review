@@ -1,61 +1,166 @@
+"use client";
+
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Swiper, SwiperSlide, Pagination } from "@/components/ui/swiper";
+import SectionTitle from "./SectionTitle";
+
 export default function UsefulInfo() {
   const articles = [
     {
-      title: "Как переехать в другую страну: решения и другие популярные вопросы",
+      title: "Как перевезти в другую страну родителей и других родственников ",
       tag: "Forbes",
-      color: "bg-blue-500",
+      brand_logo: "/logos/forbes.png",
+      cover_image: "",
     },
     {
-      title: "Стартапы в Германии: инвестиции, гранты, государственная поддержка",
-      tag: "Forbes",
-      color: "bg-orange-400",
+      title: "Как получить немецкий паспорт за три года",
+      tag: "DW",
+      text_color: "text-white",
+      is_title_centered: true,
+      brand_logo: "/logos/dw.png",
+      cover_image:
+        "https://www.germancitizenshipbydescent.com/wp-content/uploads/2024/10/apply-to-renew-German-passport.jpg",
     },
     {
-      title: "Как найти удалённую работу за границу: Германия и Blue Card",
-      tag: null,
-      color: "bg-gray-300",
+      title: "Стартапы в Германии: инвестиции, поддержка государства и другие возможности",
+      tag: "VC.ru",
+      brand_logo: "/logos/vc.ru.png",
+      cover_image: "",
     },
     {
-      title: "Как переехать в Германию с семьей: детальная инструкция",
-      tag: null,
+      title: "Как переехать в Германию и привыкнуть к новым правилам",
+      tag: "Meduza",
+      brand_logo: "/logos/meduza.png",
+      cover_image: "",
+    },
+    {
+      title: "Как переехать в Германию: способы релокации",
       color: "bg-brand",
-    },
-    {
-      title: "Какой бизнес в Германии наиболее востребован и прибылен",
-      tag: null,
-      color: "bg-yellow-400",
-    },
-    {
-      title: "Секреты немецкого образования: почему оно считается одним из лучших в мире",
+      is_title_centered: true,
+      brand_logo: "/logos/forbes.png",
       tag: "Forbes",
-      color: "bg-gray-300",
+      cover_image: "",
+      text_color: "text-white",
+    },
+    {
+      title:
+        "Свой бизнес в Германии: как зарегистрировать компанию и выбрать правильную форму огранизации",
+      tag: "RB.ru",
+      brand_logo: "/logos/rb.ru.png",
+      cover_image: "",
+    },
+    {
+      title: "Что такое немецкая Blue Card и как ее получают?",
+      tag: "Kovcheg",
+      brand_logo: "/logos/kovcheg.png",
+      cover_image: "",
+    },
+    {
+      title: "Секреты немецкого паспорта: как получить гражданство Германии и что вам это даст",
+      tag: "GetInvestor",
+      brand_logo: "/logos/getinvestor.png",
+      cover_image: "",
     },
   ];
 
-  return (
-    <section className="container mx-auto px-20 py-16">
-      <h2 className="mb-8 text-3xl font-bold">Полезная информация</h2>
+  const ArticleCard = ({
+    article,
+  }: {
+    article: {
+      title: string;
+      tag?: string | null;
+      brand_logo: string;
+      cover_image: string;
+      color?: string;
+      text_color?: string;
+      is_title_centered?: boolean;
+    };
+  }) => (
+    <div
+      className={cn(
+        "group relative flex min-h-100 cursor-pointer overflow-hidden rounded-[2.5rem]",
+        !article.cover_image && (article.color || "bg-gray-light"),
+        article.text_color || "text-black",
+        article.is_title_centered && "items-center",
+      )}
+    >
+      {article.cover_image && (
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${article.cover_image})`,
+          }}
+        />
+      )}
+      <p
+        className={cn(
+          "relative z-10 px-6 py-10 text-xl font-bold",
+          article.text_color,
+          article.is_title_centered && "w-full text-center",
+        )}
+      >
+        {article.title}
+      </p>
+      {article.tag && (
+        <div className="absolute bottom-4 left-4 z-10 rounded-full bg-white px-4 py-2">
+          <Image
+            src={article.brand_logo}
+            alt={article.tag}
+            width={75}
+            height={24}
+            className="h-6 w-auto object-contain"
+          />
+        </div>
+      )}
+    </div>
+  );
 
-      <div className="grid grid-cols-3 gap-6">
-        {articles.map((article, index) => (
-          <div key={index} className="group cursor-pointer">
-            <div className={`mb-4 h-48 rounded-2xl ${article.color}`}>
-              {article.tag && (
-                <span className="m-4 inline-block rounded-lg bg-white px-3 py-1 text-sm font-medium">
-                  {article.tag}
-                </span>
-              )}
+  return (
+    <section className="px-5 py-10 md:px-20 md:py-16">
+      <SectionTitle className="mb-11">Полезная информация</SectionTitle>
+
+      <div className="md:hidden">
+        <Swiper
+          modules={[Pagination]}
+          pagination={{ clickable: true }}
+          spaceBetween={20}
+          slidesPerView={1.2}
+          breakpoints={{
+            320: {
+              slidesPerView: 1.2,
+            },
+            400: {
+              slidesPerView: 1.6,
+            },
+            500: {
+              slidesPerView: 1.8,
+            },
+          }}
+        >
+          {articles.map((article, index) => (
+            <SwiperSlide key={index}>
+              <ArticleCard article={article} />
+            </SwiperSlide>
+          ))}
+          <SwiperSlide>
+            <div className="bg-brand flex min-h-100 cursor-pointer items-center justify-center rounded-[2.5rem]">
+              <p className="text-xl font-bold text-white">Загрузить еще</p>
             </div>
-            <h3 className="font-medium transition-colors group-hover:text-brand">{article.title}</h3>
-          </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      <div className="hidden grid-cols-2 gap-5 md:grid md:grid-cols-3 lg:grid-cols-4">
+        {articles.map((article, index) => (
+          <ArticleCard key={index} article={article} />
         ))}
       </div>
 
-      <div className="mt-8 flex justify-center">
-        <button className="rounded-full border border-gray-300 px-8 py-3 font-medium transition-colors hover:bg-gray-light">
-          Смотреть все статьи
-        </button>
-      </div>
+      <Button className="bg-brand hover:bg-brand/90 mt-19 hidden w-full cursor-pointer rounded-2xl py-5 text-base font-semibold text-white md:flex">
+        Загрузить еще
+      </Button>
     </section>
   );
 }

@@ -15,11 +15,11 @@ export default function Home() {
       <Stats />
       <Guarantees />
       <TheBestLawyers />
-      {/* <WhoCanApply />
+      {/* <WhoCanApply /> */}
       <ImmigrationOptions />
       <ClientReviews />
       <UsefulInfo />
-      <CTA /> */}
+      <CTA />
     </main>
   );
 }

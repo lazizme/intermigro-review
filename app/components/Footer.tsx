@@ -1,71 +1,98 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FacebookIcon, InstagramIcon, LinkedInIcon, TikTokIcon } from "./Icons";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-white py-12">
-      <div className="container mx-auto px-20">
+    <footer>
+      <div className="bg-white px-5 py-10 md:px-20 md:py-16">
         <div className="flex justify-between">
-          <div>
+          <div className="flex w-full items-center justify-between gap-5 lg:w-auto lg:gap-22">
             <Image
               src="/logo.svg"
               alt="Intermigro Logo"
-              width={166}
-              height={40}
-              className="h-10 w-auto"
+              width={262}
+              height={63}
+              className="h-7.5 w-auto lg:h-15"
             />
-            <p className="mt-4 max-w-xs text-sm text-gray-medium">
-              Платформа для управления иммиграционным процессом в Германию
-            </p>
 
-            <div className="mt-6 flex gap-4">
-              <Link href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-light">
-                <span className="text-sm">f</span>
+            <div className="flex gap-2 text-black">
+              <Link
+                href="#"
+                className="bg-gray-light flex h-10 w-10 items-center justify-center rounded-lg p-2.5"
+              >
+                <InstagramIcon />
               </Link>
-              <Link href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-light">
-                <span className="text-sm">in</span>
+              <Link
+                href="#"
+                className="bg-gray-light flex h-10 w-10 items-center justify-center rounded-lg p-2.5"
+              >
+                <FacebookIcon />
+              </Link>
+              <Link
+                href="#"
+                className="bg-gray-light flex h-10 w-10 items-center justify-center rounded-lg p-2.5"
+              >
+                <TikTokIcon />
+              </Link>
+              <Link
+                href="#"
+                className="bg-gray-light flex h-10 w-10 items-center justify-center rounded-lg p-2.5"
+              >
+                <LinkedInIcon />
               </Link>
             </div>
           </div>
 
-          <div className="flex gap-20">
-            <div>
-              <h4 className="mb-4 font-semibold">О нас</h4>
-              <ul className="flex flex-col gap-2 text-sm text-gray-medium">
-                <li><Link href="#">Компания</Link></li>
-                <li><Link href="#">Услуги</Link></li>
-                <li><Link href="#">Отзывы</Link></li>
-                <li><Link href="#">Контакты</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="mb-4 font-semibold">Услуги</h4>
-              <ul className="flex flex-col gap-2 text-sm text-gray-medium">
-                <li><Link href="#">Blue Card</Link></li>
-                <li><Link href="#">Фриланс-виза</Link></li>
-                <li><Link href="#">Бизнес-иммиграция</Link></li>
-                <li><Link href="#">Воссоединение семьи</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="mb-4 font-semibold">Контакты</h4>
-              <ul className="flex flex-col gap-2 text-sm text-gray-medium">
-                <li>+49 123 456 7890</li>
-                <li>info@intermigro.com</li>
-                <li>Berlin, Germany</li>
-              </ul>
-            </div>
+          <div className="hidden items-center gap-8 text-base font-medium text-black lg:flex">
+            <Link href="#">О нас</Link>
+            <Link href="#">Услуги</Link>
+            <Link href="#">Отзывы</Link>
+            <Link href="#">Контакты</Link>
+            <Link href="#">Сервисы</Link>
           </div>
         </div>
 
-        <div className="mt-12 flex items-center justify-between border-t border-gray-200 pt-6 text-sm text-gray-medium">
-          <p>© 2024 Intermigro. Все права защищены.</p>
-          <div className="flex gap-6">
-            <Link href="#">Политика конфиденциальности</Link>
-            <Link href="#">Условия использования</Link>
+        <div className="mt-5 mb-7.5 h-px w-full bg-[#DEDEDE]"></div>
+
+        <div className="flex flex-col-reverse justify-between gap-5 text-sm lg:flex-row lg:items-center lg:text-base">
+          <div className="flex flex-col gap-1.5">
+            <p className="text-gray-dark text-base font-medium">
+              По вопросам сотрудничества и&nbsp;партнерств:
+            </p>
+            <p className="text-base font-medium text-black">pr@intermigro.com</p>
           </div>
+          <div className="flex items-center gap-12">
+            <div className="flex flex-col gap-1.5">
+              <a href="tel:+493046690566" className="text-base font-medium text-black">
+                +49 304 669 05 66
+              </a>
+              <a href="mailto:contact@intermigro.com" className="text-base font-medium text-black">
+                contact@intermigro.com
+              </a>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <p className="text-gray-dark text-base font-medium">Адрес: Klingsorstraße 105B,</p>
+              <p className="text-gray-dark text-base font-medium">12203 Berlin, Germany</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-brand flex flex-col-reverse items-center justify-between gap-9.5 px-5 py-3 font-medium text-white lg:flex-row lg:px-20 lg:py-5">
+        <div className="flex flex-col-reverse gap-6 lg:flex-row lg:items-center lg:gap-13">
+          <p className="text-nowrap">© Intermigro 2026</p>
+          <p className="text-[10px] lg:text-xs">
+            Emigro UG (haftungsbeschränkt) Klingsorstr.105b 12203 Berlin Bundesland: Berlin
+            Deutschland Geschäftsführer: Vladislav Pinskij HRB: 250535 B Amtsgericht: Berlin
+            Charlottenburg E-Mail: contact@emigro.de Steuernummer: 29/277/32378 Ust.-Nr.:
+            DE360037967
+          </p>
+        </div>
+        <div className="flex w-full justify-between gap-6 text-sm lg:w-auto lg:text-base">
+          <Link href="#">Impressum</Link>
+          <Link href="#" className="text-nowrap">
+            Политика конфиденциальности
+          </Link>
         </div>
       </div>
     </footer>

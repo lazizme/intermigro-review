@@ -1,72 +1,99 @@
+"use client";
+
+import { Swiper, SwiperSlide, Navigation, Pagination } from "@/components/ui/swiper";
+import { ChevronLeftIcon, ChevronRightIcon } from "./Icons";
+import VideoPlayer from "./VideoPlayer";
+import SectionTitle from "./SectionTitle";
+
 export default function ClientReviews() {
   const reviews = [
     {
-      name: "Александр",
-      role: "IT-специалист",
-      text: "Благодаря команде Intermigro я получил Blue Card за 3 месяца. Профессиональный подход на всех этапах!",
+      full_name: "Анастасия Вебер",
+      profession: "Режиссер",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/anastasiya-veber-rezhisser.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/anastasiya-veber-rezhisser.webp",
     },
     {
-      name: "Мария",
-      role: "Дизайнер",
-      text: "Оформили фриланс-визу быстро и без лишних хлопот. Очень довольна результатом!",
+      full_name: "Вадим Черников",
+      profession: "Head of Growth, Endel",
+      video:
+        "https://intermigro.com/wp-content/uploads/2023/07/vadim-chernikov-head-of-growth-endel.mp4",
+      cover:
+        "https://intermigro.com/wp-content/uploads/2023/07/vadim-chernikov-head-of-growth-endel.webp",
     },
     {
-      name: "Дмитрий",
-      role: "Предприниматель",
-      text: "Открыл бизнес в Германии с помощью Intermigro. Команда помогла на каждом шаге.",
+      full_name: "Александр Гордеев",
+      profession: "Художник",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/aleksand-gordeev-artist.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-3.webp",
     },
     {
-      name: "Елена",
-      role: "Врач",
-      text: "Получила признание диплома и рабочую визу. Спасибо за поддержку!",
+      full_name: "Павел Федоров",
+      profession: "Художник",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/pavel-fedorov-hudozhnik.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/pavel-fedorov-hudozhnik.webp",
     },
     {
-      name: "Сергей",
-      role: "Инженер",
-      text: "Переехал всей семьей. Процесс воссоединения прошёл гладко благодаря профессионалам.",
+      full_name: "Зоя Скобельцына",
+      profession: "CEO Lineup",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/zoya-skobelczyna-ceo-lineup.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/zoya-skobelczyna-ceo-lineup.webp",
+    },
+    {
+      full_name: "Клиент",
+      profession: "",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
     },
   ];
 
   return (
-    <section className="container mx-auto px-20 py-16">
+    <section className="px-5 py-10 md:px-20 md:py-16">
       <div className="mb-8 flex items-center justify-between">
-        <h2 className="text-3xl font-bold">Отзывы наших клиентов</h2>
-        <div className="flex gap-2">
-          <button className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300">
-            ←
+        <SectionTitle>Отзывы наших клиентов</SectionTitle>
+        <div className="hidden gap-2 md:flex">
+          <button className="review-prev bg-gray-light flex h-12 w-12 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-200">
+            <ChevronLeftIcon />
           </button>
-          <button className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300">
-            →
+          <button className="review-next bg-gray-light flex h-12 w-12 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-200">
+            <ChevronRightIcon />
           </button>
         </div>
       </div>
 
-      <div className="flex gap-6 overflow-x-auto pb-4">
+      <Swiper
+        modules={[Navigation, Pagination]}
+        navigation={{
+          prevEl: ".review-prev",
+          nextEl: ".review-next",
+        }}
+        pagination={{ clickable: true }}
+        spaceBetween={16}
+        slidesPerView={1.8}
+        breakpoints={{
+          640: {
+            slidesPerView: 3.5,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+          1024: {
+            slidesPerView: 5,
+          },
+        }}
+      >
         {reviews.map((review, index) => (
-          <div
-            key={index}
-            className="flex w-64 shrink-0 flex-col rounded-2xl border border-gray-200 p-6"
-          >
-            <div className="mb-4 flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full bg-gray-300"></div>
-              <div>
-                <p className="font-semibold">{review.name}</p>
-                <p className="text-sm text-gray-medium">{review.role}</p>
+          <SwiperSlide key={index}>
+            <div className="cursor-pointer">
+              <div className="relative mb-4 aspect-3/4 overflow-hidden rounded-2xl bg-gray-200">
+                <VideoPlayer src={review.video} poster={review.cover} />
               </div>
+              <p className="font-semibold">{review.full_name}</p>
+              <p className="text-gray-dark text-sm">{review.profession}</p>
             </div>
-            <p className="text-sm text-gray-dark">{review.text}</p>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
-
-      <div className="mt-6 flex justify-center gap-2">
-        {[1, 2, 3].map((dot) => (
-          <button
-            key={dot}
-            className={`h-2 w-2 rounded-full ${dot === 1 ? "bg-brand" : "bg-gray-300"}`}
-          />
-        ))}
-      </div>
+      </Swiper>
     </section>
   );
 }
