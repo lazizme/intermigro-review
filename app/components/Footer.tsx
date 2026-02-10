@@ -5,7 +5,7 @@ import { FacebookIcon, InstagramIcon, LinkedInIcon, TikTokIcon } from "./Icons";
 export default function Footer() {
   return (
     <footer>
-      <div className="bg-white px-5 py-10 md:px-10 md:py-14 lg:px-10 lg:py-14 xl:px-16 xl:py-12 2xl:px-20 2xl:py-16">
+      <div className="bg-white px-5 py-10 md:px-10 md:py-14 lg:py-14 xl:px-16 xl:py-12 2xl:px-20 2xl:py-16">
         <div className="flex justify-between">
           <div className="flex w-full items-center justify-between gap-5 lg:w-auto lg:gap-22">
             <Image
@@ -18,25 +18,33 @@ export default function Footer() {
 
             <div className="flex gap-2 text-black">
               <Link
-                href="#"
+                href="http://instagram.com/intermigro"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-light flex h-10 w-10 items-center justify-center rounded-lg p-2.5"
               >
                 <InstagramIcon />
               </Link>
               <Link
-                href="#"
+                href="https://www.facebook.com/emigro.berlin"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-light flex h-10 w-10 items-center justify-center rounded-lg p-2.5"
               >
                 <FacebookIcon />
               </Link>
               <Link
-                href="#"
+                href="https://www.tiktok.com/@intermigro?_t=8jHEsFvjEKj&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-light flex h-10 w-10 items-center justify-center rounded-lg p-2.5"
               >
                 <TikTokIcon />
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/company/intermigro/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-light flex h-10 w-10 items-center justify-center rounded-lg p-2.5"
               >
                 <LinkedInIcon />

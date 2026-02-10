@@ -29,7 +29,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 z-50 flex w-full items-center justify-between px-5 py-4 transition-colors duration-300 md:px-8 md:py-8 ${
+        className={`fixed top-0 z-50 flex w-full items-center justify-between px-5 py-4 transition-colors duration-300 md:px-10 md:py-8 xl:px-16 2xl:px-20 ${
           isScrolled ? "bg-white lg:bg-white/60" : "bg-white lg:bg-transparent"
         }`}
       >
