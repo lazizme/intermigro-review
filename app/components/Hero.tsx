@@ -8,10 +8,10 @@ import HeroForm from "./HeroForm";
 export default function Hero() {
   const [isLoaded, setIsLoaded] = React.useState(false);
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
+  const handleImageLoad = () => {
+    // Small delay after image loads to ensure smooth animation start
+    setTimeout(() => setIsLoaded(true), 100);
+  };
 
   return (
     <section className="flex flex-col gap-6 overflow-hidden lg:flex-row lg:gap-10 xl:gap-15 2xl:gap-20">
@@ -38,6 +38,7 @@ export default function Hero() {
               height={400}
               className="h-full w-full rounded-[2rem] object-cover lg:rounded-[2.5rem]"
               priority
+              onLoad={handleImageLoad}
             />
             <HeroArrowEnds className="text-brand absolute -top-10 -right-2 scale-75 md:-top-12 md:-right-8 md:scale-90 lg:-top-15 lg:-right-14 lg:scale-100" />
             <HeroArrowStarts className="text-brand absolute -bottom-6 -left-2 scale-75 md:-bottom-7 md:-left-10 md:scale-90 lg:-bottom-8.75 lg:-left-17 lg:scale-100" />
