@@ -92,6 +92,7 @@ export default function HeroForm() {
   const [medicineError, setMedicineError] = React.useState<string | null>(null);
   const [modalOpen, setModalOpen] = React.useState(false);
   const [isLeadResult, setIsLeadResult] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -117,14 +118,65 @@ export default function HeroForm() {
     return Object.keys(newErrors).length === 0 && !medError;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const trackConversions = () => {
+    // Yandex Metrika
+    if (typeof window !== "undefined" && typeof (window as any).ym !== "undefined") {
+      (window as any).ym(91677080, "reachGoal", "sendform");
+    }
+
+    // Google Ads Conversion
+    if (typeof window !== "undefined" && typeof (window as any).gtag !== "undefined") {
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-11223285171/p6pUCO_owuYbELP61ucp",
+        value: 0,
+        currency: "EUR",
+      });
+    }
+
+    // Meta Pixel - с защитой от AdBlock
+    if (typeof window !== "undefined" && typeof (window as any).fbq !== "undefined") {
+      (window as any).fbq("track", "SubmitApplication", {
+        content_name: "Consultation Request",
+      });
+      (window as any).fbq("trackCustom", "ConsultationSubmitted");
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (validateForm()) {
+      setIsSubmitting(true);
       const lead = isLead(formData);
       console.log("Form Data:", formData);
       console.log("Is Lead:", lead);
       setIsLeadResult(lead);
+
+      // If qualified lead, send to Kommo CRM
+      if (lead) {
+        try {
+          const response = await fetch("/api/submit-lead", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          if (!response.ok) {
+            console.error("Failed to submit lead to CRM");
+          } else {
+            console.log("Lead successfully submitted to CRM");
+
+            // Track conversions ONLY for qualified leads that successfully reached CRM
+            trackConversions();
+          }
+        } catch (error) {
+          console.error("Error submitting lead:", error);
+        }
+      }
+
+      setIsSubmitting(false);
       setModalOpen(true);
     }
   };
@@ -236,9 +288,10 @@ export default function HeroForm() {
 
       <Button
         type="submit"
-        className="bg-brand hover:bg-brand/90 col-span-2 h-12 rounded-2xl py-5 text-lg font-medium text-white"
+        disabled={isSubmitting}
+        className="bg-brand hover:bg-brand/90 col-span-2 h-12 rounded-2xl py-5 text-lg font-medium text-white disabled:opacity-50"
       >
-        Записаться на консультацию
+        {isSubmitting ? "Отправка..." : "Записаться на консультацию"}
       </Button>
 
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
