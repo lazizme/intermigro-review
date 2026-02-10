@@ -1,67 +1,122 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Swiper, SwiperSlide, Pagination } from "@/components/ui/swiper";
 import SectionTitle from "./SectionTitle";
 
+const ARTICLES_PER_PAGE = 4;
+
 export default function UsefulInfo() {
+  const [visibleCount, setVisibleCount] = useState(ARTICLES_PER_PAGE);
   const articles = [
-    {
-      title: "Как перевезти в другую страну родителей и других родственников ",
-      tag: "Forbes",
-      brand_logo: "/logos/forbes.png",
-      cover_image: "",
-    },
     {
       title: "Как получить немецкий паспорт за три года",
       tag: "DW",
       text_color: "text-white",
       is_title_centered: true,
       brand_logo: "/logos/dw.png",
-      cover_image:
-        "https://www.germancitizenshipbydescent.com/wp-content/uploads/2024/10/apply-to-renew-German-passport.jpg",
+      cover_image: "/articles/passport.png",
+      link: "https://www.youtube.com/watch?v=cWaOZif3yEE",
+    },
+    {
+      title: "Как перевезти в другую страну родителей и других родственников ",
+      tag: "Forbes",
+      brand_logo: "/logos/forbes.png",
+      cover_image: "",
+      link: "https://www.forbes.ru/society/503322-kak-perevezti-v-novuu-stranu-roditelej-i-drugih-rodstvennikov-gid-po-15-gosudarstvam?image=477113",
     },
     {
       title: "Стартапы в Германии: инвестиции, поддержка государства и другие возможности",
-      tag: "VC.ru",
-      brand_logo: "/logos/vc.ru.png",
+      tag: "get-investor.ru",
+      brand_logo: "/logos/getinvestor.png",
       cover_image: "",
+      link: "https://get-investor.ru/startapy-v-germanii",
     },
     {
       title: "Как переехать в Германию и привыкнуть к новым правилам",
-      tag: "Meduza",
-      brand_logo: "/logos/meduza.png",
+      tag: "forbes.ru",
+      brand_logo: "/logos/forbes.png",
       cover_image: "",
+      link: "https://www.forbes.ru/svoi-biznes/470161-kak-pereehat-v-germaniu-i-privyknut-k-novym-pravilam",
     },
     {
       title: "Как переехать в Германию: способы релокации",
       color: "bg-brand",
       is_title_centered: true,
-      brand_logo: "/logos/forbes.png",
-      tag: "Forbes",
+      brand_logo: "/logos/vc.ru.png",
+      tag: "vc.ru",
       cover_image: "",
       text_color: "text-white",
+      link: "https://vc.ru/migrate/790351-kak-pereehat-v-germaniyu-sposoby-relokacii-po-rabote-dlya-frilanserov-i-biznesa",
     },
     {
       title:
         "Свой бизнес в Германии: как зарегистрировать компанию и выбрать правильную форму огранизации",
-      tag: "RB.ru",
-      brand_logo: "/logos/rb.ru.png",
+      tag: "kovcheg.live",
+      brand_logo: "/logos/kovcheg.png",
       cover_image: "",
+      link: "https://youtu.be/pDHQ6SryQ-4",
     },
     {
       title: "Что такое немецкая Blue Card и как ее получают?",
-      tag: "Kovcheg",
-      brand_logo: "/logos/kovcheg.png",
+      tag: "meduza.io",
+      brand_logo: "/logos/meduza.png",
       cover_image: "",
+      link: "https://meduza.io/amp/cards/chto-takoe-nemetskaya-blue-card-i-kak-ee-poluchayut",
     },
     {
       title: "Секреты немецкого паспорта: как получить гражданство Германии и что вам это даст",
-      tag: "GetInvestor",
-      brand_logo: "/logos/getinvestor.png",
+      tag: "rb.ru",
+      brand_logo: "/logos/rb.ru.png",
       cover_image: "",
+      link: "https://rb.ru/opinion/poluchit-grazhdanstvo-germanii/",
+    },
+    {
+      title: "Продавать нужно в Лондоне, а жить — в Берлине. Как и на что живут русские художники",
+      tag: "zimamagazine.com",
+      brand_logo: "/logos/sima.png",
+      cover_image: "",
+      link: "https://zimamagazine.com/2017/07/prodavat-nuzhno-v-londone-a-zhit-v-berline/",
+      brand_bg: "bg-black",
+    },
+    {
+      title: "«Мой заработок все еще находится в России»: как живут москвичи-эмигранты'2022",
+      tag: "moskvichmag.ru",
+      brand_logo: "/logos/moskvich.png",
+      cover_image: "",
+      link: "https://moskvichmag.ru/lyudi/moj-zarabotok-vse-eshhe-nahoditsya-v-rossii-kak-zhivut-moskvichi-emigranty2022/",
+      brand_bg: "bg-black",
+    },
+    {
+      title: "Как получить «сильный» паспорт?",
+      tag: "meduza.io",
+      brand_logo: "/logos/meduza.png",
+      cover_image: "",
+      link: "https://meduza.io/feature/2022/12/19/samyy-radikalnyy-variant-emigratsii-pomenyat-grazhdanstvo-kak-poluchit-silnyy-pasport",
+    },
+    {
+      title: "Как получить «сильный» паспорт?",
+      tag: "meduza.io",
+      brand_logo: "/logos/meduza.png",
+      cover_image: "",
+      link: "https://meduza.io/feature/2022/12/19/samyy-radikalnyy-variant-emigratsii-pomenyat-grazhdanstvo-kak-poluchit-silnyy-pasport",
+    },
+    {
+      title: "9 вещей, которые стоит сделать перед отъездом в Германию и другие страны",
+      tag: "paperpaper.io",
+      brand_logo: "/logos/kartuli.png",
+      cover_image: "",
+      link: "https://paperpaper.io/seshte-za-menya-luchshie-v-mire-pomidor/",
+    },
+    {
+      title: "Как решиться на переезд и на какие вопросы стоит ответить себе перед эмиграцией",
+      tag: "paperpaper.io",
+      brand_logo: "/logos/kartuli.png",
+      cover_image: "",
+      link: "https://exhorts-lydias-776399.appspot.com/kak-reshitsya-na-pereezd-i-na-kakie-vopr/",
     },
   ];
 
@@ -76,9 +131,14 @@ export default function UsefulInfo() {
       color?: string;
       text_color?: string;
       is_title_centered?: boolean;
+      link: string;
+      brand_bg?: string;
     };
   }) => (
-    <div
+    <a
+      href={article.link}
+      target="_blank"
+      rel="noopener noreferrer"
       className={cn(
         "group relative flex min-h-100 cursor-pointer overflow-hidden rounded-[2.5rem]",
         !article.cover_image && (article.color || "bg-gray-light"),
@@ -104,7 +164,12 @@ export default function UsefulInfo() {
         {article.title}
       </p>
       {article.tag && (
-        <div className="absolute bottom-4 left-4 z-10 rounded-full bg-white px-4 py-2">
+        <div
+          className={cn(
+            "absolute bottom-4 left-4 z-10 rounded-full px-4 py-2",
+            article.brand_bg || "bg-white",
+          )}
+        >
           <Image
             src={article.brand_logo}
             alt={article.tag}
@@ -114,7 +179,7 @@ export default function UsefulInfo() {
           />
         </div>
       )}
-    </div>
+    </a>
   );
 
   return (
@@ -153,14 +218,21 @@ export default function UsefulInfo() {
       </div>
 
       <div className="hidden grid-cols-2 gap-5 md:grid md:grid-cols-3 lg:grid-cols-4">
-        {articles.map((article, index) => (
+        {articles.slice(0, visibleCount).map((article, index) => (
           <ArticleCard key={index} article={article} />
         ))}
       </div>
 
-      <Button className="bg-brand hover:bg-brand/90 mt-19 hidden w-full cursor-pointer rounded-2xl py-5 text-base font-semibold text-white md:flex">
-        Загрузить еще
-      </Button>
+      {visibleCount < articles.length && (
+        <Button
+          onClick={() =>
+            setVisibleCount((prev) => Math.min(prev + ARTICLES_PER_PAGE, articles.length))
+          }
+          className="bg-brand hover:bg-brand/90 mt-19 hidden w-full cursor-pointer rounded-2xl py-5 text-base font-semibold text-white md:flex"
+        >
+          Загрузить еще
+        </Button>
+      )}
     </section>
   );
 }

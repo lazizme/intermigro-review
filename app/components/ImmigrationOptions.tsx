@@ -6,7 +6,8 @@ export default function ImmigrationOptions() {
     {
       title: "ВНЖ для фрилансеров и удаленных сотрудников и предпринимателей",
       visa_type: "Freiberufler, Remote",
-      description: "",
+      description:
+        "Виза для удаленных специалистов с высшим образованием, бизнесменов или фрилансеров с международными заказами ",
     },
     {
       title: "ВНЖ для квалифицированных специалистов",
@@ -18,12 +19,13 @@ export default function ImmigrationOptions() {
     {
       title: "ВНЖ для воссоединения семьи",
       visa_type: "Familiennachzug",
-      description: "",
+      description: "ВНЖ для супругов и детей резидентов или граждан Германии.",
     },
     {
       title: "Студенческая виза",
       visa_type: "Studentenvisum",
-      description: "",
+      description:
+        "Виза для тех, кто поступает в немецкие вузы, языковые школы или подготовительные колледжи и уже имеет приглашение от образовательного учреждения.",
     },
   ];
 

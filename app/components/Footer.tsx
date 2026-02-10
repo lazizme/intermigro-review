@@ -53,11 +53,11 @@ export default function Footer() {
           </div>
 
           <div className="hidden items-center gap-8 text-base font-medium text-black lg:flex">
-            <Link href="#">О нас</Link>
-            <Link href="#">Услуги</Link>
-            <Link href="#">Отзывы</Link>
-            <Link href="#">Контакты</Link>
-            <Link href="#">Сервисы</Link>
+            <Link href="#about">О нас</Link>
+            <Link href="#services">Услуги</Link>
+            <Link href="#reviews">Отзывы</Link>
+            <Link href="#contacts">Контакты</Link>
+            <Link href="#consultation">Сервисы</Link>
           </div>
         </div>
 
