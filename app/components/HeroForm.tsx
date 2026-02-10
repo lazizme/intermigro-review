@@ -7,6 +7,14 @@ import { FloatingInput } from "@/components/ui/input";
 import { SelectableButtonGroup } from "@/components/ui/selectable-button-group";
 import { RangeInput } from "@/components/ui/range-input";
 import { FloatingSelect } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 interface FormData {
   name: string;
@@ -82,6 +90,8 @@ export default function HeroForm() {
 
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [medicineError, setMedicineError] = React.useState<string | null>(null);
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [isLeadResult, setIsLeadResult] = React.useState(false);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -114,6 +124,8 @@ export default function HeroForm() {
       const lead = isLead(formData);
       console.log("Form Data:", formData);
       console.log("Is Lead:", lead);
+      setIsLeadResult(lead);
+      setModalOpen(true);
     }
   };
 
@@ -137,17 +149,17 @@ export default function HeroForm() {
         error={errors.name}
       />
       <FloatingInput
+        type="text"
+        label="Фамилия"
+        value={formData.lastName}
+        onChange={(e) => updateField("lastName", e.target.value)}
+      />
+      <FloatingInput
         type="tel"
         label="Телефон"
         value={formData.phone}
         onChange={(e) => updateField("phone", e.target.value)}
         error={errors.phone}
-      />
-      <FloatingInput
-        type="text"
-        label="Фамилия"
-        value={formData.lastName}
-        onChange={(e) => updateField("lastName", e.target.value)}
       />
       <FloatingInput
         type="email"
@@ -193,9 +205,7 @@ export default function HeroForm() {
             { value: "higher", label: "Высшее" },
           ]}
         />
-        {medicineError && (
-          <span className="mt-1 block text-xs text-red-500">{medicineError}</span>
-        )}
+        {medicineError && <span className="mt-1 block text-xs text-red-500">{medicineError}</span>}
       </div>
 
       <RangeInput
@@ -230,6 +240,31 @@ export default function HeroForm() {
       >
         Записаться на консультацию
       </Button>
+
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{isLeadResult ? "Поздравляем!" : "Спасибо за заявку!"}</DialogTitle>
+            <DialogDescription>
+              {isLeadResult
+                ? "Вы подходите под нашу программу! Мы свяжемся с вами в ближайшее время для обсуждения деталей."
+                : "К сожалению, на данный момент вы не подходите под критерии нашей программы. Мы сохраним вашу заявку и свяжемся, если условия изменятся."}
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button
+              onClick={() => setModalOpen(false)}
+              className={
+                isLeadResult
+                  ? "bg-brand hover:bg-brand/90 text-white"
+                  : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+              }
+            >
+              Закрыть
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </form>
   );
 }
