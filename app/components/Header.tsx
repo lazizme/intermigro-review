@@ -6,12 +6,26 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "/about", label: "О нас" },
-  { href: "/services", label: "Услуги" },
-  { href: "/reviews", label: "Отзывы" },
-  { href: "/contacts", label: "Контакты" },
-  { href: "/consultation", label: "Записаться на консультацию" },
+  { href: "#about", label: "О нас" },
+  { href: "#services", label: "Услуги" },
+  { href: "#reviews", label: "Отзывы" },
+  { href: "#contacts", label: "Контакты" },
+  { href: "#consultation", label: "Записаться на консультацию" },
 ];
+
+const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  e.preventDefault();
+  const targetId = href.replace("#", "");
+  const element = document.getElementById(targetId);
+  if (element) {
+    const offset = 100; // pixels above the section
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: "smooth",
+    });
+  }
+};
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,13 +61,14 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
-              className="hover:text-brand text-black transition-colors"
+              onClick={(e) => scrollToSection(e, link.href)}
+              className="hover:text-brand cursor-pointer text-black transition-colors"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -76,7 +91,7 @@ export default function Header() {
       >
         <nav className="flex flex-col gap-1 p-5">
           {navLinks.map((link, index) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
               className="rounded-xl px-4 py-3 text-lg text-black transition-all hover:bg-gray-100"
@@ -85,10 +100,13 @@ export default function Header() {
                 opacity: isMenuOpen ? 1 : 0,
                 transform: isMenuOpen ? "translateX(0)" : "translateX(-10px)",
               }}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                scrollToSection(e, link.href);
+                setIsMenuOpen(false);
+              }}
             >
               {link.label}
-            </Link>
+            </a>
           ))}
         </nav>
       </div>

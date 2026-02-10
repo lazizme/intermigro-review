@@ -11,15 +11,25 @@ import TheBestLawyers from "./components/TheBestLawyers";
 export default function Home() {
   return (
     <main className="bg-white text-black">
-      <Hero />
-      <Stats />
-      <Guarantees />
-      <TheBestLawyers />
+      <div id="consultation">
+        <Hero />
+      </div>
+      <div id="about">
+        <Stats />
+        <Guarantees />
+        <TheBestLawyers />
+      </div>
       <WhoCanApply />
-      <ImmigrationOptions />
-      <ClientReviews />
+      <div id="services">
+        <ImmigrationOptions />
+      </div>
+      <div id="reviews">
+        <ClientReviews />
+      </div>
       <UsefulInfo />
-      <CTA />
+      <div id="contacts">
+        <CTA />
+      </div>
     </main>
   );
 }
