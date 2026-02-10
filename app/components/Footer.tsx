@@ -1,6 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FacebookIcon, InstagramIcon, LinkedInIcon, TikTokIcon } from "./Icons";
+
+const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  e.preventDefault();
+  const targetId = href.replace("#", "");
+  const element = document.getElementById(targetId);
+  if (element) {
+    const offset = 100;
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: "smooth",
+    });
+  }
+};
 
 export default function Footer() {
   return (
@@ -52,13 +68,23 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="hidden items-center gap-8 text-base font-medium text-black lg:flex">
-            <Link href="#about">О нас</Link>
-            <Link href="#services">Услуги</Link>
-            <Link href="#reviews">Отзывы</Link>
-            <Link href="#contacts">Контакты</Link>
-            <Link href="#consultation">Сервисы</Link>
-          </div>
+          <nav className="hidden items-center gap-8 text-base font-medium text-black lg:flex">
+            <a href="#about" onClick={(e) => scrollToSection(e, "#about")}>
+              О нас
+            </a>
+            <a href="#services" onClick={(e) => scrollToSection(e, "#services")}>
+              Услуги
+            </a>
+            <a href="#reviews" onClick={(e) => scrollToSection(e, "#reviews")}>
+              Отзывы
+            </a>
+            <a href="#contacts" onClick={(e) => scrollToSection(e, "#contacts")}>
+              Контакты
+            </a>
+            <a href="#consultation" onClick={(e) => scrollToSection(e, "#consultation")}>
+              Сервисы
+            </a>
+          </nav>
         </div>
 
         <div className="mt-5 mb-7.5 h-px w-full bg-[#DEDEDE]"></div>
