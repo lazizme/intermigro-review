@@ -8,6 +8,66 @@ import SectionTitle from "./SectionTitle";
 export default function ClientReviews() {
   const reviews = [
     {
+      full_name: "Анастасия Писклакова",
+      profession: "Психолог",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
+      full_name: "Елена Гуляева",
+      profession: "Менеджер по закупкам с инженерной специализацией",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
+      full_name: "Катерина Комарова",
+      profession: "Виза по воссоединению",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
+      full_name: "Мария Игнатенко",
+      profession: "Режиссёр",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
+      full_name: "Полина Коробкова",
+      profession: "Композитор",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
+      full_name: "Илья Шагалов",
+      profession: "Режиссер-видеохудожник",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
+      full_name: "Александр",
+      profession: "Художник",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
+      full_name: "Бхима Юнусов",
+      profession: "Композитор",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
+      full_name: "Павел Фёдоров",
+      profession: "Художник",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
+      full_name: "Прохор Колосов",
+      profession: "Керамист, переводчик с японского языка",
+      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
+    },
+    {
       full_name: "Анастасия Вебер",
       profession: "Режиссер",
       video: "https://intermigro.com/wp-content/uploads/2023/07/anastasiya-veber-rezhisser.mp4",
@@ -40,9 +100,9 @@ export default function ClientReviews() {
       cover: "https://intermigro.com/wp-content/uploads/2023/07/zoya-skobelczyna-ceo-lineup.webp",
     },
     {
-      full_name: "Клиент",
-      profession: "",
-      video: "https://intermigro.com/wp-content/uploads/2023/07/111-1.mp4",
+      full_name: "Вова Шебаршев",
+      profession: "Маркетолог",
+      video: "https://drive.google.com/drive/folders/1U7pgd9iUNk2zXhAX-Td3YDJ33CIu0pZf",
       cover: "https://intermigro.com/wp-content/uploads/2023/07/user-trust-4.webp",
     },
   ];

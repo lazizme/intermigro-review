@@ -13,9 +13,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="flex flex-col gap-0 overflow-hidden lg:flex-row lg:gap-10 xl:gap-15 2xl:gap-20">
+    <section className="flex flex-col gap-0 overflow-hidden lg:flex-row lg:gap-12 xl:gap-15 2xl:gap-20">
       <div
-        className={`flex w-full flex-col gap-4 px-5 pt-24 transition-all duration-1000 ease-out md:px-8 lg:w-1/2 lg:gap-6 lg:pt-32 lg:pr-0 2xl:pl-20 ${
+        className={`flex w-full flex-col gap-4 px-5 pt-24 transition-all duration-1000 ease-out md:px-8 md:pl-20 lg:w-1/2 lg:gap-6 lg:pt-32 lg:pr-0 ${
           isLoaded ? "lg:translate-x-0 lg:scale-100" : "lg:translate-x-1/2 lg:scale-125"
         }`}
       >
@@ -53,8 +53,8 @@ export default function Hero() {
               priority
               onLoad={handleImageLoad}
             />
-            <HeroArrowEnds className="text-brand absolute -top-15 -right-14 xl:scale-75 2xl:scale-100" />
-            <HeroArrowStarts className="text-brand absolute -bottom-8.75 -left-17 xl:scale-75 2xl:scale-100" />
+            <HeroArrowEnds className="text-brand absolute -top-15 -right-14 md:scale-85 2xl:scale-100" />
+            <HeroArrowStarts className="text-brand absolute -bottom-11 -left-17 md:scale-85 xl:-bottom-8.75 2xl:scale-100" />
           </div>
           {/* Description - shows on desktop after image */}
           <p
@@ -69,13 +69,13 @@ export default function Hero() {
       </div>
 
       <div
-        className={`flex w-full flex-col gap-6 transition-all duration-1000 ease-out lg:w-1/2 ${
+        className={`flex w-full flex-col gap-6 transition-all duration-1000 ease-out lg:w-7/12 xl:w-6/12 ${
           isLoaded ? "translate-x-0 opacity-100" : "lg:translate-x-full lg:opacity-0"
         }`}
       >
         <div className="bg-gray-light mt-0 rounded-[2.5rem] px-5 pt-10 pb-10 md:px-8 lg:mt-0 lg:rounded-t-none lg:rounded-bl-4xl lg:px-6 lg:pt-25 xl:px-10 2xl:px-12.5">
           <div className="mb-8 flex flex-col gap-2 lg:mb-16 lg:grid lg:grid-cols-2 lg:gap-4 xl:items-center">
-            <h2 className="text-xl font-bold md:text-2xl lg:text-3xl 2xl:text-4xl">
+            <h2 className="text-xl font-bold md:text-xl lg:text-2xl xl:text-[1.75rem] 2xl:text-[2rem]/10">
               Проконсультируем бесплатно
             </h2>
             <p className="text-gray-dark text-xs font-medium md:text-sm lg:text-base xl:text-lg/6">
