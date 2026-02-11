@@ -21,6 +21,12 @@ interface LeadData {
 export async function POST(request: NextRequest) {
   try {
     const leadData: LeadData = await request.json();
+    console.log("Lead submission received:", {
+      name: leadData.name,
+      utm_source: leadData.utm_source,
+      utm_medium: leadData.utm_medium,
+      utm_campaign: leadData.utm_campaign,
+    });
 
     const KOMMO_SUBDOMAIN = process.env.KOMMO_SUBDOMAIN;
     const KOMMO_API_TOKEN = process.env.KOMMO_API_TOKEN;
@@ -173,7 +179,10 @@ export async function POST(request: NextRequest) {
 
     if (!response.ok) {
       const errorData = await response.text();
-      console.error("Kommo API error:", errorData);
+      console.error("=== KOMMO API ERROR ===");
+      console.error("Status:", response.status);
+      console.error("Response:", errorData);
+      console.error("Payload sent:", JSON.stringify(kommoPayload, null, 2));
       return NextResponse.json({ error: "Failed to create lead in CRM" }, { status: response.status });
     }
 
