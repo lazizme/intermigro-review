@@ -29,6 +29,12 @@ interface FormData {
   education: string;
   income: number;
   privacy: boolean;
+  // UTM parameters
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
 }
 
 interface FormErrors {
@@ -103,6 +109,31 @@ export default function HeroForm() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [isLeadResult, setIsLeadResult] = React.useState(false);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  // Capture UTM parameters from URL on component mount
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmData: Partial<FormData> = {};
+
+      const utm_source = urlParams.get("utm_source");
+      const utm_medium = urlParams.get("utm_medium");
+      const utm_campaign = urlParams.get("utm_campaign");
+      const utm_content = urlParams.get("utm_content");
+      const utm_term = urlParams.get("utm_term");
+
+      if (utm_source) utmData.utm_source = utm_source;
+      if (utm_medium) utmData.utm_medium = utm_medium;
+      if (utm_campaign) utmData.utm_campaign = utm_campaign;
+      if (utm_content) utmData.utm_content = utm_content;
+      if (utm_term) utmData.utm_term = utm_term;
+
+      if (Object.keys(utmData).length > 0) {
+        setFormData((prev) => ({ ...prev, ...utmData }));
+        console.log("UTM parameters captured:", utmData);
+      }
+    }
+  }, []);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
