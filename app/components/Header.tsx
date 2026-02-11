@@ -54,16 +54,28 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Block body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
     <>
       <header
-        className={`fixed top-0 z-50 flex w-full items-center justify-between px-5 py-4 transition-all duration-300 md:px-10 md:py-8 xl:px-16 2xl:px-20 ${
+        className={`fixed top-0 z-50 flex w-full items-center justify-between px-5 py-4 transition-all duration-300 md:px-10 md:py-6 xl:px-16 2xl:px-20 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
           isMenuOpen
             ? "bg-brand lg:bg-white"
             : isScrolled
-              ? "bg-white lg:bg-white/75"
+              ? "bg-white/75 lg:bg-white/75"
               : "bg-white lg:bg-transparent"
         }`}
       >

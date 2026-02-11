@@ -206,7 +206,10 @@ export default function HeroForm() {
   };
 
   return (
-    <form className="grid grid-cols-2 gap-x-11 gap-y-7" onSubmit={handleSubmit}>
+    <form
+      className="grid grid-cols-2 gap-x-5 gap-y-4 md:gap-x-7 md:gap-y-6 lg:gap-x-9 lg:gap-y-6 xl:gap-x-11 xl:gap-y-7"
+      onSubmit={handleSubmit}
+    >
       <FloatingInput
         type="text"
         label="Имя"
@@ -235,7 +238,7 @@ export default function HeroForm() {
         error={errors.email}
       />
       <FloatingSelect
-        label="Карьера"
+        label="Профессия"
         value={formData.career}
         onChange={(value) => updateField("career", value)}
         options={[
@@ -256,7 +259,7 @@ export default function HeroForm() {
       {formData.career === "other" && (
         <FloatingInput
           type="text"
-          label="Укажите вашу карьеру"
+          label="Укажите вашу профессию"
           value={formData.careerOther}
           onChange={(e) => updateField("careerOther", e.target.value)}
         />

@@ -9,8 +9,8 @@ export default function Stats() {
           <span className="text-gray-medium mt-2 text-sm md:text-base">
             человек переехали в Германию с нашей помощью
           </span>
-          <div className="bg-brand absolute -top-2 -right-2 rounded-full p-2 text-white md:-top-4 md:-right-4 md:p-3">
-            <Check />
+          <div className="bg-brand absolute top-2 right-2 rounded-full p-1.5 text-white md:-top-4 md:-right-4 md:p-3">
+            <Check className="h-10 w-10 md:h-12 md:w-12" />
           </div>
         </div>
 

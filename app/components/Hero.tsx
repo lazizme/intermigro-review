@@ -13,7 +13,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="flex flex-col gap-6 overflow-hidden lg:flex-row lg:gap-10 xl:gap-15 2xl:gap-20">
+    <section className="flex flex-col gap-0 overflow-hidden lg:flex-row lg:gap-10 xl:gap-15 2xl:gap-20">
       <div
         className={`flex w-full flex-col gap-4 px-5 pt-24 transition-all duration-1000 ease-out md:px-8 lg:w-1/2 lg:gap-6 lg:pt-32 lg:pr-0 2xl:pl-20 ${
           isLoaded ? "lg:translate-x-0 lg:scale-100" : "lg:translate-x-1/2 lg:scale-125"
@@ -28,23 +28,37 @@ export default function Hero() {
           предпринимателям
         </p>
 
-        <div className="relative mx-auto w-full max-w-[500px] md:max-w-none lg:mx-0 lg:max-w-[700px]">
-          <div className="relative h-[280px] md:h-[350px] lg:h-[400px]">
+        {/* Mobile Image - with arrows built-in */}
+        <div className="mx-auto -ml-0.5 w-11/12 lg:hidden">
+          <Image
+            src="/hero_sm.png"
+            alt="Hero Image"
+            width={700}
+            height={500}
+            className="h-auto w-full"
+            priority
+            onLoad={handleImageLoad}
+          />
+        </div>
+
+        {/* Desktop Image - with positioned arrows */}
+        <div className="relative mx-auto hidden w-full max-w-[700px] lg:mx-0 lg:block">
+          <div className="relative h-[400px]">
             <Image
               src="/hero.png"
               alt="Hero Image"
               width={700}
               height={400}
-              className="h-full w-full rounded-[2rem] object-cover lg:rounded-[2.5rem]"
+              className="h-full w-full rounded-[2.5rem] object-cover"
               priority
               onLoad={handleImageLoad}
             />
-            <HeroArrowEnds className="text-brand absolute -top-10 -right-2 scale-50 md:-top-12 md:-right-8 md:scale-90 lg:-top-15 lg:-right-14 xl:scale-75 2xl:scale-100" />
-            <HeroArrowStarts className="text-brand absolute -bottom-6 -left-2 scale-50 md:-bottom-7 md:-left-10 md:scale-90 lg:-bottom-8.75 lg:-left-17 xl:scale-75 2xl:scale-100" />
+            <HeroArrowEnds className="text-brand absolute -top-15 -right-14 xl:scale-75 2xl:scale-100" />
+            <HeroArrowStarts className="text-brand absolute -bottom-8.75 -left-17 xl:scale-75 2xl:scale-100" />
           </div>
           {/* Description - shows on desktop after image */}
           <p
-            className={`text-gray-dark mt-4 ml-auto hidden w-1/2 text-right transition-all duration-1000 ease-out lg:block ${
+            className={`text-gray-dark mt-4 ml-auto w-1/2 text-right transition-all duration-1000 ease-out ${
               isLoaded ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
             }`}
           >
@@ -59,7 +73,7 @@ export default function Hero() {
           isLoaded ? "translate-x-0 opacity-100" : "lg:translate-x-full lg:opacity-0"
         }`}
       >
-        <div className="bg-gray-light mt-8 rounded-[2.5rem] px-5 pt-10 pb-10 md:px-8 lg:mt-0 lg:rounded-t-none lg:rounded-bl-4xl lg:px-6 lg:pt-44 lg:pb-15 xl:px-10 2xl:px-12.5">
+        <div className="bg-gray-light mt-0 rounded-[2.5rem] px-5 pt-10 pb-10 md:px-8 lg:mt-0 lg:rounded-t-none lg:rounded-bl-4xl lg:px-6 lg:pt-25 xl:px-10 2xl:px-12.5">
           <div className="mb-8 flex flex-col gap-2 lg:mb-16 lg:grid lg:grid-cols-2 lg:gap-4 xl:items-center">
             <h2 className="text-xl font-bold md:text-2xl lg:text-3xl 2xl:text-4xl">
               Проконсультируем бесплатно
