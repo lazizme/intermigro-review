@@ -204,5 +204,17 @@ body {
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1.125rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .phone-input-wrapper .PhoneInputInput {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .phone-input-wrapper .PhoneInputInput {
+    font-size: 1.125rem;
+  }
 }

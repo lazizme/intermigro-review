@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { FloatingInput } from "@/components/ui/input";
@@ -23,6 +24,7 @@ interface FormData {
   lastName: string;
   email: string;
   career: string;
+  careerOther: string;
   telegram: string;
   education: string;
   income: number;
@@ -33,6 +35,7 @@ interface FormErrors {
   name?: string;
   phone?: string;
   email?: string;
+  privacy?: string;
 }
 
 function isValidEmail(email: string): boolean {
@@ -42,7 +45,7 @@ function isValidEmail(email: string): boolean {
 function isLead(formData: FormData): boolean {
   const { career, education, income } = formData;
 
-  // Rule: If earnings > 3000, always a lead
+  // Rule: If earnings > 3000, always a lead (regardless of career/education)
   if (income > 3000) {
     return true;
   }
@@ -52,13 +55,18 @@ function isLead(formData: FormData): boolean {
     return false;
   }
 
-  // Rule: If education is highschool or specialist, not a lead (except > 3000 handled above)
-  if (education === "highschool" || education === "specialist") {
-    return false;
+  // Rule: Higher education + income >= 1000 = lead (any career)
+  if (education === "higher" && income >= 1000) {
+    return true;
   }
 
-  // Rule: If career is engineering or medicine AND earnings > 500, is a lead
-  if ((career === "engineering" || career === "medicine") && income > 500) {
+  // Rule: Medicine + specialist education + income > 500 = lead
+  if (career === "medicine" && education === "specialist" && income > 500) {
+    return true;
+  }
+
+  // Rule: Engineering + income > 500 = lead
+  if (career === "engineering" && income > 500) {
     return true;
   }
 
@@ -83,9 +91,10 @@ export default function HeroForm() {
     lastName: "",
     email: "",
     career: "",
+    careerOther: "",
     telegram: "",
     education: "",
-    income: 2000,
+    income: 0,
     privacy: false,
   });
 
@@ -110,6 +119,10 @@ export default function HeroForm() {
       newErrors.email = "Email обязателен";
     } else if (!isValidEmail(formData.email)) {
       newErrors.email = "Неверный email";
+    }
+
+    if (!formData.privacy) {
+      newErrors.privacy = "Необходимо согласие";
     }
 
     const medError = validateMedicineEducation(formData);
@@ -240,6 +253,15 @@ export default function HeroForm() {
         ]}
       />
 
+      {formData.career === "other" && (
+        <FloatingInput
+          type="text"
+          label="Укажите вашу карьеру"
+          value={formData.careerOther}
+          onChange={(e) => updateField("careerOther", e.target.value)}
+        />
+      )}
+
       <FloatingInput
         type="text"
         label="Ник в телеграме"
@@ -272,19 +294,29 @@ export default function HeroForm() {
         onChange={(value) => updateField("income", value)}
       />
 
-      <div className="text-gray-medium col-span-2 flex items-start gap-2 text-sm">
-        <Checkbox
-          id="privacy"
-          className="mt-0.5"
-          checked={formData.privacy}
-          onCheckedChange={(checked) => updateField("privacy", checked === true)}
-        />
-        <label htmlFor="privacy">
-          <span className="font-medium text-black">
-            Проинформирован, что по запросу эта информация может быть удалена. Даю согласие с
+      <div className="relative col-span-2">
+        <div className="text-gray-medium flex items-start gap-2 text-sm">
+          <Checkbox
+            id="privacy"
+            className={`mt-0.5 ${errors.privacy ? "border-red-500 data-[state=unchecked]:border-red-500" : ""}`}
+            checked={formData.privacy}
+            onCheckedChange={(checked) => updateField("privacy", checked === true)}
+          />
+          <label htmlFor="privacy">
+            <span className="font-medium text-black">
+              Проинформирован, что по запросу эта информация может быть удалена. Даю согласие с
+            </span>
+            &nbsp;
+            <Link href="/privacy-policy" className="text-brand hover:underline">
+              политикой конфиденциальности
+            </Link>
+          </label>
+        </div>
+        {errors.privacy && (
+          <span className="absolute -bottom-5 left-0 text-xs text-red-500 lg:text-sm">
+            {errors.privacy}
           </span>
-          &nbsp; политикой конфиденциальности
-        </label>
+        )}
       </div>
 
       <Button

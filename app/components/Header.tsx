@@ -44,17 +44,29 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 z-50 flex w-full items-center justify-between px-5 py-4 transition-colors duration-300 md:px-10 md:py-8 xl:px-16 2xl:px-20 ${
-          isScrolled ? "bg-white lg:bg-white/60" : "bg-white lg:bg-transparent"
+          isMenuOpen
+            ? "bg-brand lg:bg-white"
+            : isScrolled
+              ? "bg-white lg:bg-white/60"
+              : "bg-white lg:bg-transparent"
         }`}
       >
         <Link href="/" className="flex items-center">
+          <Image
+            src={isMenuOpen ? "/logo-white.png" : "/logo.png"}
+            alt="Intermigro Logo"
+            width={166}
+            height={40}
+            priority
+            className="h-8 w-auto md:h-10 lg:hidden"
+          />
           <Image
             src="/logo.svg"
             alt="Intermigro Logo"
             width={166}
             height={40}
             priority
-            className="h-8 w-auto md:h-10"
+            className="hidden h-8 w-auto md:h-10 lg:block"
           />
         </Link>
 
@@ -75,7 +87,7 @@ export default function Header() {
         {/* Burger Menu Button */}
         <button
           type="button"
-          className="flex items-center justify-center lg:hidden"
+          className={`flex items-center justify-center lg:hidden ${isMenuOpen ? "text-white" : "text-black"}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
         >
@@ -85,16 +97,16 @@ export default function Header() {
 
       {/* Mobile Navigation Overlay */}
       <div
-        className={`fixed inset-0 top-[60px] z-40 bg-white transition-all duration-300 ease-out md:top-[76px] lg:hidden ${
+        className={`bg-brand fixed inset-0 top-[60px] z-40 flex flex-col justify-end transition-all duration-300 ease-out md:top-[76px] lg:hidden ${
           isMenuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-4 opacity-0"
         }`}
       >
-        <nav className="flex flex-col gap-1 p-5">
+        <nav className="flex flex-col gap-1 p-5 pb-10">
           {navLinks.map((link, index) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-xl px-4 py-3 text-lg text-black transition-all hover:bg-gray-100"
+              className="rounded-xl px-4 py-3 text-lg text-white transition-all hover:bg-white/10"
               style={{
                 transitionDelay: isMenuOpen ? `${index * 50}ms` : "0ms",
                 opacity: isMenuOpen ? 1 : 0,

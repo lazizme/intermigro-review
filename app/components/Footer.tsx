@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="flex justify-between">
           <div className="flex w-full items-center justify-between gap-5 lg:w-auto lg:gap-22">
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt="Intermigro Logo"
               width={262}
               height={63}
@@ -124,7 +124,7 @@ export default function Footer() {
         </div>
         <div className="flex w-full justify-between gap-6 text-sm lg:w-auto lg:text-base">
           <Link href="/impressum">Impressum</Link>
-          <Link href="/privacy" className="text-nowrap">
+          <Link href="/privacy-policy" className="text-nowrap">
             Политика конфиденциальности
           </Link>
         </div>
