@@ -26,7 +26,7 @@ export default async function PrivacyPage() {
           href="/"
           className="text-brand mb-6 inline-flex items-center gap-2 text-sm font-medium hover:underline"
         >
-          ← Zurück zur Startseite
+          ← Вернуться на главную
         </Link>
 
         <article className="max-w-none">

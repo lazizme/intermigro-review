@@ -520,8 +520,8 @@ Widerspruchsmöglichkeit (Opt-Out): Opt-Out-Plugin: https://tools.google.com/dlp
 Einstellungen für die Darstellung von Werbeeinblendungen: https://adssettings.google.com/authenticated;  
 Weitere Informationen: https://privacy.google.com/businesses/adsservices
 
-**Google Tag Manager:  
-**Google Tag Manager ist eine Lösung, mit der wir sog. Website-Tags über eine Oberfläche verwalten und so andere Dienste in unser Onlineangebot einbinden können (hierzu wird auf weitere Angaben in dieser Datenschutzerklärung verwiesen). Mit dem Tag Manager selbst (welches die Tags implementiert) werden daher z. B. noch keine Profile der Nutzer erstellt oder Cookies gespeichert. Google erfährt lediglich die IP-Adresse des Nutzers, was notwendig ist, um den Google Tag Manager auszuführen;  
+**Google Tag Manager:**
+Google Tag Manager ist eine Lösung, mit der wir sog. Website-Tags über eine Oberfläche verwalten und so andere Dienste in unser Onlineangebot einbinden können (hierzu wird auf weitere Angaben in dieser Datenschutzerklärung verwiesen). Mit dem Tag Manager selbst (welches die Tags implementiert) werden daher z. B. noch keine Profile der Nutzer erstellt oder Cookies gespeichert. Google erfährt lediglich die IP-Adresse des Nutzers, was notwendig ist, um den Google Tag Manager auszuführen;  
 Dienstanbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, Mutterunternehmen: Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA;  
 Website: https://marketingplatform.google.com;  
 Datenschutzerklärung: https://policies.google.com/privacy;  
@@ -529,8 +529,8 @@ Auftragsverarbeitungsvertrag: [https://business.safety.google/adsprocessorterms]
 Standardvertragsklauseln (Gewährleistung Datenschutzniveau bei Verarbeitung in Drittländern): [https://business.safety.google/adsprocessorterms](https://business.safety.google/adsprocessorterms/);  
 Weitere Informationen: https://privacy.google.com/businesses/adsservices
 
-**Yandex.Metrica:  
-**Reichweitenmessung und Webanalyse — Wir setzen Yandex.Metrica zur Analyse der Nutzung unseres Onlineangebotes ein, um Nutzerinteraktionen (z. B. Seitenaufrufe, Klickpfade, Verweildauer) nachzuvollziehen und Heatmaps sowie Session-Replays zu erstellen. Die Analyse dient der Optimierung der Inhalte und Verbesserung der Nutzererfahrung. Hierbei werden pseudonyme Profile von Nutzern mit Informationen aus der Nutzung verschiedener Geräte erstellt. Eine direkte Identifizierung der Nutzer erfolgt nicht.  
+**Yandex.Metrica:**
+Reichweitenmessung und Webanalyse — Wir setzen Yandex.Metrica zur Analyse der Nutzung unseres Onlineangebotes ein, um Nutzerinteraktionen (z. B. Seitenaufrufe, Klickpfade, Verweildauer) nachzuvollziehen und Heatmaps sowie Session-Replays zu erstellen. Die Analyse dient der Optimierung der Inhalte und Verbesserung der Nutzererfahrung. Hierbei werden pseudonyme Profile von Nutzern mit Informationen aus der Nutzung verschiedener Geräte erstellt. Eine direkte Identifizierung der Nutzer erfolgt nicht.  
 Dienstanbieter: YANDEX LLC, ul. Lva Tolstogo 16, 119021 Moskau, Russland;  
 Website: https://metrica.yandex.com;  
 Datenschutzerklärung: https://yandex.com/legal/privacy;  
@@ -539,8 +539,8 @@ Standardvertragsklauseln (Gewährleistung Datenschutzniveau bei Verarbeitung in 
 Widerspruchsmöglichkeit (Opt-Out): https://yandex.com/support/metrica/general/opt-out.xml;  
 Weitere Informationen: https://yandex.com/support/metrica
 
-**Facebook Pixel:  
-**Reichweitenmessung, Konversionsmessung und Remarketing — Wir setzen das Facebook Pixel ein, um die Nutzung unseres Onlineangebotes zu analysieren, die Wirksamkeit unserer Werbemaßnahmen auf Facebook zu messen und zielgruppenorientierte Werbung anzuzeigen. Mithilfe des Facebook Pixels können wir Nutzerinteraktionen (z. B. Seitenaufrufe, getätigte Aktionen) erfassen und diesen für die Ausspielung von Anzeigen auf Facebook und innerhalb des Facebook-Werbenetzwerks zuordnen. Die erhobenen Daten sind für uns anonym, jedoch werden sie von Facebook gespeichert und verarbeitet, sodass eine Verbindung zum jeweiligen Nutzerprofil möglich ist. Facebook kann die Daten auch für eigene Zwecke verwenden.  
+**Facebook Pixel:**
+Reichweitenmessung, Konversionsmessung und Remarketing — Wir setzen das Facebook Pixel ein, um die Nutzung unseres Onlineangebotes zu analysieren, die Wirksamkeit unserer Werbemaßnahmen auf Facebook zu messen und zielgruppenorientierte Werbung anzuzeigen. Mithilfe des Facebook Pixels können wir Nutzerinteraktionen (z. B. Seitenaufrufe, getätigte Aktionen) erfassen und diesen für die Ausspielung von Anzeigen auf Facebook und innerhalb des Facebook-Werbenetzwerks zuordnen. Die erhobenen Daten sind für uns anonym, jedoch werden sie von Facebook gespeichert und verarbeitet, sodass eine Verbindung zum jeweiligen Nutzerprofil möglich ist. Facebook kann die Daten auch für eigene Zwecke verwenden.  
 Dienstanbieter: Meta Platforms Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland;  
 Website: https://www.facebook.com;  
 Datenschutzerklärung: https://www.facebook.com/about/privacy;  
@@ -549,16 +549,16 @@ Standardvertragsklauseln (Gewährleistung Datenschutzniveau bei Verarbeitung in 
 Widerspruchsmöglichkeit (Opt-Out): https://www.facebook.com/settings?tab=ads sowie über die Seite https://www.youronlinechoices.com/;  
 Weitere Informationen: https://www.facebook.com/business/tools/meta-pixel
 
-**Hotjar:  
-**Analyse und Nutzerfeedback — Wir setzen Hotjar ein, um das Verhalten der Nutzer auf unserer Website besser zu verstehen (z. B. welche Seiten besucht werden, wie lange Nutzer auf Seiten bleiben, welche Links angeklickt werden). Hotjar ermöglicht es uns, durch Heatmaps, Session-Replays und Umfragen zu erkennen, wie unsere Website genutzt wird, um diese zu optimieren. Die erhobenen Daten werden pseudonymisiert gespeichert und enthalten keine Klardaten wie Namen oder E-Mail-Adressen.  
+**Hotjar:**
+Analyse und Nutzerfeedback — Wir setzen Hotjar ein, um das Verhalten der Nutzer auf unserer Website besser zu verstehen (z. B. welche Seiten besucht werden, wie lange Nutzer auf Seiten bleiben, welche Links angeklickt werden). Hotjar ermöglicht es uns, durch Heatmaps, Session-Replays und Umfragen zu erkennen, wie unsere Website genutzt wird, um diese zu optimieren. Die erhobenen Daten werden pseudonymisiert gespeichert und enthalten keine Klardaten wie Namen oder E-Mail-Adressen.  
 Dienstanbieter: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian’s STJ 3141, Malta;  
 Website: https://www.hotjar.com;  
 Datenschutzerklärung: https://www.hotjar.com/legal/policies/privacy;  
 Auftragsverarbeitungsvertrag: https://www.hotjar.com/legal/policies/data-processing;  
 Widerspruchsmöglichkeit (Opt-Out): https://www.hotjar.com/legal/compliance/opt-out
 
-**Twitter Ads (Conversion Tracking und Remarketing):  
-**Reichweitenmessung, Konversionsmessung und Remarketing — Wir setzen das Tracking von Twitter ein, um die Nutzung unseres Onlineangebotes zu analysieren, die Wirksamkeit unserer Werbemaßnahmen auf Twitter zu messen und zielgruppenorientierte Werbung anzuzeigen. Mit Hilfe des Twitter-Tags können wir nachvollziehen, welche Aktionen Nutzer auf unserer Website durchgeführt haben, nachdem sie eine unserer Anzeigen auf Twitter gesehen oder angeklickt haben.  
+**Twitter Ads (Conversion Tracking und Remarketing):**
+Reichweitenmessung, Konversionsmessung und Remarketing — Wir setzen das Tracking von Twitter ein, um die Nutzung unseres Onlineangebotes zu analysieren, die Wirksamkeit unserer Werbemaßnahmen auf Twitter zu messen und zielgruppenorientierte Werbung anzuzeigen. Mit Hilfe des Twitter-Tags können wir nachvollziehen, welche Aktionen Nutzer auf unserer Website durchgeführt haben, nachdem sie eine unserer Anzeigen auf Twitter gesehen oder angeklickt haben.  
 Dienstanbieter: Twitter International Unlimited Company, One Cumberland Place, Fenian Street, Dublin 2, D02 AX07, Irland, Mutterunternehmen: Twitter Inc., 1355 Market Street, Suite 900, San Francisco, CA 94103, USA;  
 Website: https://ads.twitter.com;  
 Datenschutzerklärung: https://twitter.com/de/privacy;  
@@ -618,8 +618,8 @@ Wir empfehlen daher zusätzlich die folgenden Opt-Out-Möglichkeiten, die zusamm
 
 ### **Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten**
 
-**Google Ads und Konversionsmessung:  
-**Wir nutzen das Onlinemarketingverfahren "Google Ads", um Anzeigen im Google-Werbe-Netzwerk zu platzieren (z.B., in Suchergebnissen, in Videos, auf Webseiten, etc.), damit sie Nutzern angezeigt werden, die ein mutmaßliches Interesse an den Anzeigen haben (sog. "Konversion"). Ferner messen wir die Konversion der Anzeigen. Wir erfahren jedoch nur die anonyme Gesamtanzahl der Nutzer, die auf unsere Anzeige geklickt haben und zu einer mit einem sog "Conversion-Tracking-Tag" versehenen Seite weitergeleitet wurden. Wir selbst erhalten jedoch keine Informationen, mit denen sich Nutzer identifizieren lassen;
+**Google Ads und Konversionsmessung:**
+Wir nutzen das Onlinemarketingverfahren "Google Ads", um Anzeigen im Google-Werbe-Netzwerk zu platzieren (z.B., in Suchergebnissen, in Videos, auf Webseiten, etc.), damit sie Nutzern angezeigt werden, die ein mutmaßliches Interesse an den Anzeigen haben (sog. "Konversion"). Ferner messen wir die Konversion der Anzeigen. Wir erfahren jedoch nur die anonyme Gesamtanzahl der Nutzer, die auf unsere Anzeige geklickt haben und zu einer mit einem sog "Conversion-Tracking-Tag" versehenen Seite weitergeleitet wurden. Wir selbst erhalten jedoch keine Informationen, mit denen sich Nutzer identifizieren lassen;
 
 Dienstanbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland, Mutterunternehmen: Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA;  
 Website: https://marketingplatform.google.com;  
@@ -656,47 +656,47 @@ Auch im Fall von Auskunftsanfragen und der Geltendmachung von Betroffenenrechten
 - Feedback (z.B. Sammeln von Feedback via Online-Formular)
 - Marketing
 
-**Rechtsgrundlagen:  
-**Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f. DSGVO)
+**Rechtsgrundlagen:**
+Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f. DSGVO)
 
 ### **Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten**
 
-**LinkedIn: Soziales Netzwerk  
-**Dienstanbieter: LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2, Irland;  
+**LinkedIn**: Soziales Netzwerk  
+**Dienstanbieter**: LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2, Irland;  
 Website: https://www.linkedin.com;  
 Datenschutzerklärung: https://www.linkedin.com/legal/privacy-policy;  
 Auftragsverarbeitungsvertrag: https://legal.linkedin.com/dpa;  
 Standardvertragsklauseln: https://legal.linkedin.com/dpa;  
 Widerspruchsmöglichkeit (Opt-Out): https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out.
 
-**Instagram: Soziales Netzwerk  
-**Dienstanbieter: Meta Platforms Irland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland;  
+**Instagram**: Soziales Netzwerk  
+**Dienstanbieter**: Meta Platforms Irland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland;  
 Rechtsgrundlagen: Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f DSGVO);  
 Website: https://instagram.com;  
 Datenschutzerklärung: https://instagram.com/about/legal/privacy.
 
-**Facebook-Seiten  
-**Profile innerhalb des sozialen Netzwerks Facebook – Wir sind gemeinsam mit Meta Platforms Ireland Limited für die Erhebung (jedoch nicht die weitere Verarbeitung) von Daten der Besucher unserer Facebook-Seite (sog. "Fanpage") verantwortlich. Zu diesen Daten gehören Informationen zu den Arten von Inhalten, die Nutzer sich ansehen oder mit denen sie interagieren, oder die von ihnen vorgenommenen Handlungen (siehe unter "Von dir und anderen getätigte und bereitgestellte Dinge" in der [Facebook-Datenrichtlinie](https://facebook.com/policy)), sowie Informationen über die von den Nutzern genutzten Geräte (z. B. IP-Adressen, Betriebssystem, Browsertyp, Spracheinstellungen, Cookie-Daten).
+**Facebook-Seiten**  
+**Profile innerhalb des sozialen Netzwerks Facebook** – Wir sind gemeinsam mit Meta Platforms Ireland Limited für die Erhebung (jedoch nicht die weitere Verarbeitung) von Daten der Besucher unserer Facebook-Seite (sog. "Fanpage") verantwortlich. Zu diesen Daten gehören Informationen zu den Arten von Inhalten, die Nutzer sich ansehen oder mit denen sie interagieren, oder die von ihnen vorgenommenen Handlungen (siehe unter "Von dir und anderen getätigte und bereitgestellte Dinge" in der [Facebook-Datenrichtlinie](https://facebook.com/policy)), sowie Informationen über die von den Nutzern genutzten Geräte (z. B. IP-Adressen, Betriebssystem, Browsertyp, Spracheinstellungen, Cookie-Daten).
 
 Weitere Hinweise finden sich in den [Informationen zu Seiten-Insights](https://facebook.com/legal/terms/information_about_page_insights_data).
 
-Dienstanbieter: Meta Platforms Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland;  
+**Dienstanbieter**: Meta Platforms Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland;  
 Website: https://facebook.com;  
 Datenschutzerklärung: https://facebook.com/about/privacy;  
 Standardvertragsklauseln: https://facebook.com/legal/EU_data_transfer_addendum.
 
-**TikTok: Soziales Netzwerk / Video-Plattform  
-**Dienstanbieter: TikTok Technology Limited, 10 Earlsfort Terrace, Dublin, D02 T380, Irland;  
+**TikTok**: Soziales Netzwerk / Video-Plattform  
+**Dienstanbieter**: TikTok Technology Limited, 10 Earlsfort Terrace, Dublin, D02 T380, Irland;  
 Website: https://tiktok.com;  
 Datenschutzerklärung: https://tiktok.com/de/privacy-policy.
 
-**YouTube: Soziales Netzwerk und Videoplattform  
-**Dienstanbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland;  
+**YouTube**: Soziales Netzwerk und Videoplattform  
+**Dienstanbieter**: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland;  
 Datenschutzerklärung: https://policies.google.com/privacy;  
 Widerspruchsmöglichkeit (Opt-Out): [adssettings.google.com/authenticated](https://adssettings.google.com/authenticated).
 
-**Xing: Soziales Netzwerk  
-**Dienstanbieter: XING AG, Dammtorstraße 29-32, 20354 Hamburg, Deutschland;  
+**Xing**: Soziales Netzwerk  
+**Dienstanbieter**: XING AG, Dammtorstraße 29-32, 20354 Hamburg, Deutschland;  
 Website: https://www.xing.de;  
 Datenschutzerklärung: https://privacy.xing.com/de/datenschutzerklaerung.
 
@@ -724,26 +724,28 @@ Die Einbindung setzt immer voraus, dass die Drittanbieter dieser Inhalte die IP-
 - Marketing
 - Profile mit nutzerbezogenen Informationen (Erstellen von Nutzerprofilen)
 
-**Rechtsgrundlagen:  
-**Einwilligung (Art. 6 Abs. 1 S. 1 lit. a. DSGVO)  
+**Rechtsgrundlagen:**
+Einwilligung (Art. 6 Abs. 1 S. 1 lit. a. DSGVO)  
 Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f. DSGVO)
 
 ### **Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten**
 
-**Google Maps  
-**Wir binden die Landkarten des Dienstes "Google Maps" des Anbieters Google ein. Zu den verarbeiteten Daten können insbesondere IP-Adressen und Standortdaten der Nutzer gehören, die jedoch nicht ohne deren Einwilligung (im Regelfall im Rahmen der Einstellungen ihrer Mobilgeräte vollzogen), erhoben werden.  
-<br/>Dienstanbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, Mutterunternehmen: Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA;  
-Website: https://cloud.google.com/maps-platform;  
-Datenschutzerklärung: https://policies.google.com/privacy;  
-Widerspruchsmöglichkeit (Opt-Out): [Opt-Out-Plugin](https://tools.google.com/dlpage/gaoptout?hl=de);  
-Einstellungen für die Darstellung von Werbeeinblendungen: https://adssettings.google.com/authenticated.
+**Google Maps**
 
-**YouTube-Videos: Videoinhalte  
-**Dienstanbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland;  
-Website: https://youtube.com;  
-Datenschutzerklärung: https://policies.google.com/privacy;  
-Widerspruchsmöglichkeit (Opt-Out): [Opt-Out-Plugin](https://tools.google.com/dlpage/gaoptout?hl=de);  
-Einstellungen für die Darstellung von Werbeeinblendungen: https://adssettings.google.com/authenticated.
+Wir binden die Landkarten des Dienstes "Google Maps" des Anbieters Google ein. Zu den verarbeiteten Daten können insbesondere IP-Adressen und Standortdaten der Nutzer gehören, die jedoch nicht ohne deren Einwilligung (im Regelfall im Rahmen der Einstellungen ihrer Mobilgeräte vollzogen), erhoben werden.
+
+**Dienstanbieter**: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, **Mutterunternehmen**: Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA;  
+**Website**: https://cloud.google.com/maps-platform;  
+**Datenschutzerklärung**: https://policies.google.com/privacy;  
+**Widerspruchsmöglichkeit (Opt-Out)**: [Opt-Out-Plugin](https://tools.google.com/dlpage/gaoptout?hl=de);  
+**Einstellungen für die Darstellung von Werbeeinblendungen**: https://adssettings.google.com/authenticated.
+
+**YouTube-Videos**: Videoinhalte  
+**Dienstanbieter**: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland;  
+**Website**: https://youtube.com;  
+**Datenschutzerklärung**: https://policies.google.com/privacy;  
+**Widerspruchsmöglichkeit (Opt-Out)**: [Opt-Out-Plugin](https://tools.google.com/dlpage/gaoptout?hl=de);  
+**Einstellungen für die Darstellung von Werbeeinblendungen**: https://adssettings.google.com/authenticated.
 
 ## **Management, Organisation und Hilfswerkzeuge**
 
@@ -775,20 +777,20 @@ Sofern Nutzer im Rahmen der Kommunikation, von Geschäfts- oder anderen Beziehun
 - Reichweitenmessung (z.B. Zugriffsstatistiken, Erkennung wiederkehrender Besucher)
 - Profile mit nutzerbezogenen Informationen (Erstellen von Nutzerprofilen)
 
-**Rechtsgrundlagen:  
-**Einwilligung (Art. 6 Abs. 1 S. 1 lit. a. DSGVO)  
+**Rechtsgrundlagen:**
+Einwilligung (Art. 6 Abs. 1 S. 1 lit. a. DSGVO)  
 Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f. DSGVO)  
 Vertragserfüllung und vorvertragliche Anfragen (Art. 6 Abs. 1 S. 1 lit. b. DSGVO)
 
 ### **Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten**
 
-**WeTransfer: Übertragung von Dateien über das Internet  
-**Dienstanbieter: WeTransfer BV, Oostelijke Handelskade 751, Amsterdam, 1019 BW, Niederlande;  
-Website: https://wetransfer.com;  
-Datenschutzerklärung: https://wetransfer.com/legal/privacy.
+**WeTransfer**: Übertragung von Dateien über das Internet  
+**Dienstanbieter**: WeTransfer BV, Oostelijke Handelskade 751, Amsterdam, 1019 BW, Niederlande;  
+**Website**: https://wetransfer.com;  
+**Datenschutzerklärung**: https://wetransfer.com/legal/privacy.
 
-**Notion: Plattform für Notizen, Projektmanagement und Zusammenarbeit  
-**Dienstanbieter: Notion Labs, Inc., 548 Market St, PMB 90033, San
+**Notion**: Plattform für Notizen, Projektmanagement und Zusammenarbeit  
+**Dienstanbieter: Notion Labs, Inc., 548 Market St, PMB 90033, San**
 
 ## **Änderung und Aktualisierung der Datenschutzerklärung**
 
@@ -800,20 +802,20 @@ Sofern wir in dieser Datenschutzerklärung Adressen und Kontaktinformationen von
 
 Ihnen stehen als Betroffene nach der DSGVO verschiedene Rechte zu, die sich insbesondere aus Art. 15 bis 21 DSGVO ergeben:
 
-- **Widerspruchsrecht:  
-   **Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten, die aufgrund von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, Widerspruch einzulegen; dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. Werden die Sie betreffenden personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten zum Zwecke derartiger Werbung einzulegen; dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht.
-- **Widerrufsrecht bei Einwilligungen:  
-   **Sie haben das Recht, erteilte Einwilligungen jederzeit zu widerrufen.
-- **Auskunftsrecht:  
-   **Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden und auf Auskunft über diese Daten sowie auf weitere Informationen und Kopie der Daten entsprechend den gesetzlichen Vorgaben.
-- **Recht auf Berichtigung:  
-   **Sie haben entsprechend den gesetzlichen Vorgaben das Recht, die Vervollständigung der Sie betreffenden Daten oder die Berichtigung der Sie betreffenden unrichtigen Daten zu verlangen.
-- **Recht auf Löschung und Einschränkung der Verarbeitung:  
-   **Sie haben nach Maßgabe der gesetzlichen Vorgaben das Recht, zu verlangen, dass Sie betreffende Daten unverzüglich gelöscht werden, bzw. alternativ nach Maßgabe der gesetzlichen Vorgaben eine Einschränkung der Verarbeitung der Daten zu verlangen.
-- **Recht auf Datenübertragbarkeit:  
-   **Sie haben das Recht, Sie betreffende Daten, die Sie uns bereitgestellt haben, nach Maßgabe der gesetzlichen Vorgaben in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder deren Übermittlung an einen anderen Verantwortlichen zu fordern.
-- **Beschwerde bei Aufsichtsbehörde:  
-   **Entsprechend den gesetzlichen Vorgaben und unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs, haben Sie ferner das Recht, bei einer Datenschutzaufsichtsbehörde, insbesondere einer Aufsichtsbehörde im Mitgliedstaat, in dem Sie sich gewöhnlich aufhalten, der Aufsichtsbehörde Ihres Arbeitsplatzes oder des Ortes des mutmaßlichen Verstoßes, eine Beschwerde einzulegen, wenn Sie der Ansicht sei sollten, dass die Verarbeitung der Ihre Person betreffenden personenbezogenen Daten gegen die DSGVO verstößt.
+- **Widerspruchsrecht**:  
+   Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten, die aufgrund von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, Widerspruch einzulegen; dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. Werden die Sie betreffenden personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten zum Zwecke derartiger Werbung einzulegen; dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht.
+- **Widerrufsrecht bei Einwilligungen**:  
+   Sie haben das Recht, erteilte Einwilligungen jederzeit zu widerrufen.
+- **Auskunftsrecht**:  
+   Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden und auf Auskunft über diese Daten sowie auf weitere Informationen und Kopie der Daten entsprechend den gesetzlichen Vorgaben.
+- **Recht auf Berichtigung**:  
+   Sie haben entsprechend den gesetzlichen Vorgaben das Recht, die Vervollständigung der Sie betreffenden Daten oder die Berichtigung der Sie betreffenden unrichtigen Daten zu verlangen.
+- **Recht auf Löschung und Einschränkung der Verarbeitung**:  
+   Sie haben nach Maßgabe der gesetzlichen Vorgaben das Recht, zu verlangen, dass Sie betreffende Daten unverzüglich gelöscht werden, bzw. alternativ nach Maßgabe der gesetzlichen Vorgaben eine Einschränkung der Verarbeitung der Daten zu verlangen.
+- **Recht auf Datenübertragbarkeit**:  
+   Sie haben das Recht, Sie betreffende Daten, die Sie uns bereitgestellt haben, nach Maßgabe der gesetzlichen Vorgaben in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder deren Übermittlung an einen anderen Verantwortlichen zu fordern.
+- **Beschwerde bei Aufsichtsbehörde**:  
+   Entsprechend den gesetzlichen Vorgaben und unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs, haben Sie ferner das Recht, bei einer Datenschutzaufsichtsbehörde, insbesondere einer Aufsichtsbehörde im Mitgliedstaat, in dem Sie sich gewöhnlich aufhalten, der Aufsichtsbehörde Ihres Arbeitsplatzes oder des Ortes des mutmaßlichen Verstoßes, eine Beschwerde einzulegen, wenn Sie der Ansicht sei sollten, dass die Verarbeitung der Ihre Person betreffenden personenbezogenen Daten gegen die DSGVO verstößt.
 
 ## **Begriffsdefinitionen**
 
