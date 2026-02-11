@@ -84,33 +84,34 @@ export async function POST(request: NextRequest) {
     ];
 
     // Add UTM parameters if provided
+    // For tracking_data type fields in Kommo, send each field individually
     if (leadData.utm_source && KOMMO_UTM_SOURCE_FIELD_ID) {
       leadCustomFields.push({
-        field_id: parseInt(KOMMO_UTM_SOURCE_FIELD_ID),
+        field_code: "UTM_SOURCE",
         values: [{ value: leadData.utm_source }],
       });
     }
     if (leadData.utm_medium && KOMMO_UTM_MEDIUM_FIELD_ID) {
       leadCustomFields.push({
-        field_id: parseInt(KOMMO_UTM_MEDIUM_FIELD_ID),
+        field_code: "UTM_MEDIUM",
         values: [{ value: leadData.utm_medium }],
       });
     }
     if (leadData.utm_campaign && KOMMO_UTM_CAMPAIGN_FIELD_ID) {
       leadCustomFields.push({
-        field_id: parseInt(KOMMO_UTM_CAMPAIGN_FIELD_ID),
+        field_code: "UTM_CAMPAIGN",
         values: [{ value: leadData.utm_campaign }],
       });
     }
     if (leadData.utm_content && KOMMO_UTM_CONTENT_FIELD_ID) {
       leadCustomFields.push({
-        field_id: parseInt(KOMMO_UTM_CONTENT_FIELD_ID),
+        field_code: "UTM_CONTENT",
         values: [{ value: leadData.utm_content }],
       });
     }
     if (leadData.utm_term && KOMMO_UTM_TERM_FIELD_ID) {
       leadCustomFields.push({
-        field_id: parseInt(KOMMO_UTM_TERM_FIELD_ID),
+        field_code: "UTM_TERM",
         values: [{ value: leadData.utm_term }],
       });
     }
@@ -123,20 +124,7 @@ export async function POST(request: NextRequest) {
 
     // Prepare the payload for Kommo Incoming Leads API
     const currentTimestamp = Math.floor(Date.now() / 1000); // Unix timestamp
-
-    // Build referer URL with UTM parameters for Kommo tracking_data fields
-    let refererUrl = request.headers.get("referer") || "https://intermigro.com";
-    if (leadData.utm_source || leadData.utm_medium || leadData.utm_campaign) {
-      const utmParams = new URLSearchParams();
-      if (leadData.utm_source) utmParams.set("utm_source", leadData.utm_source);
-      if (leadData.utm_medium) utmParams.set("utm_medium", leadData.utm_medium);
-      if (leadData.utm_campaign) utmParams.set("utm_campaign", leadData.utm_campaign);
-      if (leadData.utm_content) utmParams.set("utm_content", leadData.utm_content);
-      if (leadData.utm_term) utmParams.set("utm_term", leadData.utm_term);
-
-      const baseUrl = refererUrl.split("?")[0];
-      refererUrl = `${baseUrl}?${utmParams.toString()}`;
-    }
+    const refererUrl = request.headers.get("referer") || "https://intermigro.com";
 
     const incomingLeadPayload: any = {
       source_name: "Intermigro Website",
