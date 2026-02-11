@@ -84,34 +84,33 @@ export async function POST(request: NextRequest) {
     ];
 
     // Add UTM parameters if provided
-    // For tracking_data type fields in Kommo, send each field individually
     if (leadData.utm_source && KOMMO_UTM_SOURCE_FIELD_ID) {
       leadCustomFields.push({
-        field_code: "UTM_SOURCE",
+        field_id: parseInt(KOMMO_UTM_SOURCE_FIELD_ID),
         values: [{ value: leadData.utm_source }],
       });
     }
     if (leadData.utm_medium && KOMMO_UTM_MEDIUM_FIELD_ID) {
       leadCustomFields.push({
-        field_code: "UTM_MEDIUM",
+        field_id: parseInt(KOMMO_UTM_MEDIUM_FIELD_ID),
         values: [{ value: leadData.utm_medium }],
       });
     }
     if (leadData.utm_campaign && KOMMO_UTM_CAMPAIGN_FIELD_ID) {
       leadCustomFields.push({
-        field_code: "UTM_CAMPAIGN",
+        field_id: parseInt(KOMMO_UTM_CAMPAIGN_FIELD_ID),
         values: [{ value: leadData.utm_campaign }],
       });
     }
     if (leadData.utm_content && KOMMO_UTM_CONTENT_FIELD_ID) {
       leadCustomFields.push({
-        field_code: "UTM_CONTENT",
+        field_id: parseInt(KOMMO_UTM_CONTENT_FIELD_ID),
         values: [{ value: leadData.utm_content }],
       });
     }
     if (leadData.utm_term && KOMMO_UTM_TERM_FIELD_ID) {
       leadCustomFields.push({
-        field_code: "UTM_TERM",
+        field_id: parseInt(KOMMO_UTM_TERM_FIELD_ID),
         values: [{ value: leadData.utm_term }],
       });
     }
