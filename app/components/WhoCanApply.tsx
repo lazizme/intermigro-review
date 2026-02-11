@@ -19,7 +19,7 @@ export default function WhoCanApply() {
                     Вы удаленный сотрудник: IT-специалист или фрилансер
                   </span>
                 </h2>
-                <div className="text-black">
+                <div className="-mt-2 text-black">
                   <SofaIcon />
                 </div>
               </div>
@@ -37,7 +37,7 @@ export default function WhoCanApply() {
                       Вы квалифицированный специалист
                     </span>
                   </h2>
-                  <div className="text-black">
+                  <div className="-mt-2 text-black">
                     <BrainIcon />
                   </div>
                 </div>
@@ -91,14 +91,17 @@ export default function WhoCanApply() {
         </div>
         <div className="col-span-full flex flex-col gap-5 lg:col-span-5">
           <div className="relative grid max-h-max grid-cols-5 gap-5">
-            <div className="bg-gray-light col-span-5 mr-10 flex flex-col justify-between gap-10 rounded-3xl px-3 py-5 sm:col-span-3 sm:mr-0 sm:px-6 sm:py-10">
+            <div
+              className="col-span-5 mr-10 flex flex-col justify-between gap-10 rounded-3xl bg-cover bg-center px-3 py-5 sm:col-span-3 sm:mr-0 sm:px-6 sm:py-10"
+              style={{ backgroundImage: "url('/liza_review_bg.png')" }}
+            >
               <div className="flex justify-between gap-3">
                 <h2 className="w-2/3 text-sm leading-snug font-extrabold sm:w-full md:text-base lg:text-lg">
                   <span className="inline bg-yellow-300 box-decoration-clone px-0.5">
                     Вы человек искусства
                   </span>
                 </h2>
-                <div className="text-black">
+                <div className="-mt-2 text-black">
                   <PaintIcon />
                 </div>
               </div>
@@ -152,7 +155,7 @@ export default function WhoCanApply() {
                       Вы студент
                     </span>
                   </h2>
-                  <div className="text-black">
+                  <div className="-mt-2 text-black">
                     <MastersCapIcon />
                   </div>
                 </div>

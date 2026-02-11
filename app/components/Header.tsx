@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -29,25 +29,41 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) =
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+
+      // Always show header at top of page
+      if (currentScrollY < 100) {
+        setIsVisible(true);
+        setIsScrolled(false);
+      } else {
+        // Show on scroll up, hide on scroll down
+        setIsVisible(currentScrollY < lastScrollY.current);
+        setIsScrolled(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
       <header
-        className={`fixed top-0 z-50 flex w-full items-center justify-between px-5 py-4 transition-colors duration-300 md:px-10 md:py-8 xl:px-16 2xl:px-20 ${
+        className={`fixed top-0 z-50 flex w-full items-center justify-between px-5 py-4 transition-all duration-300 md:px-10 md:py-8 xl:px-16 2xl:px-20 ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        } ${
           isMenuOpen
             ? "bg-brand lg:bg-white"
             : isScrolled
-              ? "bg-white lg:bg-white/60"
+              ? "bg-white lg:bg-white/75"
               : "bg-white lg:bg-transparent"
         }`}
       >

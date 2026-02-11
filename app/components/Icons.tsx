@@ -56,17 +56,23 @@ export const Check = (props: SVGProps<SVGSVGElement>) => (
 
 export const SmilingCircle = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    width="47"
-    height="47"
-    viewBox="0 0 47 47"
+    width="44"
+    height="44"
+    viewBox="0 0 44 44"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <path
-      d="M14.3333 3.44449C6.75972 6.92052 1.5 14.5709 1.5 23.4497C1.5 35.5999 11.3497 45.4497 23.5 45.4497C35.6503 45.4497 45.5 35.5999 45.5 23.4497C45.5 11.8035 36.4507 2.271 25 1.5M14.3333 3.44449L7 4.19967L11.5833 9.24133L14.3333 3.44449Z"
-      stroke="white"
-      strokeWidth="3"
+      d="M14.0833 4.67591C7.54249 7.67794 3 14.285 3 21.9531C3 32.4465 11.5066 40.9531 22 40.9531C32.4934 40.9531 41 32.4465 41 21.9531C41 11.8951 33.1847 3.66245 23.2955 2.99658M14.0833 4.67591L7.75 5.32811L11.7083 9.68228L14.0833 4.67591Z"
+      stroke="currentColor"
+      strokeWidth="2.59091"
+      strokeLinecap="round"
+    />
+    <path
+      d="M12.5 29.7255C20.8293 35.982 28.0614 32.3323 30.6364 29.7255"
+      stroke="currentColor"
+      strokeWidth="2.59091"
       strokeLinecap="round"
     />
   </svg>

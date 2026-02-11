@@ -9,7 +9,6 @@ export default function Hero() {
   const [isLoaded, setIsLoaded] = React.useState(false);
 
   const handleImageLoad = () => {
-    // Small delay after image loads to ensure smooth animation start
     setTimeout(() => setIsLoaded(true), 100);
   };
 
@@ -40,8 +39,8 @@ export default function Hero() {
               priority
               onLoad={handleImageLoad}
             />
-            <HeroArrowEnds className="text-brand absolute -top-10 -right-2 scale-75 md:-top-12 md:-right-8 md:scale-90 lg:-top-15 lg:-right-14 lg:scale-100" />
-            <HeroArrowStarts className="text-brand absolute -bottom-6 -left-2 scale-75 md:-bottom-7 md:-left-10 md:scale-90 lg:-bottom-8.75 lg:-left-17 lg:scale-100" />
+            <HeroArrowEnds className="text-brand absolute -top-10 -right-2 scale-50 md:-top-12 md:-right-8 md:scale-90 lg:-top-15 lg:-right-14 xl:scale-75 2xl:scale-100" />
+            <HeroArrowStarts className="text-brand absolute -bottom-6 -left-2 scale-50 md:-bottom-7 md:-left-10 md:scale-90 lg:-bottom-8.75 lg:-left-17 xl:scale-75 2xl:scale-100" />
           </div>
           {/* Description - shows on desktop after image */}
           <p

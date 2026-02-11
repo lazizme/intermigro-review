@@ -7,11 +7,18 @@ import { Button } from "@/components/ui/button";
 import { Swiper, SwiperSlide, Pagination } from "@/components/ui/swiper";
 import SectionTitle from "./SectionTitle";
 
-const ARTICLES_PER_PAGE = 4;
+const ARTICLES_PER_PAGE = 8;
 
 export default function UsefulInfo() {
   const [visibleCount, setVisibleCount] = useState(ARTICLES_PER_PAGE);
   const articles = [
+    {
+      title: "Как перевезти в другую страну родителей и других родственников ",
+      tag: "Forbes",
+      brand_logo: "/logos/forbes.png",
+      cover_image: "",
+      link: "https://www.forbes.ru/society/503322-kak-perevezti-v-novuu-stranu-roditelej-i-drugih-rodstvennikov-gid-po-15-gosudarstvam?image=477113",
+    },
     {
       title: "Как получить немецкий паспорт за три года",
       tag: "DW",
@@ -20,13 +27,6 @@ export default function UsefulInfo() {
       brand_logo: "/logos/dw.png",
       cover_image: "/articles/passport.png",
       link: "https://www.youtube.com/watch?v=cWaOZif3yEE",
-    },
-    {
-      title: "Как перевезти в другую страну родителей и других родственников ",
-      tag: "Forbes",
-      brand_logo: "/logos/forbes.png",
-      cover_image: "",
-      link: "https://www.forbes.ru/society/503322-kak-perevezti-v-novuu-stranu-roditelej-i-drugih-rodstvennikov-gid-po-15-gosudarstvam?image=477113",
     },
     {
       title: "Стартапы в Германии: инвестиции, поддержка государства и другие возможности",
@@ -39,7 +39,8 @@ export default function UsefulInfo() {
       title: "Как переехать в Германию и привыкнуть к новым правилам",
       tag: "forbes.ru",
       brand_logo: "/logos/forbes.png",
-      cover_image: "",
+      cover_image: "/articles/how_to_move_to_germany.png",
+      text_color: "text-white",
       link: "https://www.forbes.ru/svoi-biznes/470161-kak-pereehat-v-germaniu-i-privyknut-k-novym-pravilam",
     },
     {
@@ -64,7 +65,8 @@ export default function UsefulInfo() {
       title: "Что такое немецкая Blue Card и как ее получают?",
       tag: "meduza.io",
       brand_logo: "/logos/meduza.png",
-      cover_image: "",
+      cover_image: "/articles/bluecard.png",
+      text_color: "text-white",
       link: "https://meduza.io/amp/cards/chto-takoe-nemetskaya-blue-card-i-kak-ee-poluchayut",
     },
     {
@@ -75,27 +77,19 @@ export default function UsefulInfo() {
       link: "https://rb.ru/opinion/poluchit-grazhdanstvo-germanii/",
     },
     {
-      title: "Продавать нужно в Лондоне, а жить — в Берлине. Как и на что живут русские художники",
-      tag: "zimamagazine.com",
-      brand_logo: "/logos/sima.png",
-      cover_image: "",
-      link: "https://zimamagazine.com/2017/07/prodavat-nuzhno-v-londone-a-zhit-v-berline/",
-      brand_bg: "bg-black",
-    },
-    {
       title: "«Мой заработок все еще находится в России»: как живут москвичи-эмигранты'2022",
       tag: "moskvichmag.ru",
-      brand_logo: "/logos/moskvich.png",
+      brand_logo: "/logos/moskvichmag.png",
       cover_image: "",
       link: "https://moskvichmag.ru/lyudi/moj-zarabotok-vse-eshhe-nahoditsya-v-rossii-kak-zhivut-moskvichi-emigranty2022/",
-      brand_bg: "bg-black",
     },
     {
-      title: "Как получить «сильный» паспорт?",
-      tag: "meduza.io",
-      brand_logo: "/logos/meduza.png",
-      cover_image: "",
-      link: "https://meduza.io/feature/2022/12/19/samyy-radikalnyy-variant-emigratsii-pomenyat-grazhdanstvo-kak-poluchit-silnyy-pasport",
+      title: "Продавать нужно в Лондоне, а жить — в Берлине. Как и на что живут русские художники",
+      tag: "zimamagazine.com",
+      brand_logo: "/logos/zima.png",
+      cover_image: "/articles/london.png",
+      text_color: "text-white",
+      link: "https://zimamagazine.com/2017/07/prodavat-nuzhno-v-londone-a-zhit-v-berline/",
     },
     {
       title: "Как получить «сильный» паспорт?",
@@ -108,6 +102,9 @@ export default function UsefulInfo() {
       title: "9 вещей, которые стоит сделать перед отъездом в Германию и другие страны",
       tag: "paperpaper.io",
       brand_logo: "/logos/kartuli.png",
+      is_title_centered: true,
+      color: "bg-brand",
+      text_color: "text-white",
       cover_image: "",
       link: "https://paperpaper.io/seshte-za-menya-luchshie-v-mire-pomidor/",
     },
@@ -150,7 +147,7 @@ export default function UsefulInfo() {
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${article.cover_image})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url(${article.cover_image})`,
           }}
         />
       )}
