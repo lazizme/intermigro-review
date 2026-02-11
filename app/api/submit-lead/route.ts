@@ -10,6 +10,12 @@ interface LeadData {
   telegram: string;
   education: string;
   income: number;
+  // UTM parameters (optional)
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
 }
 
 export async function POST(request: NextRequest) {
@@ -21,6 +27,13 @@ export async function POST(request: NextRequest) {
     const KOMMO_PIPELINE_ID = process.env.KOMMO_PIPELINE_ID;
     const KOMMO_PHONE_FIELD_ID = process.env.KOMMO_PHONE_FIELD_ID;
     const KOMMO_EMAIL_FIELD_ID = process.env.KOMMO_EMAIL_FIELD_ID;
+
+    // UTM field IDs
+    const KOMMO_UTM_SOURCE_FIELD_ID = process.env.KOMMO_UTM_SOURCE_FIELD_ID;
+    const KOMMO_UTM_MEDIUM_FIELD_ID = process.env.KOMMO_UTM_MEDIUM_FIELD_ID;
+    const KOMMO_UTM_CAMPAIGN_FIELD_ID = process.env.KOMMO_UTM_CAMPAIGN_FIELD_ID;
+    const KOMMO_UTM_CONTENT_FIELD_ID = process.env.KOMMO_UTM_CONTENT_FIELD_ID;
+    const KOMMO_UTM_TERM_FIELD_ID = process.env.KOMMO_UTM_TERM_FIELD_ID;
 
     // Validate required environment variables
     if (
@@ -70,6 +83,38 @@ export async function POST(request: NextRequest) {
       },
     ];
 
+    // Add UTM parameters if provided
+    if (leadData.utm_source && KOMMO_UTM_SOURCE_FIELD_ID) {
+      leadCustomFields.push({
+        field_id: parseInt(KOMMO_UTM_SOURCE_FIELD_ID),
+        values: [{ value: leadData.utm_source }],
+      });
+    }
+    if (leadData.utm_medium && KOMMO_UTM_MEDIUM_FIELD_ID) {
+      leadCustomFields.push({
+        field_id: parseInt(KOMMO_UTM_MEDIUM_FIELD_ID),
+        values: [{ value: leadData.utm_medium }],
+      });
+    }
+    if (leadData.utm_campaign && KOMMO_UTM_CAMPAIGN_FIELD_ID) {
+      leadCustomFields.push({
+        field_id: parseInt(KOMMO_UTM_CAMPAIGN_FIELD_ID),
+        values: [{ value: leadData.utm_campaign }],
+      });
+    }
+    if (leadData.utm_content && KOMMO_UTM_CONTENT_FIELD_ID) {
+      leadCustomFields.push({
+        field_id: parseInt(KOMMO_UTM_CONTENT_FIELD_ID),
+        values: [{ value: leadData.utm_content }],
+      });
+    }
+    if (leadData.utm_term && KOMMO_UTM_TERM_FIELD_ID) {
+      leadCustomFields.push({
+        field_id: parseInt(KOMMO_UTM_TERM_FIELD_ID),
+        values: [{ value: leadData.utm_term }],
+      });
+    }
+
     // Generate unique source_uid for this lead
     const source_uid = crypto
       .createHash("md5")
@@ -78,6 +123,21 @@ export async function POST(request: NextRequest) {
 
     // Prepare the payload for Kommo Incoming Leads API
     const currentTimestamp = Math.floor(Date.now() / 1000); // Unix timestamp
+
+    // Build referer URL with UTM parameters for Kommo tracking_data fields
+    let refererUrl = request.headers.get("referer") || "https://intermigro.com";
+    if (leadData.utm_source || leadData.utm_medium || leadData.utm_campaign) {
+      const utmParams = new URLSearchParams();
+      if (leadData.utm_source) utmParams.set("utm_source", leadData.utm_source);
+      if (leadData.utm_medium) utmParams.set("utm_medium", leadData.utm_medium);
+      if (leadData.utm_campaign) utmParams.set("utm_campaign", leadData.utm_campaign);
+      if (leadData.utm_content) utmParams.set("utm_content", leadData.utm_content);
+      if (leadData.utm_term) utmParams.set("utm_term", leadData.utm_term);
+
+      const baseUrl = refererUrl.split("?")[0];
+      refererUrl = `${baseUrl}?${utmParams.toString()}`;
+    }
+
     const incomingLeadPayload: any = {
       source_name: "Intermigro Website",
       source_uid: source_uid,
@@ -86,8 +146,9 @@ export async function POST(request: NextRequest) {
       metadata: {
         form_id: "hero-form",
         form_name: "Consultation Request",
-        form_page: request.headers.get("referer") || "https://intermigro.com",
+        form_page: refererUrl,
         form_sent_at: currentTimestamp,
+        referer: refererUrl,
       },
       _embedded: {
         contacts: [

@@ -43,6 +43,7 @@ This is an immigration services landing page with lead qualification logic.
 - Integration with analytics (Yandex Metrika, Google Ads, Meta Pixel)
 - Conditional CRM submission for qualified leads only
 - Medicine career requires specialist/higher education validation
+- UTM parameter tracking (captures utm_source, utm_medium, utm_campaign, utm_content, utm_term from URL)
 
 **API Route** (`app/api/submit-lead/route.ts`) handles:
 - Lead submission to Kommo CRM using Incoming Leads API
@@ -94,8 +95,15 @@ KOMMO_API_TOKEN=your-token
 KOMMO_PIPELINE_ID=pipeline-id
 KOMMO_PHONE_FIELD_ID=field-id
 KOMMO_EMAIL_FIELD_ID=field-id
+
+# UTM tracking (optional but recommended)
+KOMMO_UTM_SOURCE_FIELD_ID=field-id
+KOMMO_UTM_MEDIUM_FIELD_ID=field-id
+KOMMO_UTM_CAMPAIGN_FIELD_ID=field-id
+KOMMO_UTM_CONTENT_FIELD_ID=field-id
+KOMMO_UTM_TERM_FIELD_ID=field-id
 ```
 
-Use `node scripts/get-kommo-fields.js` to fetch Kommo field IDs.
+Use `node scripts/get-kommo-fields.js` to fetch contact field IDs and `node scripts/get-utm-fields.js` to fetch UTM field IDs.
 
 **Note:** The API uses the Incoming Leads endpoint (`/api/v4/leads/unsorted/forms`) which automatically places leads in the "Incoming Lead" stage, so `KOMMO_STATUS_ID` is not needed.
