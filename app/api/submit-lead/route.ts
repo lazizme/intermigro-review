@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import crypto from "crypto";
 
 interface LeadData {
   name: string;
@@ -18,7 +19,6 @@ export async function POST(request: NextRequest) {
     const KOMMO_SUBDOMAIN = process.env.KOMMO_SUBDOMAIN;
     const KOMMO_API_TOKEN = process.env.KOMMO_API_TOKEN;
     const KOMMO_PIPELINE_ID = process.env.KOMMO_PIPELINE_ID;
-    const KOMMO_STATUS_ID = process.env.KOMMO_STATUS_ID; // Optional - will use pipeline's first stage if not provided
     const KOMMO_PHONE_FIELD_ID = process.env.KOMMO_PHONE_FIELD_ID;
     const KOMMO_EMAIL_FIELD_ID = process.env.KOMMO_EMAIL_FIELD_ID;
 
@@ -70,12 +70,25 @@ export async function POST(request: NextRequest) {
       },
     ];
 
-    // Prepare the payload for Kommo API
-    const leadPayload: any = {
-      name: `Заявка: ${leadData.name} ${leadData.lastName}`,
-      price: 0, // Service price - will be filled manually
+    // Generate unique source_uid for this lead
+    const source_uid = crypto
+      .createHash("md5")
+      .update(`${leadData.email}-${Date.now()}`)
+      .digest("hex");
+
+    // Prepare the payload for Kommo Incoming Leads API
+    const currentTimestamp = Math.floor(Date.now() / 1000); // Unix timestamp
+    const incomingLeadPayload: any = {
+      source_name: "Intermigro Website",
+      source_uid: source_uid,
       pipeline_id: parseInt(KOMMO_PIPELINE_ID),
-      custom_fields_values: leadCustomFields,
+      created_at: currentTimestamp,
+      metadata: {
+        form_id: "hero-form",
+        form_name: "Consultation Request",
+        form_page: request.headers.get("referer") || "https://intermigro.com",
+        form_sent_at: currentTimestamp,
+      },
       _embedded: {
         contacts: [
           {
@@ -85,25 +98,30 @@ export async function POST(request: NextRequest) {
             custom_fields_values: contactFields,
           },
         ],
+        leads: [
+          {
+            name: `Заявка: ${leadData.name} ${leadData.lastName}`,
+            price: 0, // Service price - will be filled manually
+            custom_fields_values: leadCustomFields,
+          },
+        ],
       },
     };
 
-    // Add status_id if provided (otherwise Kommo uses the first stage in the pipeline)
-    if (KOMMO_STATUS_ID) {
-      leadPayload.status_id = parseInt(KOMMO_STATUS_ID);
-    }
+    const kommoPayload = [incomingLeadPayload];
 
-    const kommoPayload = [leadPayload];
-
-    // Send to Kommo API
-    const response = await fetch(`https://${KOMMO_SUBDOMAIN}.kommo.com/api/v4/leads/complex`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${KOMMO_API_TOKEN}`,
+    // Send to Kommo Incoming Leads API
+    const response = await fetch(
+      `https://${KOMMO_SUBDOMAIN}.kommo.com/api/v4/leads/unsorted/forms`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${KOMMO_API_TOKEN}`,
+        },
+        body: JSON.stringify(kommoPayload),
       },
-      body: JSON.stringify(kommoPayload),
-    });
+    );
 
     if (!response.ok) {
       const errorData = await response.text();
@@ -112,7 +130,7 @@ export async function POST(request: NextRequest) {
     }
 
     const result = await response.json();
-    console.log("Lead created in Kommo:", result);
+    console.log("Incoming lead created in Kommo:", result);
 
     return NextResponse.json({ success: true, data: result });
   } catch (error) {
