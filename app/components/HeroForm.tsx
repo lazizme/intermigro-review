@@ -4,6 +4,7 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { FloatingInput } from "@/components/ui/input";
+import { FloatingPhoneInput } from "@/components/ui/phone-input";
 import { SelectableButtonGroup } from "@/components/ui/selectable-button-group";
 import { RangeInput } from "@/components/ui/range-input";
 import { FloatingSelect } from "@/components/ui/select";
@@ -101,7 +102,7 @@ export default function HeroForm() {
       newErrors.name = "Имя обязательно";
     }
 
-    if (!formData.phone.trim()) {
+    if (!formData.phone) {
       newErrors.phone = "Телефон обязателен";
     }
 
@@ -206,12 +207,12 @@ export default function HeroForm() {
         value={formData.lastName}
         onChange={(e) => updateField("lastName", e.target.value)}
       />
-      <FloatingInput
-        type="tel"
+      <FloatingPhoneInput
         label="Телефон"
         value={formData.phone}
-        onChange={(e) => updateField("phone", e.target.value)}
+        onChange={(value) => updateField("phone", value)}
         error={errors.phone}
+        defaultCountry="DE"
       />
       <FloatingInput
         type="email"

@@ -123,8 +123,8 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex w-full justify-between gap-6 text-sm lg:w-auto lg:text-base">
-          <Link href="#">Impressum</Link>
-          <Link href="#" className="text-nowrap">
+          <Link href="/impressum">Impressum</Link>
+          <Link href="/privacy" className="text-nowrap">
             Политика конфиденциальности
           </Link>
         </div>
