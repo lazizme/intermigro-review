@@ -125,7 +125,7 @@ export default function VideoPlayer({ src, poster }: VideoPlayerProps) {
         poster={poster}
         className="h-full w-full object-cover"
         playsInline
-        preload="metadata"
+        preload="none"
         onClick={togglePlay}
         onLoadedMetadata={(e) => {
           const video = e.currentTarget;

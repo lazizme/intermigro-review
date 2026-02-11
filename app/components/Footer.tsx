@@ -22,8 +22,8 @@ export default function Footer() {
   return (
     <footer>
       <div className="bg-white px-5 py-10 md:px-10 md:py-14 lg:py-14 xl:px-16 xl:py-12 2xl:px-20 2xl:py-16">
-        <div className="flex justify-between">
-          <div className="flex w-full items-center justify-between gap-5 lg:w-auto lg:gap-22">
+        <div className="grid grid-cols-12">
+          <div className="col-span-12 flex w-full items-center justify-between gap-5 lg:col-span-5 lg:w-auto lg:gap-22">
             <Image
               src="/logo.png"
               alt="Intermigro Logo"
@@ -68,7 +68,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <nav className="hidden items-center gap-8 text-base font-medium text-black lg:flex">
+          <nav className="col-span-5 hidden items-center gap-10 text-base font-medium text-black lg:col-start-8 lg:flex 2xl:col-span-4 2xl:col-start-9">
             <a href="#about" onClick={(e) => scrollToSection(e, "#about")}>
               О нас
             </a>
@@ -89,26 +89,25 @@ export default function Footer() {
 
         <div className="mt-5 mb-7.5 h-px w-full bg-[#DEDEDE]"></div>
 
-        <div className="flex flex-col-reverse justify-between gap-5 text-sm lg:flex-row lg:items-center lg:text-base">
-          <div className="flex flex-col gap-1.5">
+        <div className="grid grid-cols-12 grid-rows-2 justify-between gap-5 text-sm lg:items-center lg:text-base">
+          <div className="col-span-5 flex flex-col gap-1.5">
             <p className="text-gray-dark text-base font-medium">
               По вопросам сотрудничества и&nbsp;партнерств:
             </p>
             <p className="text-base font-medium text-black">pr@intermigro.com</p>
           </div>
-          <div className="flex items-center gap-12">
-            <div className="flex flex-col gap-1.5">
-              <a href="tel:+493046690566" className="text-base font-medium text-black">
-                +49 304 669 05 66
-              </a>
-              <a href="mailto:contact@intermigro.com" className="text-base font-medium text-black">
-                contact@intermigro.com
-              </a>
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <p className="text-gray-dark text-base font-medium">Адрес: Klingsorstraße 105B,</p>
-              <p className="text-gray-dark text-base font-medium">12203 Berlin, Germany</p>
-            </div>
+          <div className="col-span-2 col-start-8 flex flex-col gap-1.5">
+            <a href="tel:+493046690566" className="text-base font-medium text-black">
+              +49 304 669 05 66
+            </a>
+            <a href="mailto:contact@intermigro.com" className="text-base font-medium text-black">
+              contact@intermigro.com
+            </a>
+          </div>
+          <div className="col-span-2 flex flex-col gap-1.5">
+            <p className="text-gray-dark text-base font-medium">
+              Адрес: Klingsorstraße 105B, 12203 Berlin, Germany
+            </p>
           </div>
         </div>
       </div>

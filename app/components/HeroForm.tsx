@@ -278,8 +278,8 @@ export default function HeroForm() {
           value={formData.education}
           onChange={(value) => updateField("education", value)}
           options={[
-            { value: "highschool", label: "Среднее" },
-            { value: "specialist", label: "Спец." },
+            { value: "highschool", label: "Школа" },
+            { value: "specialist", label: "Сред. спец." },
             { value: "higher", label: "Высшее" },
           ]}
         />
