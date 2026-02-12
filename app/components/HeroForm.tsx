@@ -17,6 +17,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 interface FormData {
   name: string;
@@ -362,16 +363,23 @@ export default function HeroForm() {
       </Button>
 
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent>
+        <DialogContent
+          className={cn(
+            "mx-auto w-11/12 text-black sm:w-auto",
+            isLeadResult ? "bg-[#BFFF76]" : "bg-[#E6D0BE]",
+          )}
+        >
           <DialogHeader>
-            <DialogTitle>{isLeadResult ? "Поздравляем!" : "Спасибо за заявку!"}</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-xl font-bold">
+              {isLeadResult ? "Ваша заявки отправлена!" : "Спасибо за заполнение анкеты!"}
+            </DialogTitle>
+            <DialogDescription className="text-black">
               {isLeadResult
-                ? "Вы подходите под нашу программу! Мы свяжемся с вами в ближайшее время для обсуждения деталей."
-                : "К сожалению, на данный момент вы не подходите под критерии нашей программы. Мы сохраним вашу заявку и свяжемся, если условия изменятся."}
+                ? "Наш миграционный консультант свяжется с вами в ближайшее время по телефону или в Telegram / WhatsApp"
+                : "К сожалению, на данный момент ваш профиль не соответствует критериям программ, с которыми мы работаем. Требования к высшему образованию и доходу выше 1000 евро являются обязательными"}
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter>
+          {/* <DialogFooter>
             <Button
               onClick={() => setModalOpen(false)}
               className={
@@ -382,7 +390,7 @@ export default function HeroForm() {
             >
               Закрыть
             </Button>
-          </DialogFooter>
+          </DialogFooter> */}
         </DialogContent>
       </Dialog>
     </form>
