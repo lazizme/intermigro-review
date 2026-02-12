@@ -14,7 +14,7 @@ export default function Home() {
       <div id="consultation">
         <Hero />
       </div>
-      <div className="container mx-auto px-5 md:px-20">
+      <div className="mx-auto max-w-screen-2xl px-5 md:px-20">
         <div id="about">
           <Stats />
           <Guarantees />

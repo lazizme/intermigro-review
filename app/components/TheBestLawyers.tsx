@@ -9,9 +9,9 @@ export default function TheBestLawyers() {
           Лучшие адвокаты и аккредитованные представители
         </h2>
         <p className="text-gray-medium text-base font-medium md:py-12.5 lg:text-lg xl:text-xl">
-          Все наши иммиграционные специалисты имеют{" "}
+          Наши иммиграционные специалисты имеют{" "}
           <span className="font-semibold text-black">
-            опыт работы в немецких государственных ведомствах
+            опыт работы в немецких консульствах и посольствах,
           </span>{" "}
           и как никто знают все внутренние процессы
         </p>

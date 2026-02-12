@@ -15,7 +15,7 @@ export default function WhoCanApply() {
             <div className="bg-gray-light order-2 mt-10 flex max-h-max flex-col gap-10 rounded-3xl px-4 py-6 lg:order-0 lg:col-span-3 xl:mt-0 xl:px-6 xl:py-10">
               <div className="flex justify-between gap-3">
                 <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
-                  <span className="inline bg-yellow-300 box-decoration-clone px-0.5">
+                  <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
                     Вы удаленный сотрудник: IT-специалист или фрилансер
                   </span>
                 </h2>
@@ -33,7 +33,7 @@ export default function WhoCanApply() {
               <div className="bg-gray-light col-span-4 flex flex-col gap-10 rounded-3xl px-6 py-10">
                 <div className="flex justify-between gap-3">
                   <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
-                    <span className="inline bg-yellow-300 box-decoration-clone px-0.5">
+                    <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
                       Вы квалифицированный специалист
                     </span>
                   </h2>
@@ -71,7 +71,7 @@ export default function WhoCanApply() {
                       <StarsIcon />
                     </div>
                     <h2 className="text-sm leading-snug font-extrabold text-white md:text-base xl:text-lg">
-                      <span className="inline bg-black box-decoration-clone px-0.5">
+                      <span className="inline bg-black box-decoration-clone px-0.5 py-0.5">
                         Вы предприниматель
                       </span>
                     </h2>
@@ -97,7 +97,7 @@ export default function WhoCanApply() {
             >
               <div className="flex justify-between gap-3">
                 <h2 className="w-2/3 text-sm leading-snug font-extrabold sm:w-full md:text-base lg:text-lg">
-                  <span className="inline bg-black box-decoration-clone px-0.5 text-white">
+                  <span className="inline bg-black box-decoration-clone px-0.5 py-0.5 text-white">
                     Вы человек искусства
                   </span>
                 </h2>
@@ -171,7 +171,7 @@ export default function WhoCanApply() {
               <div className="ml-auto flex w-1/2 flex-col items-end justify-between gap-10 sm:ml-0 sm:w-full sm:items-start">
                 <div className="flex w-full justify-between gap-3 pl-3 sm:pl-0">
                   <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
-                    <span className="inline bg-yellow-300 box-decoration-clone px-0.5">
+                    <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
                       Вы студент
                     </span>
                   </h2>

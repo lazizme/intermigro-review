@@ -13,7 +13,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="mx-auto flex max-w-[2000px] flex-col gap-0 overflow-hidden lg:flex-row lg:gap-12 xl:gap-15 2xl:gap-20">
+    <section className="mx-auto -mt-[60px] flex max-w-[2000px] flex-col gap-0 overflow-hidden md:-mt-[88px] lg:flex-row lg:gap-12 xl:gap-15 2xl:gap-20">
       <div
         className={`flex w-full flex-col gap-4 px-5 pt-20 transition-all duration-1000 ease-out sm:pt-24 md:px-8 md:pl-20 lg:w-1/2 lg:gap-6 lg:pt-32 lg:pr-0 ${
           isLoaded ? "lg:translate-x-0 lg:scale-100" : "lg:translate-x-1/2 lg:scale-125"
@@ -25,7 +25,7 @@ export default function Hero() {
 
         <p className="text-gray-dark mx-auto w-3/4 text-base lg:hidden">
           Помогаем в релокации и адаптации высококвалифицированным специалистам, фрилансерам и
-          предпринимателям
+          предпринимателям.
         </p>
 
         {/* Mobile Image - with arrows built-in */}
