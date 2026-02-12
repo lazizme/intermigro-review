@@ -7,6 +7,7 @@ interface LeadData {
   phone: string;
   email: string;
   career: string;
+  careerOther?: string;
   telegram: string;
   education: string;
   income: number;
@@ -74,10 +75,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Prepare lead custom fields
+    // Use careerOther value if career is "other", otherwise use career
+    const careerValue = leadData.career === "other" && leadData.careerOther
+      ? leadData.careerOther
+      : leadData.career;
+
     const leadCustomFields: any[] = [
       {
         field_id: 488804, // Career/Work
-        values: [{ value: leadData.career }],
+        values: [{ value: careerValue }],
       },
       {
         field_id: 1711074, // Education
