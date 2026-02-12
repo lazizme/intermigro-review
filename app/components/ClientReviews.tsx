@@ -115,7 +115,7 @@ export default function ClientReviews() {
         }}
         pagination={{ clickable: true }}
         spaceBetween={16}
-        slidesPerView={1.8}
+        slidesPerView={1.4}
         breakpoints={{
           640: {
             slidesPerView: 3.5,
@@ -131,7 +131,7 @@ export default function ClientReviews() {
         {reviews.map((review, index) => (
           <SwiperSlide key={index}>
             <div className="cursor-pointer">
-              <div className="relative mb-4 aspect-3/4 overflow-hidden rounded-2xl bg-gray-200">
+              <div className="relative mb-4 aspect-9/16 overflow-hidden rounded-2xl bg-gray-200 sm:aspect-2/3">
                 <VideoPlayer src={review.video} poster={review.cover} />
               </div>
               <p className="font-semibold">{review.full_name}</p>
