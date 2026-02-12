@@ -22,8 +22,9 @@ export default function Footer() {
   return (
     <footer>
       <div className="bg-white px-5 py-10 md:px-10 md:py-14 lg:py-14 xl:px-16 xl:py-12 2xl:px-20 2xl:py-16">
-        <div className="grid grid-cols-12">
-          <div className="col-span-12 flex w-full items-center justify-between gap-5 lg:col-span-5 lg:w-auto lg:gap-22">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
+          {/* Row 1: Logo + Social */}
+          <div className="flex w-full items-center justify-between gap-5 lg:col-span-5 lg:w-auto lg:gap-22">
             <Image
               src="/logo.png"
               alt="Intermigro Logo"
@@ -68,8 +69,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <nav className="col-span-5 hidden items-center gap-10 text-base font-medium text-black lg:col-start-8 lg:flex 2xl:col-span-4 2xl:col-start-9">
-            <a href="#about" onClick={(e) => scrollToSection(e, "#about")}>
+          {/* Row 1: Navigation */}
+          <nav className="hidden items-center gap-5 text-base font-medium text-black lg:col-span-5 lg:col-start-8 lg:flex xl:col-span-4 xl:col-start-9 xl:gap-10">
+            <a href="#about" className="text-nowrap" onClick={(e) => scrollToSection(e, "#about")}>
               О нас
             </a>
             <a href="#services" onClick={(e) => scrollToSection(e, "#services")}>
@@ -85,29 +87,33 @@ export default function Footer() {
               Сервисы
             </a>
           </nav>
-        </div>
 
-        <div className="mt-5 mb-7.5 h-px w-full bg-[#DEDEDE]"></div>
+          {/* Divider */}
+          <div className="my-2.5 h-px w-full bg-[#DEDEDE] lg:col-span-12"></div>
 
-        <div className="grid grid-cols-12 grid-rows-2 justify-between gap-5 text-sm lg:items-center lg:text-base">
-          <div className="col-span-5 flex flex-col gap-1.5">
+          {/* Row 2: Phone/Email + Address - side by side on mobile, separate grid cells on desktop */}
+          <div className="flex justify-between gap-6 lg:contents">
+            <div className="flex flex-col gap-1.5 lg:col-span-3 lg:col-start-8 lg:row-start-3 xl:col-span-2 xl:col-start-9">
+              <a href="tel:+493046690566" className="text-base font-medium text-black">
+                +49 304 669 05 66
+              </a>
+              <a href="mailto:contact@intermigro.com" className="text-base font-medium text-black">
+                contact@intermigro.com
+              </a>
+            </div>
+            <div className="flex flex-col gap-1.5 lg:col-span-2 lg:col-start-11 lg:row-start-3">
+              <p className="text-gray-dark text-base font-medium">
+                Адрес: Klingsorstraße 105B, 12203 Berlin, Germany
+              </p>
+            </div>
+          </div>
+
+          {/* Row 2: Partnership - last on mobile, left on desktop */}
+          <div className="flex flex-col gap-1.5 lg:col-span-5 lg:col-start-1 lg:row-start-3">
             <p className="text-gray-dark text-base font-medium">
               По вопросам сотрудничества и&nbsp;партнерств:
             </p>
             <p className="text-base font-medium text-black">pr@intermigro.com</p>
-          </div>
-          <div className="col-span-2 col-start-8 flex flex-col gap-1.5">
-            <a href="tel:+493046690566" className="text-base font-medium text-black">
-              +49 304 669 05 66
-            </a>
-            <a href="mailto:contact@intermigro.com" className="text-base font-medium text-black">
-              contact@intermigro.com
-            </a>
-          </div>
-          <div className="col-span-2 flex flex-col gap-1.5">
-            <p className="text-gray-dark text-base font-medium">
-              Адрес: Klingsorstraße 105B, 12203 Berlin, Germany
-            </p>
           </div>
         </div>
       </div>
