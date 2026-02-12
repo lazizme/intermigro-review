@@ -97,11 +97,11 @@ export default function WhoCanApply() {
             >
               <div className="flex justify-between gap-3">
                 <h2 className="w-2/3 text-sm leading-snug font-extrabold sm:w-full md:text-base lg:text-lg">
-                  <span className="inline bg-yellow-300 box-decoration-clone px-0.5">
+                  <span className="inline bg-black box-decoration-clone px-0.5 text-white">
                     Вы человек искусства
                   </span>
                 </h2>
-                <div className="-mt-2 text-black">
+                <div className="-mt-2 text-white">
                   <PaintIcon />
                 </div>
               </div>
@@ -112,38 +112,58 @@ export default function WhoCanApply() {
               </p>
             </div>
             <div className="absolute right-0 -bottom-10 col-span-2 max-h-[220px] max-w-1/3 min-w-[140px] overflow-hidden rounded-2xl sm:relative sm:bottom-0 sm:max-h-[320px] sm:max-w-full">
+              {/* Katerina on mobile, Liza on lg+ */}
               <Image
                 width={200}
                 height={320}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover lg:hidden"
+                src="/katerina.png"
+                alt="Катерина"
+              />
+              <Image
+                width={200}
+                height={320}
+                className="hidden h-full w-full object-cover lg:block"
                 src="/liza.png"
-                alt="Stanislav"
+                alt="Лиза"
               />
               <div className="absolute bottom-2 left-2 rounded-[2.5rem] bg-white px-2 py-0.5 shadow-[0_4px_3px_rgba(0,0,0,0.25)] sm:px-4 sm:py-1">
                 <p className="text-[10px] leading-3 font-extrabold text-black sm:text-xs sm:leading-4 md:text-sm">
-                  Лиза
+                  <span className="lg:hidden">Катерина</span>
+                  <span className="hidden lg:inline">Лиза</span>
                 </p>
                 <p className="text-gray-dark text-[10px] leading-3 font-medium sm:text-xs sm:leading-4 md:text-sm">
-                  Учится на юриста
+                  <span className="lg:hidden">Саунд-дизайнер</span>
+                  <span className="hidden lg:inline">Учится на юриста</span>
                 </p>
               </div>
             </div>
           </div>
           <div className="relative mt-14 grid grid-cols-5 gap-5 sm:mt-0">
             <div className="absolute -top-1/6 col-span-2 max-h-[280px] max-w-1/2 min-w-[140px] overflow-hidden rounded-2xl sm:relative sm:top-0 sm:max-h-[320px] sm:max-w-full">
+              {/* Liza on mobile, Katerina on lg+ */}
               <Image
                 width={200}
                 height={320}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover lg:hidden"
+                src="/liza.png"
+                alt="Лиза"
+              />
+              <Image
+                width={200}
+                height={320}
+                className="hidden h-full w-full object-cover lg:block"
                 src="/katerina.png"
-                alt="Stanislav"
+                alt="Катерина"
               />
               <div className="absolute bottom-2 left-2 rounded-[2.5rem] bg-white px-2 py-0.5 shadow-[0_4px_3px_rgba(0,0,0,0.25)] sm:px-4 sm:py-1">
                 <p className="text-[10px] leading-3 font-extrabold text-black sm:text-xs sm:leading-4 md:text-sm">
-                  Катерина
+                  <span className="lg:hidden">Лиза</span>
+                  <span className="hidden lg:inline">Катерина</span>
                 </p>
                 <p className="text-gray-dark text-[10px] leading-3 font-medium sm:text-xs sm:leading-4 md:text-sm">
-                  Саунд-дизайнер
+                  <span className="lg:hidden">Учится на юриста</span>
+                  <span className="hidden lg:inline">Саунд-дизайнер</span>
                 </p>
               </div>
             </div>

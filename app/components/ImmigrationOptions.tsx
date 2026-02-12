@@ -30,7 +30,7 @@ export default function ImmigrationOptions() {
   ];
 
   return (
-    <section className="py-10 md:py-16">
+    <section className="py-10 pt-26 md:py-18">
       <SectionTitle className="mb-11">
         Какие варианты иммиграции <br /> в Германию наиболее популярны?
       </SectionTitle>
