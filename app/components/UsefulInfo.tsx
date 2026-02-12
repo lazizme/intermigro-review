@@ -180,7 +180,7 @@ export default function UsefulInfo() {
   );
 
   return (
-    <section className="px-5 py-10 md:px-20 md:py-16">
+    <section className="py-10 md:py-16">
       <SectionTitle className="mb-11">Полезная информация</SectionTitle>
 
       <div className="md:hidden">

@@ -2,7 +2,7 @@ import { Check, SmilingCircle } from "./Icons";
 
 export default function Stats() {
   return (
-    <section className="px-5 py-10 md:px-20 md:py-16">
+    <section className="py-10 md:py-16">
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-8">
         <div className="bg-gray-light relative flex flex-col rounded-[1.5rem] px-6 pt-10 pb-6 md:rounded-[2.5rem] md:px-13 md:pt-18 md:pb-10">
           <span className="text-3xl font-medium md:text-5xl">2000 +</span>

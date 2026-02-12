@@ -5,7 +5,7 @@ import { MastersCapIcon, PaintIcon } from "./Icons";
 
 export default function WhoCanApply() {
   return (
-    <section className="px-5 py-10 md:px-20 md:py-16">
+    <section className="py-10 md:py-16">
       <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12">
         <div className="flex flex-col gap-5 lg:col-span-7 lg:grid lg:grid-cols-7 lg:gap-5">
           <SectionTitle className="col-span-12 mb-4 lg:col-span-5">

@@ -94,7 +94,7 @@ export default function ClientReviews() {
   ];
 
   return (
-    <section className="px-5 py-10 md:px-20 md:py-16">
+    <section className="py-10 md:py-16">
       <div className="mb-8 flex items-center justify-between">
         <SectionTitle>Отзывы наших клиентов</SectionTitle>
         <div className="hidden gap-2 md:flex">

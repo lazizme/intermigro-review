@@ -14,19 +14,21 @@ export default function Home() {
       <div id="consultation">
         <Hero />
       </div>
-      <div id="about">
-        <Stats />
-        <Guarantees />
-        <TheBestLawyers />
+      <div className="container mx-auto px-5 md:px-20">
+        <div id="about">
+          <Stats />
+          <Guarantees />
+          <TheBestLawyers />
+        </div>
+        <WhoCanApply />
+        <div id="services">
+          <ImmigrationOptions />
+        </div>
+        <div id="reviews">
+          <ClientReviews />
+        </div>
+        <UsefulInfo />
       </div>
-      <WhoCanApply />
-      <div id="services">
-        <ImmigrationOptions />
-      </div>
-      <div id="reviews">
-        <ClientReviews />
-      </div>
-      <UsefulInfo />
       <div id="contacts">
         <CTA />
       </div>
