@@ -45,7 +45,7 @@ export default function ImmigrationOptions() {
           <div
             key={index}
             className={cn(
-              "bg-gray-light flex flex-col-reverse justify-between gap-9 rounded-3xl p-5 md:flex-row md:p-8",
+              "bg-gray-light flex flex-col justify-between gap-9 rounded-3xl p-5 md:flex-row md:p-8",
               option.isHighlight && "bg-brand",
             )}
           >
@@ -53,13 +53,21 @@ export default function ImmigrationOptions() {
               <h3 className={cn("text-xl font-semibold", option.isHighlight && "text-white")}>
                 {option.title}
               </h3>
+              <p
+                className={cn(
+                  "mt-4 block max-w-max text-right text-sm text-black sm:text-base md:hidden md:text-xl",
+                  option.isHighlight && "text-white",
+                )}
+              >
+                {option.visa_type}
+              </p>
               <p className={cn("text-gray-medium", option.isHighlight && "text-white/80")}>
                 {option.description}
               </p>
             </div>
             <p
               className={cn(
-                "max-w-max text-right text-sm text-black sm:text-base md:text-xl",
+                "hidden max-w-max text-right text-sm text-black sm:text-base md:block md:text-xl",
                 option.isHighlight && "text-white",
               )}
             >
