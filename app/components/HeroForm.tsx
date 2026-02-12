@@ -123,16 +123,15 @@ export default function HeroForm() {
       const utm_content = urlParams.get("utm_content");
       const utm_term = urlParams.get("utm_term");
 
-      if (utm_source) utmData.utm_source = utm_source;
-      if (utm_medium) utmData.utm_medium = utm_medium;
-      if (utm_campaign) utmData.utm_campaign = utm_campaign;
+      // Set UTM parameters from URL, or use defaults if not present
+      utmData.utm_source = utm_source || "smm";
+      utmData.utm_medium = utm_medium || "general";
+      utmData.utm_campaign = utm_campaign || "telegram_channel";
       if (utm_content) utmData.utm_content = utm_content;
       if (utm_term) utmData.utm_term = utm_term;
 
-      if (Object.keys(utmData).length > 0) {
-        setFormData((prev) => ({ ...prev, ...utmData }));
-        console.log("UTM parameters captured:", utmData);
-      }
+      setFormData((prev) => ({ ...prev, ...utmData }));
+      console.log("UTM parameters set:", utmData);
     }
   }, []);
 

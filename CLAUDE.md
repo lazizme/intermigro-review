@@ -46,11 +46,12 @@ This is an immigration services landing page with lead qualification logic.
 - UTM parameter tracking (captures utm_source, utm_medium, utm_campaign, utm_content, utm_term from URL)
 
 **API Route** (`app/api/submit-lead/route.ts`) handles:
-- Lead submission to Kommo CRM using Incoming Leads API
-- Automatically places leads in "Incoming Lead" stage for proper funnel management
-- Custom field mapping (career, education, income)
+- Lead submission to Kommo CRM using Incoming Leads API (`/api/v4/leads/unsorted/forms`)
+- Automatically places leads in "НЕРАЗОБРАННОЕ" (Incoming Lead) stage for proper funnel management
+- Custom field mapping (career, education, income, UTM parameters)
 - Contact creation with phone, email, telegram fields
 - Generates unique source_uid for each submission
+- UTM fields are included in initial payload (no secondary update needed)
 
 ### Lead Qualification Logic
 

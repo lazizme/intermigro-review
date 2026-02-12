@@ -7,6 +7,7 @@ interface LeadData {
   phone: string;
   email: string;
   career: string;
+  careerOther?: string;
   telegram: string;
   education: string;
   income: number;
@@ -74,10 +75,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Prepare lead custom fields
+    // Use careerOther value if career is "other", otherwise use career
+    const careerValue = leadData.career === "other" && leadData.careerOther
+      ? leadData.careerOther
+      : leadData.career;
+
     const leadCustomFields: any[] = [
       {
         field_id: 488804, // Career/Work
-        values: [{ value: leadData.career }],
+        values: [{ value: careerValue }],
       },
       {
         field_id: 1711074, // Education
@@ -188,68 +194,6 @@ export async function POST(request: NextRequest) {
 
     const result = await response.json();
     console.log("Incoming lead created in Kommo:", result);
-
-    // Extract the lead ID from the response to update UTM fields
-    let leadId: number | null = null;
-    if (result._embedded?.unsorted?.[0]?._embedded?.leads?.[0]?.id) {
-      leadId = result._embedded.unsorted[0]._embedded.leads[0].id;
-      console.log("Lead ID for UTM update:", leadId);
-
-      // Prepare UTM fields to update
-      const utmFields: any[] = [];
-      if (leadData.utm_source && KOMMO_UTM_SOURCE_FIELD_ID) {
-        utmFields.push({
-          field_id: parseInt(KOMMO_UTM_SOURCE_FIELD_ID),
-          values: [{ value: leadData.utm_source }],
-        });
-      }
-      if (leadData.utm_medium && KOMMO_UTM_MEDIUM_FIELD_ID) {
-        utmFields.push({
-          field_id: parseInt(KOMMO_UTM_MEDIUM_FIELD_ID),
-          values: [{ value: leadData.utm_medium }],
-        });
-      }
-      if (leadData.utm_campaign && KOMMO_UTM_CAMPAIGN_FIELD_ID) {
-        utmFields.push({
-          field_id: parseInt(KOMMO_UTM_CAMPAIGN_FIELD_ID),
-          values: [{ value: leadData.utm_campaign }],
-        });
-      }
-      if (leadData.utm_content && KOMMO_UTM_CONTENT_FIELD_ID) {
-        utmFields.push({
-          field_id: parseInt(KOMMO_UTM_CONTENT_FIELD_ID),
-          values: [{ value: leadData.utm_content }],
-        });
-      }
-      if (leadData.utm_term && KOMMO_UTM_TERM_FIELD_ID) {
-        utmFields.push({
-          field_id: parseInt(KOMMO_UTM_TERM_FIELD_ID),
-          values: [{ value: leadData.utm_term }],
-        });
-      }
-
-      // Update lead with UTM fields if any exist
-      if (utmFields.length > 0 && leadId) {
-        console.log("Updating lead with UTM fields:", utmFields);
-        const updateResponse = await fetch(`https://${KOMMO_SUBDOMAIN}.kommo.com/api/v4/leads/${leadId}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${KOMMO_API_TOKEN}`,
-          },
-          body: JSON.stringify({
-            custom_fields_values: utmFields,
-          }),
-        });
-
-        if (!updateResponse.ok) {
-          const updateError = await updateResponse.text();
-          console.error("Failed to update lead with UTM fields:", updateError);
-        } else {
-          console.log("Successfully updated lead with UTM fields");
-        }
-      }
-    }
 
     return NextResponse.json({ success: true, data: result });
   } catch (error) {
