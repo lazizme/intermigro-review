@@ -69,7 +69,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 z-50 flex w-full items-center justify-between px-5 py-4 transition-all duration-300 md:px-10 md:py-6 xl:px-16 2xl:px-20 ${
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
           isMenuOpen
@@ -79,48 +79,50 @@ export default function Header() {
               : "bg-white lg:bg-transparent"
         }`}
       >
-        <Link href="/" className="flex items-center">
-          <Image
-            src={isMenuOpen ? "/logo-white.png" : "/logo.png"}
-            alt="Intermigro Logo"
-            width={166}
-            height={40}
-            priority
-            className="h-8 w-auto md:h-10 lg:hidden"
-          />
-          <Image
-            src="/logo.svg"
-            alt="Intermigro Logo"
-            width={166}
-            height={40}
-            priority
-            className="hidden h-8 w-auto md:h-10 lg:block"
-          />
-        </Link>
+        <div className="container mx-auto flex w-full items-center justify-between px-5 py-4 md:px-10 md:py-6 xl:px-16 2xl:px-20">
+          <Link href="/" className="flex items-center">
+            <Image
+              src={isMenuOpen ? "/logo-white.png" : "/logo.png"}
+              alt="Intermigro Logo"
+              width={166}
+              height={40}
+              priority
+              className="h-8 w-auto md:h-10 lg:hidden"
+            />
+            <Image
+              src="/logo.svg"
+              alt="Intermigro Logo"
+              width={166}
+              height={40}
+              priority
+              className="hidden h-8 w-auto md:h-10 lg:block"
+            />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
-              className="hover:text-brand cursor-pointer text-black transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-8 lg:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => scrollToSection(e, link.href)}
+                className="hover:text-brand cursor-pointer text-black transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-        {/* Burger Menu Button */}
-        <button
-          type="button"
-          className={`flex items-center justify-center lg:hidden ${isMenuOpen ? "text-white" : "text-black"}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
-        >
-          {isMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-        </button>
+          {/* Burger Menu Button */}
+          <button
+            type="button"
+            className={`flex items-center justify-center lg:hidden ${isMenuOpen ? "text-white" : "text-black"}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+          >
+            {isMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+          </button>
+        </div>
       </header>
 
       {/* Mobile Navigation Overlay */}

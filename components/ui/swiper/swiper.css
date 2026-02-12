@@ -1,3 +1,8 @@
+/* Prevent layout flash before Swiper JS initializes */
+.swiper:not(.swiper-initialized) .swiper-slide {
+  max-width: 250px;
+}
+
 .swiper-pagination {
   position: relative !important;
   bottom: auto !important;

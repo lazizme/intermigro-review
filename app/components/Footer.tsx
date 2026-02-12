@@ -21,8 +21,8 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) =
 export default function Footer() {
   return (
     <footer>
-      <div className="bg-white px-5 py-10 md:px-10 md:py-14 lg:py-14 xl:px-16 xl:py-12 2xl:px-20 2xl:py-16">
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
+      <div className="bg-white">
+        <div className="container mx-auto grid grid-cols-1 gap-5 px-5 py-10 md:px-10 md:py-14 lg:grid-cols-12 xl:px-16 xl:py-12 2xl:px-20 2xl:py-16">
           {/* Row 1: Logo + Social */}
           <div className="flex w-full items-center justify-between gap-5 lg:col-span-5 lg:w-auto lg:gap-22">
             <Image
@@ -117,21 +117,23 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-brand flex flex-col-reverse items-center justify-between gap-9.5 px-5 py-3 font-medium text-white lg:flex-row lg:px-20 lg:py-5">
-        <div className="flex flex-col-reverse gap-6 lg:flex-row lg:items-center lg:gap-13">
-          <p className="text-nowrap">© Intermigro 2026</p>
-          <p className="text-[10px] lg:text-xs">
-            Emigro UG (haftungsbeschränkt) Klingsorstr.105b 12203 Berlin Bundesland: Berlin
-            Deutschland Geschäftsführer: Vladislav Pinskij HRB: 250535 B Amtsgericht: Berlin
-            Charlottenburg E-Mail: contact@emigro.de Steuernummer: 29/277/32378 Ust.-Nr.:
-            DE360037967
-          </p>
-        </div>
-        <div className="flex w-full justify-between gap-6 text-sm lg:w-auto lg:text-base">
-          <Link href="/impressum">Impressum</Link>
-          <Link href="/privacy-policy" className="text-nowrap">
-            Политика конфиденциальности
-          </Link>
+      <div className="bg-brand">
+        <div className="container mx-auto flex flex-col-reverse items-center justify-between gap-9.5 px-5 py-3 font-medium text-white lg:flex-row lg:px-20 lg:py-5">
+          <div className="flex flex-col-reverse gap-6 lg:flex-row lg:items-center lg:gap-13">
+            <p className="text-nowrap">© Intermigro 2026</p>
+            <p className="text-[10px] lg:text-xs">
+              Emigro UG (haftungsbeschränkt) Klingsorstr.105b 12203 Berlin Bundesland: Berlin
+              Deutschland Geschäftsführer: Vladislav Pinskij HRB: 250535 B Amtsgericht: Berlin
+              Charlottenburg E-Mail: contact@emigro.de Steuernummer: 29/277/32378 Ust.-Nr.:
+              DE360037967
+            </p>
+          </div>
+          <div className="flex w-full justify-between gap-6 text-sm lg:w-auto lg:text-base">
+            <Link href="/impressum">Impressum</Link>
+            <Link href="/privacy-policy" className="text-nowrap">
+              Политика конфиденциальности
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
