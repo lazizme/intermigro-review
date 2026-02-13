@@ -74,26 +74,38 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Prepare lead custom fields
+    // Add Career/Position (Field ID: 467698 - Должность)
     // Use careerOther value if career is "other", otherwise use career
     const careerValue = leadData.career === "other" && leadData.careerOther
       ? leadData.careerOther
       : leadData.career;
+    contactFields.push({
+      field_id: 467698,
+      values: [{ value: careerValue }],
+    });
 
-    const leadCustomFields: any[] = [
-      {
-        field_id: 488804, // Career/Work
-        values: [{ value: careerValue }],
-      },
-      {
-        field_id: 1711074, // Education
-        values: [{ value: leadData.education }],
-      },
-      {
-        field_id: 1709444, // Income
-        values: [{ value: leadData.income }],
-      },
-    ];
+    // Add Education (Field ID: 1750744 - Образование)
+    contactFields.push({
+      field_id: 1750744,
+      values: [{ value: leadData.education }],
+    });
+
+    // Add Income (Field ID: 1750748 - Доход)
+    contactFields.push({
+      field_id: 1750748,
+      values: [{ value: leadData.income.toString() }],
+    });
+
+    // Add Surname (Field ID: 1767888 - Фамилия)
+    if (leadData.lastName) {
+      contactFields.push({
+        field_id: 1767888,
+        values: [{ value: leadData.lastName }],
+      });
+    }
+
+    // Prepare lead custom fields (only UTM tracking data)
+    const leadCustomFields: any[] = [];
 
     // Add UTM parameters if provided
     if (leadData.utm_source && KOMMO_UTM_SOURCE_FIELD_ID) {
@@ -152,9 +164,8 @@ export async function POST(request: NextRequest) {
       _embedded: {
         contacts: [
           {
-            name: `${leadData.name} ${leadData.lastName}`,
+            name: leadData.name,
             first_name: leadData.name,
-            last_name: leadData.lastName,
             custom_fields_values: contactFields,
           },
         ],

@@ -48,10 +48,15 @@ This is an immigration services landing page with lead qualification logic.
 **API Route** (`app/api/submit-lead/route.ts`) handles:
 - Lead submission to Kommo CRM using Incoming Leads API (`/api/v4/leads/unsorted/forms`)
 - Automatically places leads in "НЕРАЗОБРАННОЕ" (Incoming Lead) stage for proper funnel management
-- Custom field mapping (career, education, income, UTM parameters)
-- Contact creation with phone, email, telegram fields
+- All form data is written to **contact fields** (not lead qualification):
+  - Name (main contact field) - first name only
+  - Surname (ID: 1767888 - Фамилия) - last name in custom field
+  - Position/Career (ID: 467698 - Должность)
+  - Education (ID: 1750744 - Образование)
+  - Income (ID: 1750748 - Доход)
+  - Phone, Email, Telegram
+- UTM parameters are written to **lead fields** (tracking_data type)
 - Generates unique source_uid for each submission
-- UTM fields are included in initial payload (no secondary update needed)
 
 ### Lead Qualification Logic
 
