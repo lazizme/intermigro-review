@@ -16,7 +16,7 @@ export default function WhoCanApply() {
               <div className="flex justify-between gap-3">
                 <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
                   <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
-                    Вы удаленный сотрудник: IT-специалист или фрилансер
+                    Вы фрилансер
                   </span>
                 </h2>
                 <div className="-mt-2 text-black">
@@ -24,9 +24,9 @@ export default function WhoCanApply() {
                 </div>
               </div>
               <p className="text-gray-dark text-xs font-medium md:text-sm">
-                Вы работаете удаленно на компанию или выполняете фриланс заказы в области ИТ,
-                дизайна, маркетинга, консалтинга и т.д. Вы имеете высшее образование и финансовые
-                накопления, а ваш доход превышает 1500 евро в месяц.
+              Вы выполняете заказы на фрилансе в области ИТ, дизайна, маркетинга, консалтинга и т.д. 
+              Можете подтвердить свой опыт работы и финансовую состоятельность. 
+              Ваш текущий доход составляет 1500 и более евро в месяц.
               </p>
             </div>
             <div className="relative order-1 col-span-4 flex flex-col gap-5 lg:order-0 lg:grid lg:grid-cols-4">
@@ -77,9 +77,9 @@ export default function WhoCanApply() {
                     </h2>
                   </div>
                   <p className="text-xs font-medium text-white md:text-sm">
-                    У Вас есть высшее образование, опыт работы и предложение от работодателя в
-                    Германии или вы готовы к поиску заветного оффера. Ваш текущий доход составляет
-                    более 1000 евро в месяц.
+                  У вас есть высшее образование, работаете на себя (фриланс, собственный бизнес)
+                   или вы в удаленном найме. Ваш текущий доход 
+                   составляет 5000 и более евро в месяц.
                   </p>
                   <div className="ml-auto inline-block text-white lg:hidden">
                     <StarsIcon />
@@ -106,9 +106,9 @@ export default function WhoCanApply() {
                 </div>
               </div>
               <p className="text-gray-dark w-2/3 text-xs font-medium sm:w-full md:text-sm">
-                Вы заняты в творческой профессии: кино/видеомонтаж, фотография, блоггерство,
-                изобразительное, театральное искусство и т. д.) и имеете высшее образование. Ваш
-                доход от 1500 евро в месяц или накопления от 15 000 евро.
+              Вы заняты в творческой профессии (кино/видеомонтаж, фотография, блоггерство, изобразительное, 
+              театральное искусство и т. д.).  Можете подтвердить свой опыт работы и финансовую состоятельность. 
+              Ваш текущий доход составляет 1500 и более евро в месяц.
               </p>
             </div>
             <div className="absolute right-0 -bottom-10 col-span-2 max-h-[220px] max-w-1/3 min-w-[140px] overflow-hidden rounded-2xl sm:relative sm:bottom-0 sm:max-h-[320px] sm:max-w-full">

@@ -11,6 +11,7 @@ interface LeadData {
   telegram: string;
   education: string;
   income: number;
+  country?: string; // Auto-detected from phone number
   // UTM parameters (optional)
   utm_source?: string;
   utm_medium?: string;
@@ -34,6 +35,7 @@ export async function POST(request: NextRequest) {
     const KOMMO_PIPELINE_ID = process.env.KOMMO_PIPELINE_ID;
     const KOMMO_PHONE_FIELD_ID = process.env.KOMMO_PHONE_FIELD_ID;
     const KOMMO_EMAIL_FIELD_ID = process.env.KOMMO_EMAIL_FIELD_ID;
+    const KOMMO_COUNTRY_FIELD_ID = process.env.KOMMO_COUNTRY_FIELD_ID;
 
     // UTM field IDs
     const KOMMO_UTM_SOURCE_FIELD_ID = process.env.KOMMO_UTM_SOURCE_FIELD_ID;
@@ -101,6 +103,14 @@ export async function POST(request: NextRequest) {
       contactFields.push({
         field_id: 1767888,
         values: [{ value: leadData.lastName }],
+      });
+    }
+
+    // Add Country (auto-detected from phone number)
+    if (leadData.country && KOMMO_COUNTRY_FIELD_ID) {
+      contactFields.push({
+        field_id: parseInt(KOMMO_COUNTRY_FIELD_ID),
+        values: [{ value: leadData.country }],
       });
     }
 

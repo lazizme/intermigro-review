@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { parsePhoneNumber } from "libphonenumber-js";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { FloatingInput } from "@/components/ui/input";
@@ -19,6 +20,38 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 
+// Phone number length validation by country (including + and country code)
+const PHONE_LENGTH_BY_COUNTRY: Record<string, number[]> = {
+  TR: [11, 12], // Turkey
+  GE: [11, 12], // Georgia
+  RS: [11, 12], // Serbia
+  ME: [11, 12], // Montenegro
+  PT: [11, 12], // Portugal
+  AE: [12, 13], // UAE
+  IL: [12, 13], // Israel
+  FR: [12, 13], // France
+  IT: [12, 13], // Italy
+  GR: [12, 13], // Greece
+  CZ: [12, 13], // Czechia
+  HU: [11, 12], // Hungary
+  AT: [11, 13], // Austria
+  BE: [11, 12], // Belgium
+  FI: [11, 13], // Finland
+  IE: [11, 12], // Ireland
+  RO: [11, 12], // Romania
+  BG: [11, 12], // Bulgaria
+  SI: [11, 12], // Slovenia
+  HR: [12, 13], // Croatia
+  DK: [11, 12], // Denmark
+  SE: [11, 12], // Sweden
+  NO: [10, 12], // Norway
+  LU: [12, 13], // Luxembourg
+  SK: [11, 12], // Slovakia
+  ES: [11, 12], // Spain
+  NL: [12, 13], // Netherlands
+  MT: [12, 13], // Malta
+};
+
 interface FormData {
   name: string;
   phone: string;
@@ -30,6 +63,7 @@ interface FormData {
   education: string;
   income: number;
   privacy: boolean;
+  country?: string; // Auto-detected from phone number
   // UTM parameters
   utm_source?: string;
   utm_medium?: string;
@@ -40,13 +74,59 @@ interface FormData {
 
 interface FormErrors {
   name?: string;
+  lastName?: string;
   phone?: string;
   email?: string;
+  career?: string;
+  education?: string;
+  income?: string;
   privacy?: string;
 }
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function validatePhoneNumber(phone: string): string | null {
+  if (!phone) return null;
+
+  try {
+    const phoneNumber = parsePhoneNumber(phone);
+
+    if (!phoneNumber) {
+      return "Проверьте правильность номера";
+    }
+
+    const country = phoneNumber.country;
+
+    // If country is not in our validation list, skip validation
+    if (!country || !PHONE_LENGTH_BY_COUNTRY[country]) {
+      return null;
+    }
+
+    // Count total length including + sign
+    const totalLength = phone.length;
+    const allowedLengths = PHONE_LENGTH_BY_COUNTRY[country];
+
+    if (!allowedLengths.includes(totalLength)) {
+      return "Проверьте правильность номера";
+    }
+
+    return null;
+  } catch (error) {
+    return "Проверьте правильность номера";
+  }
+}
+
+function detectCountryFromPhone(phone: string): string | null {
+  if (!phone) return null;
+
+  try {
+    const phoneNumber = parsePhoneNumber(phone);
+    return phoneNumber?.country || null;
+  } catch (error) {
+    return null;
+  }
 }
 
 function isLead(formData: FormData): boolean {
@@ -139,17 +219,38 @@ export default function HeroForm() {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Имя обязательно";
+      newErrors.name = "Заполните имя";
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Заполните фамилию";
     }
 
     if (!formData.phone) {
-      newErrors.phone = "Телефон обязателен";
+      newErrors.phone = "Заполните телефон";
+    } else {
+      const phoneError = validatePhoneNumber(formData.phone);
+      if (phoneError) {
+        newErrors.phone = phoneError;
+      }
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email обязателен";
+      newErrors.email = "Заполните email";
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = "Неверный email";
+      newErrors.email = "Проверьте правильность email";
+    }
+
+    if (!formData.career) {
+      newErrors.career = "Заполните профессию";
+    }
+
+    if (!formData.education) {
+      newErrors.education = "Заполните образование";
+    }
+
+    if (formData.income === 0) {
+      newErrors.income = "Укажите доход";
     }
 
     if (!formData.privacy) {
@@ -228,11 +329,23 @@ export default function HeroForm() {
 
   const updateField = <K extends keyof FormData>(field: K, value: FormData[K]) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    // Clear error for the field being updated
     if (field in errors) {
       setErrors((prev) => ({ ...prev, [field]: undefined }));
     }
+    // Clear medicine validation error when career or education changes
     if (field === "career" || field === "education") {
       setMedicineError(null);
+    }
+  };
+
+  const handlePhoneChange = (value: string) => {
+    // Detect country from phone number
+    const country = detectCountryFromPhone(value);
+    setFormData((prev) => ({ ...prev, phone: value, country: country || undefined }));
+    // Clear phone error
+    if ("phone" in errors) {
+      setErrors((prev) => ({ ...prev, phone: undefined }));
     }
   };
 
@@ -253,11 +366,12 @@ export default function HeroForm() {
         label="Фамилия"
         value={formData.lastName}
         onChange={(e) => updateField("lastName", e.target.value)}
+        error={errors.lastName}
       />
       <FloatingPhoneInput
         label="Телефон"
         value={formData.phone}
-        onChange={(value) => updateField("phone", value)}
+        onChange={handlePhoneChange}
         error={errors.phone}
         defaultCountry="DE"
       />
@@ -272,6 +386,7 @@ export default function HeroForm() {
         label="Профессия"
         value={formData.career}
         onChange={(value) => updateField("career", value)}
+        error={errors.career}
         options={[
           { value: "it", label: "IT" },
           { value: "design", label: "Дизайн" },
@@ -303,18 +418,18 @@ export default function HeroForm() {
         onChange={(e) => updateField("telegram", e.target.value)}
       />
 
-      <div className="col-span-2 sm:col-span-1">
+      <div className="relative col-span-2 sm:col-span-1">
         <SelectableButtonGroup
           label="Образование"
           value={formData.education}
           onChange={(value) => updateField("education", value)}
+          error={errors.education || medicineError || undefined}
           options={[
             { value: "highschool", label: "Школа" },
             { value: "specialist", label: "Сред. спец." },
             { value: "higher", label: "Высшее" },
           ]}
         />
-        {medicineError && <span className="mt-1 block text-xs text-red-500">{medicineError}</span>}
       </div>
 
       <RangeInput
@@ -326,6 +441,7 @@ export default function HeroForm() {
         step={100}
         value={formData.income}
         onChange={(value) => updateField("income", value)}
+        error={errors.income}
       />
 
       <div className="relative col-span-2">

@@ -1,9 +1,12 @@
 "use client";
 
 import * as React from "react";
-import PhoneInput from "react-phone-number-input";
+import PhoneInput, { getCountries } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { cn } from "@/lib/utils";
+
+// Get all countries except Uzbekistan
+const allowedCountries = getCountries().filter((country) => country !== "UZ");
 
 interface FloatingPhoneInputProps {
   label: string;
@@ -11,7 +14,7 @@ interface FloatingPhoneInputProps {
   onChange: (value: string) => void;
   error?: string;
   className?: string;
-  defaultCountry?: "DE" | "RU" | "US" | "UZ";
+  defaultCountry?: "DE" | "RU" | "US";
 }
 
 const CustomInput = React.forwardRef<
@@ -56,6 +59,7 @@ function FloatingPhoneInput({
         <PhoneInput
           international
           defaultCountry={defaultCountry}
+          countries={allowedCountries}
           value={value}
           onChange={(val) => onChange(val || "")}
           inputComponent={CustomInput}

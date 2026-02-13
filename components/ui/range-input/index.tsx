@@ -15,6 +15,7 @@ interface RangeInputProps {
   onChange?: (value: number) => void;
   className?: string;
   formatValue?: (value: number) => string;
+  error?: string;
 }
 
 function RangeInput({
@@ -27,6 +28,7 @@ function RangeInput({
   onChange,
   className,
   formatValue = (v) => v.toLocaleString("ru-RU"),
+  error,
 }: RangeInputProps) {
   const [value, setValue] = React.useState(controlledValue ?? min);
 
@@ -49,11 +51,14 @@ function RangeInput({
   };
 
   return (
-    <div className={cn("flex flex-col gap-3", className)}>
+    <div className={cn("relative flex flex-col gap-3", className)}>
       <span className="text-gray-500">{label}</span>
       <div className="relative">
         <div className="rounded-2xl bg-transparent pb-1.5">
-          <div className="flex items-center gap-2 rounded-2xl border border-gray-300 bg-white px-4 py-3">
+          <div className={cn(
+            "flex items-center gap-2 rounded-2xl border border-gray-300 bg-white px-4 py-3",
+            error && "border-red-500"
+          )}>
             <Input
               type="text"
               value={formatValue(value)}
@@ -76,6 +81,11 @@ function RangeInput({
           />
         </div>
       </div>
+      {error && (
+        <span className="absolute right-0 -bottom-5 text-xs text-red-500 lg:text-sm">
+          {error}
+        </span>
+      )}
     </div>
   );
 }
