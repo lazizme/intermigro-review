@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
+import { logFormSubmission, logApiError } from "@/lib/telegram";
 
 // Map ISO country codes to Russian country names
 const COUNTRY_NAMES_RU: Record<string, string> = {
@@ -54,17 +55,48 @@ interface LeadData {
   utm_campaign?: string;
   utm_content?: string;
   utm_term?: string;
+  // Flag to indicate if this is a qualified lead
+  isQualified?: boolean;
 }
 
 export async function POST(request: NextRequest) {
+  let leadData: LeadData | undefined;
   try {
-    const leadData: LeadData = await request.json();
+    leadData = await request.json() as LeadData;
     console.log("Lead submission received:", {
       name: leadData.name,
+      isQualified: leadData.isQualified,
       utm_source: leadData.utm_source,
       utm_medium: leadData.utm_medium,
       utm_campaign: leadData.utm_campaign,
     });
+
+    // If this is a non-qualified lead, just log to Telegram and return
+    if (leadData.isQualified === false) {
+      await logFormSubmission({
+        leadData: {
+          name: leadData.name,
+          lastName: leadData.lastName,
+          phone: leadData.phone,
+          email: leadData.email,
+          career: leadData.career,
+          careerOther: leadData.careerOther,
+          education: leadData.education,
+          income: leadData.income,
+          country: leadData.country,
+          telegram: leadData.telegram,
+          utm_source: leadData.utm_source,
+          utm_medium: leadData.utm_medium,
+          utm_campaign: leadData.utm_campaign,
+          utm_content: leadData.utm_content,
+          utm_term: leadData.utm_term,
+        },
+        isQualified: false,
+        kommoSuccess: false,
+      });
+
+      return NextResponse.json({ success: true, logged: true, qualified: false });
+    }
 
     const KOMMO_SUBDOMAIN = process.env.KOMMO_SUBDOMAIN;
     const KOMMO_API_TOKEN = process.env.KOMMO_API_TOKEN;
@@ -248,15 +280,60 @@ export async function POST(request: NextRequest) {
       console.error("Status:", response.status);
       console.error("Response:", errorData);
       console.error("Payload sent:", JSON.stringify(kommoPayload, null, 2));
+
+      // Log error to Telegram
+      await logApiError({
+        error: "Kommo API Error",
+        leadName: `${leadData.name} ${leadData.lastName}`,
+        leadEmail: leadData.email,
+        statusCode: response.status,
+        endpoint: "/api/v4/leads/unsorted/forms",
+        timestamp: new Date().toISOString(),
+      });
+
       return NextResponse.json({ error: "Failed to create lead in CRM" }, { status: response.status });
     }
 
     const result = await response.json();
     console.log("Incoming lead created in Kommo:", result);
 
+    // Log to Telegram
+    await logFormSubmission({
+      leadData: {
+        name: leadData.name,
+        lastName: leadData.lastName,
+        phone: leadData.phone,
+        email: leadData.email,
+        career: leadData.career,
+        careerOther: leadData.careerOther,
+        education: leadData.education,
+        income: leadData.income,
+        country: leadData.country,
+        telegram: leadData.telegram,
+        utm_source: leadData.utm_source,
+        utm_medium: leadData.utm_medium,
+        utm_campaign: leadData.utm_campaign,
+        utm_content: leadData.utm_content,
+        utm_term: leadData.utm_term,
+      },
+      isQualified: true,
+      kommoSuccess: true,
+    });
+
     return NextResponse.json({ success: true, data: result });
   } catch (error) {
     console.error("Error submitting lead:", error);
+
+    // Log error to Telegram
+    await logApiError({
+      error: error instanceof Error ? error.message : "Unknown error",
+      leadName: leadData?.name ? `${leadData.name} ${leadData.lastName || ""}` : undefined,
+      leadEmail: leadData?.email,
+      statusCode: 500,
+      endpoint: "/api/submit-lead",
+      timestamp: new Date().toISOString(),
+    });
+
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

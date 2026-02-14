@@ -301,28 +301,32 @@ export default function HeroForm() {
       console.log("Is Lead:", lead);
       setIsLeadResult(lead);
 
-      // If qualified lead, send to Kommo CRM
-      if (lead) {
-        try {
-          const response = await fetch("/api/submit-lead", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          });
+      // Send ALL submissions to API (qualified and non-qualified)
+      try {
+        const response = await fetch("/api/submit-lead", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            isQualified: lead,
+          }),
+        });
 
-          if (!response.ok) {
-            console.error("Failed to submit lead to CRM");
-          } else {
-            console.log("Lead successfully submitted to CRM");
+        if (!response.ok) {
+          console.error("Failed to submit lead");
+        } else {
+          const result = await response.json();
+          console.log("Lead successfully submitted:", result);
 
-            // Track conversions ONLY for qualified leads that successfully reached CRM
+          // Track conversions ONLY for qualified leads that successfully reached CRM
+          if (lead) {
             trackConversions();
           }
-        } catch (error) {
-          console.error("Error submitting lead:", error);
         }
+      } catch (error) {
+        console.error("Error submitting lead:", error);
       }
 
       setIsSubmitting(false);
