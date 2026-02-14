@@ -78,6 +78,7 @@ interface FormErrors {
   phone?: string;
   email?: string;
   career?: string;
+  careerOther?: string;
   education?: string;
   income?: string;
   privacy?: string;
@@ -243,6 +244,8 @@ export default function HeroForm() {
 
     if (!formData.career) {
       newErrors.career = "Заполните профессию";
+    } else if (formData.career === "other" && !formData.careerOther.trim()) {
+      newErrors.careerOther = "Укажите вашу профессию";
     }
 
     if (!formData.education) {
@@ -337,6 +340,10 @@ export default function HeroForm() {
     if (field === "career" || field === "education") {
       setMedicineError(null);
     }
+    // Clear careerOther error when career changes away from "other"
+    if (field === "career" && value !== "other") {
+      setErrors((prev) => ({ ...prev, careerOther: undefined }));
+    }
   };
 
   const handlePhoneChange = (value: string) => {
@@ -408,6 +415,7 @@ export default function HeroForm() {
           label="Укажите вашу профессию"
           value={formData.careerOther}
           onChange={(e) => updateField("careerOther", e.target.value)}
+          error={errors.careerOther}
         />
       )}
 
