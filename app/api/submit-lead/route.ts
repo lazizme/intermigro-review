@@ -1,6 +1,42 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 
+// Map ISO country codes to Russian country names
+const COUNTRY_NAMES_RU: Record<string, string> = {
+  DE: "Германия",
+  TR: "Турция",
+  GE: "Грузия",
+  RS: "Сербия",
+  ME: "Черногория",
+  PT: "Португалия",
+  AE: "ОАЭ",
+  IL: "Израиль",
+  FR: "Франция",
+  IT: "Италия",
+  GR: "Греция",
+  CZ: "Чехия",
+  HU: "Венгрия",
+  AT: "Австрия",
+  BE: "Бельгия",
+  FI: "Финляндия",
+  IE: "Ирландия",
+  RO: "Румыния",
+  BG: "Болгария",
+  SI: "Словения",
+  HR: "Хорватия",
+  DK: "Дания",
+  SE: "Швеция",
+  NO: "Норвегия",
+  LU: "Люксембург",
+  SK: "Словакия",
+  ES: "Испания",
+  NL: "Нидерланды",
+  MT: "Мальта",
+  RU: "Россия",
+  US: "США",
+  GB: "Великобритания",
+};
+
 interface LeadData {
   name: string;
   lastName: string;
@@ -106,16 +142,18 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Add Country (auto-detected from phone number)
-    if (leadData.country && KOMMO_COUNTRY_FIELD_ID) {
-      contactFields.push({
-        field_id: parseInt(KOMMO_COUNTRY_FIELD_ID),
-        values: [{ value: leadData.country }],
-      });
-    }
 
     // Prepare lead custom fields (only UTM tracking data)
     const leadCustomFields: any[] = [];
+
+    // Add Country (auto-detected from phone number) - LEAD FIELD
+    if (leadData.country && KOMMO_COUNTRY_FIELD_ID) {
+      const countryName = COUNTRY_NAMES_RU[leadData.country] || leadData.country;
+      leadCustomFields.push({
+        field_id: parseInt(KOMMO_COUNTRY_FIELD_ID),
+        values: [{ value: countryName }],
+      });
+    }
 
     // Add UTM parameters if provided
     if (leadData.utm_source && KOMMO_UTM_SOURCE_FIELD_ID) {
