@@ -85,7 +85,7 @@ export async function logFormSubmission(data: SubmissionData): Promise<void> {
 
   // Format timestamp
   const timestamp = new Date().toLocaleString("ru-RU", {
-    timeZone: "Europe/Moscow",
+    timeZone: "Europe/Berlin",
     dateStyle: "short",
     timeStyle: "short",
   });
@@ -152,7 +152,7 @@ ${leadData.utm_source || leadData.utm_medium || leadData.utm_campaign ? `📊 <b
 export async function logApiError(data: ApiErrorData): Promise<void> {
   // Format timestamp
   const timestamp = new Date().toLocaleString("ru-RU", {
-    timeZone: "Europe/Moscow",
+    timeZone: "Europe/Berlin",
     dateStyle: "short",
     timeStyle: "short",
   });
