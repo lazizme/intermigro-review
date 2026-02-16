@@ -12,8 +12,25 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Intermigro",
-  description: "Платформа для управления иммиграционным процессом",
+  title: "Intermigro - Иммиграция в Германию | Профессиональная помощь в переезде",
+  description: "Intermigro - профессиональные услуги по иммиграции в Германию. Помощь в оформлении рабочих виз, воссоединении семьи, получении ВНЖ. Консультация иммиграционных юристов.",
+  keywords: "иммиграция в Германию, виза в Германию, ВНЖ Германия, переезд в Германию, иммиграционный адвокат, Blue Card Германия",
+  openGraph: {
+    title: "Intermigro - Иммиграция в Германию",
+    description: "Профессиональные услуги по иммиграции в Германию. Помощь в оформлении виз и получении ВНЖ.",
+    url: "https://intermigro.com",
+    siteName: "Intermigro",
+    locale: "ru_RU",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({
