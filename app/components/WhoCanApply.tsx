@@ -16,7 +16,7 @@ export default function WhoCanApply() {
               <div className="flex justify-between gap-3">
                 <h2 className="text-base leading-snug font-extrabold lg:text-lg">
                   <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
-                    Вы фрилансер
+                  Вы удаленный сотрудник / IT-специалист или фрилансер
                   </span>
                 </h2>
                 <div className="-mt-2 text-black">
@@ -24,9 +24,9 @@ export default function WhoCanApply() {
                 </div>
               </div>
               <p className="text-gray-dark text-xs font-medium md:text-sm">
-              Вы выполняете заказы на фрилансе в области ИТ, дизайна, маркетинга, консалтинга и т.д. 
-              Можете подтвердить свой опыт работы и финансовую состоятельность. 
-              Ваш текущий доход составляет 1500 и более евро в месяц.
+              Вы работаете удаленно на компанию или выполняете фриланс заказы в области ИТ, 
+              дизайна, маркетинга, консалтинга и т.д. Можете подтвердить свой опыт работы и 
+              финансовую состоятельность, а ваш доход превышает 1500 евро в месяц.
               </p>
             </div>
             <div className="relative order-1 col-span-4 flex flex-col gap-5 lg:order-0 lg:grid lg:grid-cols-4">
@@ -34,7 +34,7 @@ export default function WhoCanApply() {
                 <div className="flex justify-between gap-3">
                   <h2 className="text-base leading-snug font-extrabold lg:text-lg">
                     <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
-                      Вы квалифицированный специалист
+                    Вы высококвалифицированный специалист
                     </span>
                   </h2>
                   <div className="-mt-2 text-black">
@@ -42,9 +42,9 @@ export default function WhoCanApply() {
                   </div>
                 </div>
                 <p className="text-gray-dark text-xs font-medium md:text-sm">
-                  У Вас есть высшее образование, опыт работы и предложение от работодателя в
-                  Германии или вы готовы к поиску заветного оффера. Ваш текущий доход составляет
-                  более 1000 евро в месяц.
+                У Вас есть высшее образование, опыт работы и предложение от 
+                работодателя в Германии или вы готовы к поиску заветного оффера. 
+                Ваш текущий доход составляет более 1000 евро в месяц.
                 </p>
               </div>
               <div className="absolute -bottom-10 col-span-2 max-h-[220px] max-w-1/3 min-w-[140px] overflow-hidden rounded-2xl lg:relative lg:bottom-0 lg:max-h-[320px] lg:max-w-full">
@@ -77,9 +77,8 @@ export default function WhoCanApply() {
                     </h2>
                   </div>
                   <p className="text-xs font-medium text-white md:text-sm">
-                  У вас есть высшее образование, работаете на себя (фриланс, собственный бизнес)
-                   или вы в удаленном найме. Ваш текущий доход 
-                   составляет 5000 и более евро в месяц.
+                  У вас есть свой бизнес или вы работаете топ-менеджером. Хотите перевезти себя 
+                  / семью /компанию / сотрудников или инвестировать в экономику Германии. Ваш доход более 5000 евро в месяц.
                   </p>
                   <div className="ml-auto inline-block text-white lg:hidden">
                     <StarsIcon />
@@ -107,8 +106,7 @@ export default function WhoCanApply() {
               </div>
               <p className="text-gray-dark w-2/3 text-xs font-medium sm:w-full md:text-sm">
               Вы заняты в творческой профессии (кино/видеомонтаж, фотография, блоггерство, изобразительное, 
-              театральное искусство и т. д.).  Можете подтвердить свой опыт работы и финансовую состоятельность. 
-              Ваш текущий доход составляет 1500 и более евро в месяц.
+              театральное искусство и т. д.) и имеете высшее образование. Ваш доход от 1500 евро в месяц или накопления от 15 000 евро.
               </p>
             </div>
             <div className="absolute right-0 -bottom-10 col-span-2 max-h-[220px] max-w-1/3 min-w-[140px] overflow-hidden rounded-2xl sm:relative sm:bottom-0 sm:max-h-[320px] sm:max-w-full">
@@ -172,7 +170,7 @@ export default function WhoCanApply() {
                 <div className="flex w-full justify-between gap-3 pl-3 sm:pl-0">
                   <h2 className="text-base leading-snug font-extrabold lg:text-lg">
                     <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
-                      Вы студент
+                    Вы студент(ка)
                     </span>
                   </h2>
                   <div className="-mt-2 text-black">
@@ -180,8 +178,8 @@ export default function WhoCanApply() {
                   </div>
                 </div>
                 <p className="text-gray-dark pl-3 text-xs font-medium sm:pl-0">
-                  Вы владеете хорошим уровнем немецкого или английского языка и можете обеспечить
-                  свое финансирование на год в сумме 12000 евро.
+                Вы владеете хорошим уровнем немецкого или английского языка и можете 
+                обеспечить свое финансирование на год в сумме 12000 евро.
                 </p>
               </div>
             </div>
