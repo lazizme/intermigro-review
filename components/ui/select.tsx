@@ -130,6 +130,7 @@ interface FloatingSelectProps {
   value?: string;
   onChange?: (value: string) => void;
   className?: string;
+  error?: string;
 }
 
 function FloatingSelect({
@@ -138,6 +139,7 @@ function FloatingSelect({
   value: controlledValue,
   onChange,
   className,
+  error,
 }: FloatingSelectProps) {
   const [internalValue, setInternalValue] = React.useState(controlledValue);
   const hasValue = !!(controlledValue ?? internalValue);
@@ -152,7 +154,10 @@ function FloatingSelect({
       <div className={cn("relative", className)}>
         <SelectPrimitive.Trigger
           data-slot="select-trigger"
-          className="flex w-full items-center justify-between border-0 border-b border-gray-300 bg-transparent pt-5 pb-2 text-lg transition-colors outline-none focus:border-gray-400 disabled:cursor-not-allowed disabled:opacity-50"
+          className={cn(
+            "flex w-full items-center justify-between border-0 border-b border-gray-300 bg-transparent pt-5 pb-2 text-lg transition-colors outline-none focus:border-gray-400 disabled:cursor-not-allowed disabled:opacity-50",
+            error && "border-red-500"
+          )}
         >
           <SelectValue />
           <SelectPrimitive.Icon asChild>
@@ -167,6 +172,11 @@ function FloatingSelect({
         >
           {label}
         </span>
+        {error && (
+          <span className="absolute right-0 -bottom-5 text-xs text-red-500 lg:text-sm">
+            {error}
+          </span>
+        )}
       </div>
       <SelectContent>
         {options.map((option) => (

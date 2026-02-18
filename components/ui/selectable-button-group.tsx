@@ -14,6 +14,7 @@ interface SelectableButtonGroupProps {
   value?: string;
   onChange?: (value: string) => void;
   className?: string;
+  error?: string;
 }
 
 function SelectableButtonGroup({
@@ -22,6 +23,7 @@ function SelectableButtonGroup({
   value,
   onChange,
   className,
+  error,
 }: SelectableButtonGroupProps) {
   const [selected, setSelected] = React.useState(value || "");
 
@@ -31,7 +33,7 @@ function SelectableButtonGroup({
   };
 
   return (
-    <div className={cn("flex flex-col gap-3", className)}>
+    <div className={cn("relative flex flex-col gap-3", className)}>
       <span className="text-gray-500">{label}</span>
       <div className="flex gap-2">
         {options.map((option) => (
@@ -44,12 +46,18 @@ function SelectableButtonGroup({
               selected === option.value
                 ? "border-brand text-foreground border"
                 : "text-gray-medium border border-transparent",
+              error && "border-red-500",
             )}
           >
             {option.label}
           </button>
         ))}
       </div>
+      {error && (
+        <span className="absolute right-0 -bottom-5 text-xs text-red-500 lg:text-sm">
+          {error}
+        </span>
+      )}
     </div>
   );
 }

@@ -32,7 +32,7 @@ export default function Hero() {
         <div className="mx-auto -ml-0.5 w-11/12 lg:hidden">
           <Image
             src="/hero_sm.png"
-            alt="Hero Image"
+            alt="Иммиграционные услуги Intermigro - консультация по переезду в Германию"
             width={700}
             height={500}
             className="h-auto w-full"
@@ -46,7 +46,7 @@ export default function Hero() {
           <div className="relative h-[400px]">
             <Image
               src="/hero.png"
-              alt="Hero Image"
+              alt="Иммиграционные услуги Intermigro - консультация по переезду в Германию"
               width={700}
               height={400}
               className="h-full w-full rounded-[2.5rem] object-cover"

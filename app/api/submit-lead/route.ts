@@ -1,5 +1,42 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
+import { logFormSubmission, logApiError } from "@/lib/telegram";
+
+// Map ISO country codes to Russian country names
+const COUNTRY_NAMES_RU: Record<string, string> = {
+  DE: "Германия",
+  TR: "Турция",
+  GE: "Грузия",
+  RS: "Сербия",
+  ME: "Черногория",
+  PT: "Португалия",
+  AE: "ОАЭ",
+  IL: "Израиль",
+  FR: "Франция",
+  IT: "Италия",
+  GR: "Греция",
+  CZ: "Чехия",
+  HU: "Венгрия",
+  AT: "Австрия",
+  BE: "Бельгия",
+  FI: "Финляндия",
+  IE: "Ирландия",
+  RO: "Румыния",
+  BG: "Болгария",
+  SI: "Словения",
+  HR: "Хорватия",
+  DK: "Дания",
+  SE: "Швеция",
+  NO: "Норвегия",
+  LU: "Люксембург",
+  SK: "Словакия",
+  ES: "Испания",
+  NL: "Нидерланды",
+  MT: "Мальта",
+  RU: "Россия",
+  US: "США",
+  GB: "Великобритания",
+};
 
 interface LeadData {
   name: string;
@@ -11,29 +48,62 @@ interface LeadData {
   telegram: string;
   education: string;
   income: number;
+  country?: string; // Auto-detected from phone number
   // UTM parameters (optional)
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
   utm_content?: string;
   utm_term?: string;
+  // Flag to indicate if this is a qualified lead
+  isQualified?: boolean;
 }
 
 export async function POST(request: NextRequest) {
+  let leadData: LeadData | undefined;
   try {
-    const leadData: LeadData = await request.json();
+    leadData = await request.json() as LeadData;
     console.log("Lead submission received:", {
       name: leadData.name,
+      isQualified: leadData.isQualified,
       utm_source: leadData.utm_source,
       utm_medium: leadData.utm_medium,
       utm_campaign: leadData.utm_campaign,
     });
+
+    // If this is a non-qualified lead, just log to Telegram and return
+    if (leadData.isQualified === false) {
+      await logFormSubmission({
+        leadData: {
+          name: leadData.name,
+          lastName: leadData.lastName,
+          phone: leadData.phone,
+          email: leadData.email,
+          career: leadData.career,
+          careerOther: leadData.careerOther,
+          education: leadData.education,
+          income: leadData.income,
+          country: leadData.country,
+          telegram: leadData.telegram,
+          utm_source: leadData.utm_source,
+          utm_medium: leadData.utm_medium,
+          utm_campaign: leadData.utm_campaign,
+          utm_content: leadData.utm_content,
+          utm_term: leadData.utm_term,
+        },
+        isQualified: false,
+        kommoSuccess: false,
+      });
+
+      return NextResponse.json({ success: true, logged: true, qualified: false });
+    }
 
     const KOMMO_SUBDOMAIN = process.env.KOMMO_SUBDOMAIN;
     const KOMMO_API_TOKEN = process.env.KOMMO_API_TOKEN;
     const KOMMO_PIPELINE_ID = process.env.KOMMO_PIPELINE_ID;
     const KOMMO_PHONE_FIELD_ID = process.env.KOMMO_PHONE_FIELD_ID;
     const KOMMO_EMAIL_FIELD_ID = process.env.KOMMO_EMAIL_FIELD_ID;
+    const KOMMO_COUNTRY_FIELD_ID = process.env.KOMMO_COUNTRY_FIELD_ID;
 
     // UTM field IDs
     const KOMMO_UTM_SOURCE_FIELD_ID = process.env.KOMMO_UTM_SOURCE_FIELD_ID;
@@ -74,26 +144,48 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Prepare lead custom fields
+    // Add Career/Position (Field ID: 467698 - Должность)
     // Use careerOther value if career is "other", otherwise use career
     const careerValue = leadData.career === "other" && leadData.careerOther
       ? leadData.careerOther
       : leadData.career;
+    contactFields.push({
+      field_id: 467698,
+      values: [{ value: careerValue }],
+    });
 
-    const leadCustomFields: any[] = [
-      {
-        field_id: 488804, // Career/Work
-        values: [{ value: careerValue }],
-      },
-      {
-        field_id: 1711074, // Education
-        values: [{ value: leadData.education }],
-      },
-      {
-        field_id: 1709444, // Income
-        values: [{ value: leadData.income }],
-      },
-    ];
+    // Add Education (Field ID: 1750744 - Образование)
+    contactFields.push({
+      field_id: 1750744,
+      values: [{ value: leadData.education }],
+    });
+
+    // Add Income (Field ID: 1750748 - Доход)
+    contactFields.push({
+      field_id: 1750748,
+      values: [{ value: leadData.income.toString() }],
+    });
+
+    // Add Surname (Field ID: 1767888 - Фамилия)
+    if (leadData.lastName) {
+      contactFields.push({
+        field_id: 1767888,
+        values: [{ value: leadData.lastName }],
+      });
+    }
+
+
+    // Prepare lead custom fields (only UTM tracking data)
+    const leadCustomFields: any[] = [];
+
+    // Add Country (auto-detected from phone number) - LEAD FIELD
+    if (leadData.country && KOMMO_COUNTRY_FIELD_ID) {
+      const countryName = COUNTRY_NAMES_RU[leadData.country] || leadData.country;
+      leadCustomFields.push({
+        field_id: parseInt(KOMMO_COUNTRY_FIELD_ID),
+        values: [{ value: countryName }],
+      });
+    }
 
     // Add UTM parameters if provided
     if (leadData.utm_source && KOMMO_UTM_SOURCE_FIELD_ID) {
@@ -152,9 +244,8 @@ export async function POST(request: NextRequest) {
       _embedded: {
         contacts: [
           {
-            name: `${leadData.name} ${leadData.lastName}`,
+            name: leadData.name,
             first_name: leadData.name,
-            last_name: leadData.lastName,
             custom_fields_values: contactFields,
           },
         ],
@@ -189,15 +280,60 @@ export async function POST(request: NextRequest) {
       console.error("Status:", response.status);
       console.error("Response:", errorData);
       console.error("Payload sent:", JSON.stringify(kommoPayload, null, 2));
+
+      // Log error to Telegram
+      await logApiError({
+        error: "Kommo API Error",
+        leadName: `${leadData.name} ${leadData.lastName}`,
+        leadEmail: leadData.email,
+        statusCode: response.status,
+        endpoint: "/api/v4/leads/unsorted/forms",
+        timestamp: new Date().toISOString(),
+      });
+
       return NextResponse.json({ error: "Failed to create lead in CRM" }, { status: response.status });
     }
 
     const result = await response.json();
     console.log("Incoming lead created in Kommo:", result);
 
+    // Log to Telegram
+    await logFormSubmission({
+      leadData: {
+        name: leadData.name,
+        lastName: leadData.lastName,
+        phone: leadData.phone,
+        email: leadData.email,
+        career: leadData.career,
+        careerOther: leadData.careerOther,
+        education: leadData.education,
+        income: leadData.income,
+        country: leadData.country,
+        telegram: leadData.telegram,
+        utm_source: leadData.utm_source,
+        utm_medium: leadData.utm_medium,
+        utm_campaign: leadData.utm_campaign,
+        utm_content: leadData.utm_content,
+        utm_term: leadData.utm_term,
+      },
+      isQualified: true,
+      kommoSuccess: true,
+    });
+
     return NextResponse.json({ success: true, data: result });
   } catch (error) {
     console.error("Error submitting lead:", error);
+
+    // Log error to Telegram
+    await logApiError({
+      error: error instanceof Error ? error.message : "Unknown error",
+      leadName: leadData?.name ? `${leadData.name} ${leadData.lastName || ""}` : undefined,
+      leadEmail: leadData?.email,
+      statusCode: 500,
+      endpoint: "/api/submit-lead",
+      timestamp: new Date().toISOString(),
+    });
+
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
