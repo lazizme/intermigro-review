@@ -19,7 +19,7 @@ export default function Hero() {
           isLoaded ? "lg:translate-x-0 lg:scale-100" : "lg:translate-x-1/2 lg:scale-125"
         }`}
       >
-        <h1 className="mx-auto w-3/4 text-2xl/7 font-bold lg:w-full lg:text-3xl xl:text-[2.5rem]/10">
+        <h1 className="mx-auto w-3/4 text-3xl/9 font-bold lg:w-full xl:text-[2.5rem]/10">
           Начните новую <br /> жизнь в Германии
         </h1>
 

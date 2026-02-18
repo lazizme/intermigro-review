@@ -5,10 +5,10 @@ export default function CTA() {
     <section className="relative mt-20 lg:mt-50">
       <div className="flex flex-col items-center justify-between lg:flex-row">
         <div
-          className="h-[340px] w-full bg-cover text-center md:h-[500px] lg:h-[700px] lg:text-left"
+          className="h-[340px] w-full bg-center text-center max-md:bg-size-[150%_150%] max-md:bg-position-[center_0] md:h-[500px] md:bg-cover lg:h-[700px] lg:text-left"
           style={{ backgroundImage: "url(/cta_cover.png)" }}
         >
-          <h2 className="mt-8 ml-0 text-2xl/6 font-bold text-black sm:text-[2rem]/10 md:text-[2.5rem]/10 lg:mt-34 lg:ml-32 lg:text-3xl xl:text-[3rem]/12 2xl:text-[3.5rem]/14">
+          <h2 className="mt-8 ml-0 text-[2rem]/9 font-bold text-black md:text-[2.5rem]/10 lg:mt-28 lg:ml-32 lg:text-3xl xl:text-[3rem]/12 2xl:text-[3.5rem]/14">
             Узнайте свои
             <br />
             шансы на успех!
