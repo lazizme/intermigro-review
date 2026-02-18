@@ -14,7 +14,7 @@ export default function WhoCanApply() {
           <div className="flex flex-col gap-5 lg:col-span-7 lg:grid lg:grid-cols-7 lg:items-center">
             <div className="bg-gray-light order-2 mt-10 flex max-h-max flex-col gap-10 rounded-3xl px-4 py-6 lg:order-0 lg:col-span-3 xl:mt-0 xl:px-6 xl:py-10">
               <div className="flex justify-between gap-3">
-                <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
+                <h2 className="text-base leading-snug font-extrabold lg:text-lg">
                   <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
                     Вы удаленный сотрудник: IT-специалист или фрилансер
                   </span>
@@ -32,7 +32,7 @@ export default function WhoCanApply() {
             <div className="relative order-1 col-span-4 flex flex-col gap-5 lg:order-0 lg:grid lg:grid-cols-4">
               <div className="bg-gray-light col-span-4 flex flex-col gap-10 rounded-3xl px-6 py-10">
                 <div className="flex justify-between gap-3">
-                  <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
+                  <h2 className="text-base leading-snug font-extrabold lg:text-lg">
                     <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
                       Вы квалифицированный специалист
                     </span>
@@ -64,13 +64,13 @@ export default function WhoCanApply() {
                   </p>
                 </div>
               </div>
-              <div className="bg-brand col-span-2 ml-10 rounded-3xl px-3 pt-3.5 pb-6 lg:ml-0">
+              <div className="bg-brand col-span-2 ml-10 rounded-3xl px-3 pt-5.5 pb-6 lg:ml-0">
                 <div className="ml-auto flex w-2/3 flex-col gap-4.5 lg:w-full xl:gap-10">
                   <div className="flex flex-col gap-3">
                     <div className="ml-auto hidden text-white lg:inline-block">
                       <StarsIcon />
                     </div>
-                    <h2 className="text-sm leading-snug font-extrabold text-white md:text-base xl:text-lg">
+                    <h2 className="text-base leading-snug font-extrabold text-white">
                       <span className="inline bg-black box-decoration-clone px-0.5 py-0.5">
                         Вы предприниматель
                       </span>
@@ -96,7 +96,7 @@ export default function WhoCanApply() {
               style={{ backgroundImage: "url('/liza_review_bg.png')" }}
             >
               <div className="flex justify-between gap-3">
-                <h2 className="w-2/3 text-sm leading-snug font-extrabold sm:w-full md:text-base lg:text-lg">
+                <h2 className="w-2/3 text-base leading-snug font-extrabold sm:w-full lg:text-lg">
                   <span className="inline bg-black box-decoration-clone px-0.5 py-0.5 text-white">
                     Вы человек искусства
                   </span>
@@ -170,7 +170,7 @@ export default function WhoCanApply() {
             <div className="bg-gray-light col-span-5 rounded-3xl px-3 py-5 sm:col-span-3 sm:px-6 sm:py-10">
               <div className="ml-auto flex w-1/2 flex-col items-end justify-between gap-10 sm:ml-0 sm:w-full sm:items-start">
                 <div className="flex w-full justify-between gap-3 pl-3 sm:pl-0">
-                  <h2 className="text-sm leading-snug font-extrabold md:text-base lg:text-lg">
+                  <h2 className="text-base leading-snug font-extrabold lg:text-lg">
                     <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
                       Вы студент
                     </span>

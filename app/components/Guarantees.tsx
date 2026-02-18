@@ -2,7 +2,7 @@ import { GuaranteePaperIcon } from "./Icons";
 
 export default function Guarantees() {
   return (
-    <section className="py-10 md:py-16">
+    <section className="pt-10 pb-10 md:pt-16 md:pb-11">
       <div className="bg-brand flex justify-center rounded-[2.5rem] px-5 pt-15 pb-10 text-white md:px-10 md:pt-20 md:pb-17">
         <div className="flex w-full flex-col items-center gap-10 text-center lg:w-2/3 2xl:w-5/12">
           <GuaranteePaperIcon className="w-20 md:w-30 lg:w-auto" />

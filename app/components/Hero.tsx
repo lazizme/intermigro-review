@@ -73,9 +73,9 @@ export default function Hero() {
           isLoaded ? "translate-x-0 opacity-100" : "lg:translate-x-full lg:opacity-0"
         }`}
       >
-        <div className="bg-gray-light mt-0 rounded-[2.5rem] px-5 pt-10 pb-10 min-[2000px]:rounded-br-4xl md:px-8 lg:mt-0 lg:rounded-t-none lg:rounded-bl-4xl lg:px-6 lg:pt-48 xl:px-10 2xl:px-12.5">
+        <div className="bg-gray-light mt-0 rounded-[2.5rem] px-5 pt-10 pb-10 min-[2000px]:rounded-br-4xl md:px-8 lg:mt-0 lg:rounded-t-none lg:rounded-bl-4xl lg:px-6 lg:pt-[min(12rem,15dvh)] xl:px-10 2xl:px-12.5">
           <div className="mb-3 flex flex-col gap-2 sm:mb-8 lg:mb-16 lg:grid lg:grid-cols-2 lg:gap-4 xl:items-center">
-            <h2 className="text-xl font-bold md:text-xl lg:text-2xl xl:text-[1.75rem] 2xl:text-[2rem]/10">
+            <h2 className="text-2xl font-bold xl:text-[1.75rem] 2xl:text-[2rem]/10">
               Проконсультируем бесплатно
             </h2>
             <p className="text-gray-dark text-xs font-medium md:text-sm lg:text-base xl:text-lg/6">
