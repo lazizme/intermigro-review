@@ -133,8 +133,8 @@ function detectCountryFromPhone(phone: string): string | null {
 function isLead(formData: FormData): boolean {
   const { career, education, income } = formData;
 
-  // Rule: If earnings > 3000, always a lead (regardless of career/education)
-  if (income > 3000) {
+  // Rule: If earnings >= 2000, always a lead (regardless of career/education)
+  if (income >= 2000) {
     return true;
   }
 
