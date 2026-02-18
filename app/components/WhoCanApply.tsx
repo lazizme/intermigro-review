@@ -16,7 +16,7 @@ export default function WhoCanApply() {
               <div className="flex justify-between gap-3">
                 <h2 className="text-base leading-snug font-extrabold lg:text-lg">
                   <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
-                    Вы фрилансер
+                    Вы удаленный сотрудник / IT-специалист или фрилансер
                   </span>
                 </h2>
                 <div className="-mt-2 text-black">
@@ -34,7 +34,7 @@ export default function WhoCanApply() {
                 <div className="flex justify-between gap-3">
                   <h2 className="text-base leading-snug font-extrabold lg:text-lg">
                     <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
-                      Вы квалифицированный специалист
+                      Вы высококвалифицированный специалист
                     </span>
                   </h2>
                   <div className="-mt-2 text-black">
@@ -173,7 +173,7 @@ export default function WhoCanApply() {
                 <div className="flex w-full justify-between gap-3 pl-3 sm:pl-0">
                   <h2 className="text-base leading-snug font-extrabold lg:text-lg">
                     <span className="inline bg-yellow-300 box-decoration-clone px-0.5 py-0.5">
-                      Вы студент
+                      Вы студент(ка)
                     </span>
                   </h2>
                   <div className="-mt-2 text-black">
